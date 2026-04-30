@@ -8,7 +8,7 @@ function App() {
   return (
     <Routes>
       <Route element={<AppLayout />}>
-        <Route index element={<div className="p-6"><h1 className="text-2xl font-semibold">Inicio</h1></div>} />
+        <Route index element={<ComponentsPage />} />
         <Route path="/components">
           <Route index element={<ComponentsPage />} />
           {componentsRoutes.map(({ path, element }) => (
