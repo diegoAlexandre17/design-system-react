@@ -1,4 +1,4 @@
-import { NavLink, Outlet, useMatch } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import { ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
