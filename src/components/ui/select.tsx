@@ -31,12 +31,12 @@ function SelectValue({
 }
 
 const selectTriggerVariants = cva(
-  "flex w-full items-center justify-between rounded-[4px] border bg-white transition-colors outline-none select-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 data-placeholder:text-muted-foreground *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-1.5 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "flex w-full items-center justify-between rounded-[4px] border bg-white transition-colors outline-none select-none disabled:cursor-not-allowed disabled:opacity-50 data-placeholder:text-muted-foreground *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-1.5 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
         default:
-          "border-secondary hover:border-accent focus:border-primary focus-visible:border-primary data-[state=open]:border-primary",
+          "border-secondary hover:border-[hsl(var(--secondary-foreground))] focus:border-primary focus-visible:border-primary data-[state=open]:border-primary aria-invalid:border-[hsl(var(--destructive))] aria-invalid:hover:border-[hsl(var(--destructive))] aria-invalid:focus:border-[hsl(var(--destructive))] aria-invalid:focus-visible:border-[hsl(var(--destructive))] aria-invalid:data-[state=open]:border-[hsl(var(--destructive))]",
       },
       size: {
         sm: "h-7 px-2 text-xs",
@@ -85,6 +85,7 @@ function SelectContent({
   position = "popper",
   align = "start",
   sideOffset = 4,
+  onCloseAutoFocus,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Content>) {
   return (
@@ -93,7 +94,7 @@ function SelectContent({
         data-slot="select-content"
         data-align-trigger={position === "item-aligned"}
         className={cn(
-          "relative z-50 max-h-(--radix-select-content-available-height) min-w-36 origin-(--radix-select-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-[4px] border border-secondary bg-white text-foreground shadow-md duration-100 data-[align-trigger=true]:animate-none data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+          "relative z-50 min-w-36 origin-(--radix-select-content-transform-origin) rounded-[4px] border border-secondary bg-white text-foreground shadow-md duration-100 data-[align-trigger=true]:animate-none data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
           position === "popper" &&
             "data-[position=popper]:w-(--radix-select-trigger-width)",
           className
@@ -101,18 +102,23 @@ function SelectContent({
         position={position}
         align={align}
         sideOffset={sideOffset}
+        onCloseAutoFocus={(event) => {
+          event.preventDefault()
+          if (document.activeElement instanceof HTMLElement) {
+            document.activeElement.blur()
+          }
+          onCloseAutoFocus?.(event)
+        }}
         {...props}
       >
-        <SelectScrollUpButton />
         <SelectPrimitive.Viewport
           data-position={position}
           className={cn(
-            "p-1 data-[position=popper]:w-full data-[position=popper]:min-w-(--radix-select-trigger-width)"
+            "p-1 max-h-[160px] data-[position=popper]:w-full data-[position=popper]:min-w-(--radix-select-trigger-width)"
           )}
         >
           {children}
         </SelectPrimitive.Viewport>
-        <SelectScrollDownButton />
       </SelectPrimitive.Content>
     </SelectPrimitive.Portal>
   )
