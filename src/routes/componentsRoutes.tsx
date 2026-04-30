@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import AvatarPage from '@/pages/components/AvatarPage'
+import AvatarPage from '@/pages/AvatarPage'
 
 export interface ComponentRoute {
   path: string
