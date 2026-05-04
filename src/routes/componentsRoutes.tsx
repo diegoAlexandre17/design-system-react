@@ -3,6 +3,7 @@ import AvatarPage from '@/pages/AvatarPage'
 import TextPage from '@/pages/TextPage'
 import TablePage from '@/pages/TablePage'
 import ModalPage from '@/pages/ModalPage'
+import ButtonsPage from '@/pages/ButtonsPage'
 
 export interface ComponentRoute {
   path: string
@@ -38,6 +39,11 @@ export const componentsSections: ComponentSection[] = [
         path: 'modal',
         label: 'Modal',
         element: <ModalPage />,
+      },
+      {
+        path: 'buttons',
+        label: 'Buttons',
+        element: <ButtonsPage />,
       },
     ],
   },
