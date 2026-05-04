@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import AvatarPage from '@/pages/AvatarPage'
+import TextPage from '@/pages/TextPage'
 
 export interface ComponentRoute {
   path: string
@@ -20,6 +21,11 @@ export const componentsSections: ComponentSection[] = [
         path: 'avatar',
         label: 'Avatars',
         element: <AvatarPage />,
+      },
+      {
+        path: 'text',
+        label: 'Text',
+        element: <TextPage />,
       },
     ],
   },
