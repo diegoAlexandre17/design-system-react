@@ -5,12 +5,12 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const tooltipContentVariants = cva(
-  "z-50 inline-flex w-fit max-w-xs origin-(--radix-tooltip-content-transform-origin) items-center gap-1.5 rounded-sm px-2 py-1 text-xs font-medium shadow-md data-[side=bottom]:-translate-y-0.5 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:translate-y-0 data-[side=left]:slide-in-from-right-2 data-[side=right]:translate-y-0 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=delayed-open]:animate-in data-[state=delayed-open]:fade-in-0 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0",
+  "z-50 inline-flex w-fit max-w-xs origin-(--radix-tooltip-content-transform-origin) items-center gap-1.5 rounded-sm px-2 py-1.5 text-xs font-medium text-white has-data-[slot=kbd]:pr-1.5 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 **:data-[slot=kbd]:relative **:data-[slot=kbd]:isolate **:data-[slot=kbd]:z-50 **:data-[slot=kbd]:rounded-sm data-[state=delayed-open]:animate-in data-[state=delayed-open]:fade-in-0 data-[state=delayed-open]:zoom-in-95 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
   {
     variants: {
       variant: {
-        default: "bg-black/80 text-semibold text-white",
-        gray: "bg-black/50 text-semibold text-white",
+        default: "bg-[#333]",
+        gray: "bg-[#808080]",
       },
     },
     defaultVariants: {
@@ -19,17 +19,20 @@ const tooltipContentVariants = cva(
   }
 )
 
-const tooltipArrowVariants = cva("", {
-  variants: {
-    variant: {
-      default: "fill-black/80",
-      gray: "fill-black/50",
+const tooltipArrowVariants = cva(
+  "z-50 size-2.5 translate-y-[calc(-50%-2px)] rotate-45 rounded-[2px]",
+  {
+    variants: {
+      variant: {
+        default: "bg-[#333] fill-[#333]",
+        gray: "bg-[#808080] fill-[#808080]",
+      },
     },
-  },
-  defaultVariants: {
-    variant: "default",
-  },
-})
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+)
 
 function TooltipProvider({
   delayDuration = 0,
@@ -47,11 +50,7 @@ function TooltipProvider({
 function Tooltip({
   ...props
 }: React.ComponentProps<typeof TooltipPrimitive.Root>) {
-  return (
-    <TooltipProvider>
-      <TooltipPrimitive.Root data-slot="tooltip" {...props} />
-    </TooltipProvider>
-  )
+  return <TooltipPrimitive.Root data-slot="tooltip" {...props} />
 }
 
 function TooltipTrigger({
@@ -80,17 +79,18 @@ function TooltipContent({
       <TooltipPrimitive.Content
         data-slot="tooltip-content"
         data-variant={variant ?? "default"}
-        sideOffset={sideOffset}
+        sideOffset={arrow ? 0 : sideOffset}
         className={cn(tooltipContentVariants({ variant }), className)}
         {...props}
       >
         {children}
         {arrow && (
           <TooltipPrimitive.Arrow
-            width={10}
-            height={5}
+            asChild
             className={cn(tooltipArrowVariants({ variant }))}
-          />
+          >
+            <span />
+          </TooltipPrimitive.Arrow>
         )}
       </TooltipPrimitive.Content>
     </TooltipPrimitive.Portal>
