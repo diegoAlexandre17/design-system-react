@@ -42,7 +42,7 @@ import { cn } from "@/lib/utils";
 ) */
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium cursor-pointer shadow-[0px_3px_1px_-2px_rgba(0,0,0,0.2),_0px_2px_2px_0px_rgba(0,0,0,0.14),_0px_1px_5px_0px_rgba(0,0,0,0.12)] ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium font-semibold cursor-pointer shadow-[0px_3px_1px_-2px_rgba(0,0,0,0.2),_0px_2px_2px_0px_rgba(0,0,0,0.14),_0px_1px_5px_0px_rgba(0,0,0,0.12)] ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -58,10 +58,11 @@ const buttonVariants = cva(
         "tab-active": "bg-primary text-primary-foreground shadow-none",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
+        default: "h-8 px-4 py-2",
+        sm: "h-7 rounded-md px-3",
+        lg: "h-10 rounded-md px-8",
+        icon: "size-8",
+        "icon-lg": "size-10",
       },
     },
     defaultVariants: {

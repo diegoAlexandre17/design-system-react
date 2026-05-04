@@ -24,7 +24,7 @@ export default function ButtonsPage() {
           <Button variant="secondary">Secondary</Button>
           <Button variant="outline">Outline</Button>
           <Button variant="ghost">Ghost</Button>
-          <Button variant="destructive">Destructive</Button>
+          <Button variant="destructive">Cancelar</Button>
           <Button variant="success">Success</Button>
           <Button variant="link">Link</Button>
         </div>
@@ -71,6 +71,7 @@ export default function ButtonsPage() {
           <Button size="icon" variant="outline"><Mail /></Button>
           <Button size="icon" variant="ghost"><ChevronRight /></Button>
           <Button size="icon" variant="destructive"><Trash2 /></Button>
+          <Button size="icon-lg" variant="default"><Plus /></Button>
         </div>
       </section>
 
