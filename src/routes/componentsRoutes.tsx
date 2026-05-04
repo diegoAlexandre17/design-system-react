@@ -1,6 +1,7 @@
 import type { ReactNode } from "react"
 import AvatarPage from "@/pages/AvatarPage"
 import InputPage from "@/pages/InputPage"
+import BreadcrumbPage from "@/pages/BreadcrumbPage"
 
 export interface ComponentRoute {
   path: string
@@ -26,6 +27,11 @@ export const componentsSections: ComponentSection[] = [
         path: "input",
         label: "Input",
         element: <InputPage />,
+      },
+      {
+        path: "breadcrumb",
+        label: "Breadcrumb",
+        element: <BreadcrumbPage />,
       },
     ],
   },
