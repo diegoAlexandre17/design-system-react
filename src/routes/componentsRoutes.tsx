@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import AvatarPage from '@/pages/AvatarPage'
 import TextPage from '@/pages/TextPage'
 import TablePage from '@/pages/TablePage'
+import ModalPage from '@/pages/ModalPage'
 
 export interface ComponentRoute {
   path: string
@@ -32,6 +33,11 @@ export const componentsSections: ComponentSection[] = [
         path: 'table',
         label: 'Table',
         element: <TablePage />,
+      },
+      {
+        path: 'modal',
+        label: 'Modal',
+        element: <ModalPage />,
       },
     ],
   },
