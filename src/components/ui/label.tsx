@@ -23,7 +23,7 @@ function Label({
       {required ? (
         <span className="inline-flex items-center gap-0.5">
           {children}
-          <span aria-hidden className="text-destructive">*</span>
+          <span aria-hidden className="text-[hsl(var(--destructive))]">*</span>
         </span>
       ) : (
         children
