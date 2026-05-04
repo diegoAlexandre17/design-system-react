@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import AvatarPage from '@/pages/AvatarPage'
 import TextPage from '@/pages/TextPage'
+import TablePage from '@/pages/TablePage'
 
 export interface ComponentRoute {
   path: string
@@ -26,6 +27,11 @@ export const componentsSections: ComponentSection[] = [
         path: 'text',
         label: 'Text',
         element: <TextPage />,
+      },
+      {
+        path: 'table',
+        label: 'Table',
+        element: <TablePage />,
       },
     ],
   },
