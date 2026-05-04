@@ -134,7 +134,7 @@ const projectColumns: ColumnDef<Project>[] = [
     cell: ({ row }) => (
       <div className="flex items-center gap-2">
         <Avatar>
-          <AvatarFallback className={`${row.original.color} text-white`}>P</AvatarFallback>
+          <AvatarFallback>P</AvatarFallback>
         </Avatar>
         <Text variant="span-13" className="text-primary font-medium">{row.getValue("name")}</Text>
       </div>
