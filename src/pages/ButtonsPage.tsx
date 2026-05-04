@@ -71,7 +71,7 @@ export default function ButtonsPage() {
           <Button size="icon" variant="outline"><Mail /></Button>
           <Button size="icon" variant="ghost"><ChevronRight /></Button>
           <Button size="icon" variant="destructive"><Trash2 /></Button>
-          <Button size="icon-lg" variant="default"><Plus /></Button>
+          <Button size="icon-lg" variant="default"><Plus/></Button>
         </div>
       </section>
 
@@ -98,6 +98,7 @@ export default function ButtonsPage() {
             {tabItems.map((tab, index) => (
               <Button
                 key={tab}
+                size={'lg'}
                 variant={activeTab === tab ? 'tab-active' : 'tab'}
                 className={`rounded-none first:rounded-l-md last:rounded-r-md ${
                   activeTab !== tab && index > 0 ? '-ml-px' : ''

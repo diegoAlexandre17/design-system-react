@@ -54,15 +54,15 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline shadow-none",
-        tab: "border border-primary text-primary shadow-none",
-        "tab-active": "bg-primary text-primary-foreground shadow-none",
+        tab: "border border-primary text-primary shadow-none h-10",
+        "tab-active": "bg-primary text-primary-foreground shadow-none h-10",
       },
       size: {
         default: "h-8 px-4 py-2",
         sm: "h-7 rounded-md px-3",
         lg: "h-10 rounded-md px-8",
         icon: "size-8",
-        "icon-lg": "size-10",
+        "icon-lg": "size-10 [&_svg]:size-8",
       },
     },
     defaultVariants: {
