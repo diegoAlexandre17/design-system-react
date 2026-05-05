@@ -1,6 +1,7 @@
 import type { ReactNode } from "react"
 import AvatarPage from "@/pages/AvatarPage"
 import InputPage from "@/pages/InputPage"
+import CheckBoxPage from "@/pages/CheckBoxPage"
 import TooltipPage from "@/pages/TooltipPage"
 import SwitchPage from "@/pages/SwitchPage"
 import SelectPage from '@/pages/SelectPage'
@@ -36,6 +37,9 @@ export const componentsSections: ComponentSection[] = [
         element: <InputPage />,
       },
       {
+        path: "checkbox",
+        label: "Checkbox",
+        element: <CheckBoxPage />,
         path: "switch",
         label: "Switch",
         element: <SwitchPage />,
