@@ -40,7 +40,7 @@ function BreadcrumbItem({ className, ...props }: React.ComponentProps<"li">) {
     <li
       data-slot="breadcrumb-item"
       className={cn(
-        "inline-flex items-center gap-1 mt-1 first:text-xl first:leading-tight first:mt-0",
+        "font-semibold inline-flex items-center gap-1 mt-1 first:text-xl first:leading-tight first:mt-0",
         className
       )}
       {...props}
@@ -65,7 +65,7 @@ function BreadcrumbLink({
       data-active={active || undefined}
       className={cn(
         "transition-colors hover:text-foreground",
-        "data-[active=true]:text-primary data-[active=true]:font-medium",
+        "data-[active=true]:text-primary data-[active=true]:font-semibold",
         className
       )}
       {...props}
@@ -81,8 +81,8 @@ function BreadcrumbPage({ className, ...props }: React.ComponentProps<"span">) {
       aria-disabled="true"
       aria-current="page"
       className={cn(
-        "font-normal text-foreground",
-        "group-data-[variant=primary]/breadcrumb:text-primary group-data-[variant=primary]/breadcrumb:font-medium",
+        "font-semibold text-foreground",
+        "group-data-[variant=primary]/breadcrumb:text-primary group-data-[variant=primary]/breadcrumb:font-semibold",
         className
       )}
       {...props}

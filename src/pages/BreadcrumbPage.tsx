@@ -1,4 +1,4 @@
-import { SlashIcon } from 'lucide-react'
+import { ArrowBigLeftIcon, BriefcaseIcon, SlashIcon, UserIcon } from 'lucide-react'
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -8,16 +8,56 @@ import {
   BreadcrumbSeparator,
   BreadcrumbEllipsis,
 } from '@/components/ui/breadcrumb'
+import { Button } from '@/components/ui/button'
+import { ButtonGroup } from '@/components/ui/button-group'
 
 export default function BreadcrumbsPage() {
   return (
-    <div className="p-8 max-w-3xl space-y-10">
+    <div className="p-8 max-w-5xl space-y-10">
       <div>
         <h1 className="text-2xl font-semibold text-foreground">Breadcrumb</h1>
         <p className="mt-1 text-sm text-muted-foreground">
           Navigation path showing the user's current location within a hierarchy.
         </p>
       </div>
+
+      {/* Implementación real — page header de la app */}
+      <section className="space-y-3">
+        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">Implementación real</h2>
+        <div className="rounded-xl border border-border bg-background-gray p-3">
+          <div className="h-15 bg-white flex items-center justify-between gap-4 rounded-lg bg-card px-3 py-2.5">
+            <div className="flex items-center gap-3">
+              <Button size="icon-sm" aria-label="Volver" className="size-7.5">
+                <ArrowBigLeftIcon fill="#fff" className="size-5!" />
+              </Button>
+              <Breadcrumb variant="primary">
+                <BreadcrumbList>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink href="#">Empleados</BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator />
+                  <BreadcrumbItem>
+                    <BreadcrumbPage>Activo</BreadcrumbPage>
+                  </BreadcrumbItem>
+                </BreadcrumbList>
+              </Breadcrumb>
+            </div>
+            <ButtonGroup>
+              <Button variant="outline" className="h-10 px-6 bg-primary font-semibold text-white border-primary rounded-s-md">
+                <UserIcon />
+                Datos personales
+              </Button>
+              <Button variant="outline" className="h-10 px-6 font-semibold text-primary border-primary rounded-e-md">
+                <BriefcaseIcon />
+                Datos laborales
+              </Button>
+            </ButtonGroup>
+          </div>
+        </div>
+        <p className="text-xs text-muted-foreground">
+          Header de página combinando <code>Breadcrumb</code> (<code>variant="primary"</code>) con un botón de volver y tabs de navegación.
+        </p>
+      </section>
 
       {/* Default */}
       <section className="space-y-3">
