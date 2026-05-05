@@ -11,6 +11,7 @@ import ModalPage from '@/pages/ModalPage'
 import ButtonsPage from '@/pages/ButtonsPage'
 import CardPage from "@/pages/CardPage"
 import BreadcrumbPage from "@/pages/BreadcrumbPage"
+import ChartsPage from "@/pages/ChartsPage"
 
 export interface ComponentRoute {
   path: string
@@ -87,6 +88,11 @@ export const componentsSections: ComponentSection[] = [
         path: "breadcrumb",
         label: "Breadcrumb",
         element: <BreadcrumbPage />,
+      },
+      {
+        path: "charts",
+        label: "Charts",
+        element: <ChartsPage />,
       },
     ],
   },
