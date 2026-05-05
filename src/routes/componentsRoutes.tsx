@@ -5,6 +5,7 @@ import CheckBoxPage from "@/pages/CheckBoxPage"
 import TooltipPage from "@/pages/TooltipPage"
 import SwitchPage from "@/pages/SwitchPage"
 import SelectPage from '@/pages/SelectPage'
+import TextPage from '@/pages/TextPage'
 
 export interface ComponentRoute {
   path: string
@@ -48,6 +49,12 @@ export const componentsSections: ComponentSection[] = [
         path: "select",
         label: "Selects",
         element: <SelectPage />,
+      },
+      {
+        path: 'text',
+        label: 'Text',
+        element: <TextPage />,
+
       },
     ],
   },
