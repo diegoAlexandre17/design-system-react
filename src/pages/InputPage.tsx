@@ -69,10 +69,11 @@ export default function InputPage() {
           </div>
         </div>
       </section>
-      <section className="space-y-3 p-10 bg-white">
-        <div className="grid gap-0.5 md:grid-cols-2 xl:grid-cols-5">
+
+      <section className=" p-10 bg-white">
+        <div className="flex flex-col gap-10 max-w-70">
           {/* Default */}
-          <div className="space-y-6">
+          <div className="space-y-8">
             <h3 className="text-[28px] font-normal tracking-tight text-[#4A4A4A]">
               Default
             </h3>
