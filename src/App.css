@@ -217,4 +217,21 @@ body{
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
   }
+
+  /* Override Radix Select's hidden scrollbar so the native bar is visible */
+  [data-radix-select-viewport] {
+    scrollbar-width: thin !important;
+    scrollbar-color: hsl(var(--secondary)) transparent;
+  }
+  [data-radix-select-viewport]::-webkit-scrollbar {
+    display: block !important;
+    width: 6px;
+  }
+  [data-radix-select-viewport]::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  [data-radix-select-viewport]::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--secondary));
+    border-radius: 3px;
+  }
 }
