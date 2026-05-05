@@ -42,6 +42,21 @@ export default function SwitchPage() {
           </div>
         </div>
       </section>
+      {/* Tamaño */}
+      <section className="space-y-3">
+        <h2 className="text-2xl font-semibold text-foreground">Size</h2>
+        <div className="flex flex-wrap items-start gap-12 p-6 rounded-xl  bg-muted/30">
+          <div className="flex flex-col gap-3 min-w-30">
+            <span className="text-lg text-zinc-500">Small</span>
+            <Switch defaultChecked color="white" size="sm" />
+          </div>
+
+          <div className="flex flex-col gap-3 min-w-30">
+            <span className="text-lg text-zinc-500">Default</span>
+            <Switch />
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
