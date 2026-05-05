@@ -9,6 +9,7 @@ import TextPage from '@/pages/TextPage'
 import TablePage from '@/pages/TablePage'
 import ModalPage from '@/pages/ModalPage'
 import ButtonsPage from '@/pages/ButtonsPage'
+import CardPage from "@/pages/CardPage"
 
 export interface ComponentRoute {
   path: string
@@ -44,6 +45,8 @@ export const componentsSections: ComponentSection[] = [
         path: "checkbox",
         label: "Checkbox",
         element: <CheckBoxPage />,
+      },
+      {
         path: "switch",
         label: "Switch",
         element: <SwitchPage />,
@@ -73,6 +76,11 @@ export const componentsSections: ComponentSection[] = [
         path: 'buttons',
         label: 'Buttons',
         element: <ButtonsPage />,
+      },
+      {
+        path: 'card',
+        label: 'Card',
+        element: <CardPage />,
       },
     ],
   },
