@@ -6,6 +6,9 @@ import TooltipPage from "@/pages/TooltipPage"
 import SwitchPage from "@/pages/SwitchPage"
 import SelectPage from '@/pages/SelectPage'
 import TextPage from '@/pages/TextPage'
+import TablePage from '@/pages/TablePage'
+import ModalPage from '@/pages/ModalPage'
+import ButtonsPage from '@/pages/ButtonsPage'
 
 export interface ComponentRoute {
   path: string
@@ -55,6 +58,21 @@ export const componentsSections: ComponentSection[] = [
         label: 'Text',
         element: <TextPage />,
 
+      },
+      {
+        path: 'table',
+        label: 'Table',
+        element: <TablePage />,
+      },
+      {
+        path: 'modal',
+        label: 'Modal',
+        element: <ModalPage />,
+      },
+      {
+        path: 'buttons',
+        label: 'Buttons',
+        element: <ButtonsPage />,
       },
     ],
   },
