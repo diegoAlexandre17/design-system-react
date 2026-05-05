@@ -26,11 +26,11 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
-  --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-background-gray: var(--background-gray);
 }
 
 
@@ -39,6 +39,7 @@
   :root {
     /* Light theme */
     --background: #E9F3FE;
+    --background-gray: #EFF6FE;
     --foreground: #5D5D5D;
     --card: #FFFFFF;
     --card-foreground: #0A0A0A;
