@@ -8,14 +8,12 @@ const tabItems = ['Activos', 'Pendientes', 'Inactivos']
 type ViewMode = 'table' | 'cards'
 type LayoutMode = 'list' | 'grid' | 'table'
 type AlignMode = 'left' | 'center' | 'right'
-type SortMode = 'asc' | 'desc'
 
 export default function ButtonsPage() {
   const [activeTab, setActiveTab] = useState('Activos')
   const [view, setView] = useState<ViewMode>('table')
   const [layout, setLayout] = useState<LayoutMode>('list')
   const [align, setAlign] = useState<AlignMode>('left')
-  const [sort, setSort] = useState<SortMode>('asc')
 
   return (
     <div className="p-8 max-w-3xl space-y-10">

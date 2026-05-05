@@ -10,6 +10,7 @@ import TablePage from '@/pages/TablePage'
 import ModalPage from '@/pages/ModalPage'
 import ButtonsPage from '@/pages/ButtonsPage'
 import CardPage from "@/pages/CardPage"
+import DatepickerPage from "@/pages/DatepickerPage"
 
 export interface ComponentRoute {
   path: string
@@ -40,6 +41,11 @@ export const componentsSections: ComponentSection[] = [
         path: "input",
         label: "Input",
         element: <InputPage />,
+      },
+      {
+        path: 'datepicker',
+        label: 'Datepicker',
+        element: <DatepickerPage />,
       },
       {
         path: "checkbox",

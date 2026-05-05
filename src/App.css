@@ -6,6 +6,7 @@
 @theme inline {
   --color-primary-light: var(--primary-light);
   --color-primary: var(--primary);
+  --color-info: var(--info);
   --color-success: var(--success);
   --color-black-light: var(--black-light);
   --color-gray-medium: var(--gray-medium);
@@ -47,6 +48,7 @@
     --primary: #2585F4;
     --primary-light: #ECF4FE;
     --primary-foreground: #FAFAFA;
+    --info: #DEF1FF;
     --secondary: #A7A7A7;
     --secondary-foreground: #171717;
     --muted: #F5F5F5;
