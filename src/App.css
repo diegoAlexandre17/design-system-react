@@ -7,6 +7,8 @@
   --color-primary-light: hsl(var(--primary-light));
   --color-primary: hsl(var(--primary));
   --color-success: hsl(var(--success));
+  --color-black-light: #333;
+  --color-gray-medium: #808080;
 }
 
 /* @custom-variant dark (&:is(.dark *));
