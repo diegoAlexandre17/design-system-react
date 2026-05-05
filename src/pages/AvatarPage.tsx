@@ -5,22 +5,23 @@ import {
   AvatarBadge,
   AvatarGroup,
 } from "@/components/ui/avatar"
-import {
-  ShowcasePage,
-  ShowcaseSection,
-} from "@/components/component-showcase-page"
 
 export default function AvatarPage() {
   return (
-    <ShowcasePage
-      title="Avatar"
-      description="An image element with a fallback for representing the user."
-    >
-      <ShowcaseSection
-        title="Profile"
-        description="profile (125px) — ideal para páginas de perfil de usuario"
-      >
-        <div className="flex items-end gap-6">
+    <div className="p-8 max-w-3xl space-y-10">
+      <div>
+        <h1 className="text-2xl font-semibold text-foreground">Avatar</h1>
+        <p className="mt-1 text-sm text-muted-foreground">
+          An image element with a fallback for representing the user.
+        </p>
+      </div>
+
+      {/* Profile */}
+      <section className="space-y-3">
+        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
+          Profile
+        </h2>
+        <div className="flex items-end gap-6 p-6 rounded-xl border border-border bg-muted/30">
           <Avatar size="profile">
             <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
             <AvatarFallback>SC</AvatarFallback>
@@ -31,10 +32,17 @@ export default function AvatarPage() {
             <AvatarBadge />
           </Avatar>
         </div>
-      </ShowcaseSection>
+        <p className="text-xs text-muted-foreground">
+          profile (125px) — ideal para páginas de perfil de usuario
+        </p>
+      </section>
 
-      <ShowcaseSection title="Sizes" description="sm · default · lg">
-        <div className="flex items-end gap-4">
+      {/* Sizes */}
+      <section className="space-y-3">
+        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
+          Sizes
+        </h2>
+        <div className="flex items-end gap-4 p-6 rounded-xl border border-border bg-muted/30">
           <Avatar size="sm">
             <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
             <AvatarFallback>SC</AvatarFallback>
@@ -48,10 +56,15 @@ export default function AvatarPage() {
             <AvatarFallback>SC</AvatarFallback>
           </Avatar>
         </div>
-      </ShowcaseSection>
+        <p className="text-xs text-muted-foreground">sm · default · lg</p>
+      </section>
 
-      <ShowcaseSection title="Extra Sizes" description="xl (56px) · xxl (80px)">
-        <div className="flex items-end gap-4">
+      {/* Extra sizes */}
+      <section className="space-y-3">
+        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
+          Extra Sizes
+        </h2>
+        <div className="flex items-end gap-4 p-6 rounded-xl border border-border bg-muted/30">
           <Avatar size="xl">
             <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
             <AvatarFallback>SC</AvatarFallback>
@@ -67,13 +80,15 @@ export default function AvatarPage() {
             <AvatarFallback>DG</AvatarFallback>
           </Avatar>
         </div>
-      </ShowcaseSection>
+        <p className="text-xs text-muted-foreground">xl (56px) · xxl (80px)</p>
+      </section>
 
-      <ShowcaseSection
-        title="Fallback"
-        description="When the image fails to load, the fallback initials are shown."
-      >
-        <div className="flex items-center gap-4">
+      {/* Fallback */}
+      <section className="space-y-3">
+        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
+          Fallback
+        </h2>
+        <div className="flex items-center gap-4 p-6 rounded-xl border border-border bg-muted/30">
           <Avatar>
             <AvatarImage src="/broken-image.jpg" alt="broken" />
             <AvatarFallback>AB</AvatarFallback>
@@ -82,10 +97,17 @@ export default function AvatarPage() {
             <AvatarFallback>DG</AvatarFallback>
           </Avatar>
         </div>
-      </ShowcaseSection>
+        <p className="text-xs text-muted-foreground">
+          When the image fails to load, the fallback initials are shown.
+        </p>
+      </section>
 
-      <ShowcaseSection title="With Badge">
-        <div className="flex items-center gap-4">
+      {/* With Badge */}
+      <section className="space-y-3">
+        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
+          With Badge
+        </h2>
+        <div className="flex items-center gap-4 p-6 rounded-xl border border-border bg-muted/30">
           <Avatar size="sm">
             <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
             <AvatarFallback>SC</AvatarFallback>
@@ -102,13 +124,14 @@ export default function AvatarPage() {
             <AvatarBadge />
           </Avatar>
         </div>
-      </ShowcaseSection>
+      </section>
 
-      <ShowcaseSection
-        title="With Border"
-        description="Border ring-primary aplicado al grupo vía className"
-      >
-        <div className="flex items-center gap-4">
+      {/* With Border */}
+      <section className="space-y-3">
+        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
+          With Border
+        </h2>
+        <div className="flex items-center gap-4 p-6 rounded-xl border border-border bg-muted/30">
           <AvatarGroup className="*:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:ring-primary">
             <Avatar>
               <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
@@ -125,10 +148,18 @@ export default function AvatarPage() {
             </Avatar>
           </AvatarGroup>
         </div>
-      </ShowcaseSection>
+        <p className="text-xs text-muted-foreground">
+          Border <code>ring-primary</code> aplicado al grupo vía{" "}
+          <code>className</code>
+        </p>
+      </section>
 
-      <ShowcaseSection title="Group">
-        <div>
+      {/* Group */}
+      <section className="space-y-3">
+        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
+          Group
+        </h2>
+        <div className="p-6 rounded-xl border border-border bg-muted/30">
           <AvatarGroup>
             <Avatar>
               <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
