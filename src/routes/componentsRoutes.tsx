@@ -1,5 +1,6 @@
-import type { ReactNode } from 'react'
-import AvatarPage from '@/pages/AvatarPage'
+import type { ReactNode } from "react"
+import AvatarPage from "@/pages/AvatarPage"
+import SwitchPage from "@/pages/SwitchPage"
 
 export interface ComponentRoute {
   path: string
@@ -14,12 +15,17 @@ export interface ComponentSection {
 
 export const componentsSections: ComponentSection[] = [
   {
-    label: 'Base components',
+    label: "Base components",
     items: [
       {
-        path: 'avatar',
-        label: 'Avatars',
+        path: "avatar",
+        label: "Avatars",
         element: <AvatarPage />,
+      },
+      {
+        path: "switch",
+        label: "Switch",
+        element: <SwitchPage />,
       },
     ],
   },
@@ -27,5 +33,5 @@ export const componentsSections: ComponentSection[] = [
 
 /** Flat list of all component routes — use this with React Router's <Route> */
 export const componentsRoutes: ComponentRoute[] = componentsSections.flatMap(
-  (section) => section.items
+  (section) => section.items,
 )
