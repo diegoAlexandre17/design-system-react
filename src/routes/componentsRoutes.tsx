@@ -4,13 +4,14 @@ import InputPage from "@/pages/InputPage"
 import CheckBoxPage from "@/pages/CheckBoxPage"
 import TooltipPage from "@/pages/TooltipPage"
 import SwitchPage from "@/pages/SwitchPage"
-import SelectPage from '@/pages/SelectPage'
-import TextPage from '@/pages/TextPage'
-import TablePage from '@/pages/TablePage'
-import ModalPage from '@/pages/ModalPage'
-import ButtonsPage from '@/pages/ButtonsPage'
+import SelectPage from "@/pages/SelectPage"
+import TextPage from "@/pages/TextPage"
+import TablePage from "@/pages/TablePage"
+import ModalPage from "@/pages/ModalPage"
+import ButtonsPage from "@/pages/ButtonsPage"
 import CardPage from "@/pages/CardPage"
 import BreadcrumbPage from "@/pages/BreadcrumbPage"
+import BadgePage from "@/pages/BadgePage"
 import ChartsPage from "@/pages/ChartsPage"
 
 export interface ComponentRoute {
@@ -59,29 +60,28 @@ export const componentsSections: ComponentSection[] = [
         element: <SelectPage />,
       },
       {
-        path: 'text',
-        label: 'Text',
+        path: "text",
+        label: "Text",
         element: <TextPage />,
-
       },
       {
-        path: 'table',
-        label: 'Table',
+        path: "table",
+        label: "Table",
         element: <TablePage />,
       },
       {
-        path: 'modal',
-        label: 'Modal',
+        path: "modal",
+        label: "Modal",
         element: <ModalPage />,
       },
       {
-        path: 'buttons',
-        label: 'Buttons',
+        path: "buttons",
+        label: "Buttons",
         element: <ButtonsPage />,
       },
       {
-        path: 'card',
-        label: 'Card',
+        path: "card",
+        label: "Card",
         element: <CardPage />,
       },
       {
@@ -90,6 +90,9 @@ export const componentsSections: ComponentSection[] = [
         element: <BreadcrumbPage />,
       },
       {
+        path: "badge",
+        label: "Badges",
+        element: <BadgePage />,
         path: "charts",
         label: "Charts",
         element: <ChartsPage />,
