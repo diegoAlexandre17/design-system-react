@@ -99,6 +99,8 @@ export const componentsSections: ComponentSection[] = [
         path: "badge",
         label: "Badges",
         element: <BadgePage />,
+      },
+      {
         path: "charts",
         label: "Charts",
         element: <ChartsPage />,
