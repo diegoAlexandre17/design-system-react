@@ -2,6 +2,7 @@ import type { ReactNode } from "react"
 import AvatarPage from "@/pages/AvatarPage"
 import InputPage from "@/pages/InputPage"
 import TooltipPage from "@/pages/TooltipPage"
+import SwitchPage from "@/pages/SwitchPage"
 
 export interface ComponentRoute {
   path: string
