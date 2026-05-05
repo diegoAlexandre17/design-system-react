@@ -1,7 +1,8 @@
 import type { ReactNode } from "react"
 import AvatarPage from "@/pages/AvatarPage"
 import InputPage from "@/pages/InputPage"
-import TooltipPage from '@/pages/TooltipPage'
+import TooltipPage from "@/pages/TooltipPage"
+import SwitchPage from "@/pages/SwitchPage"
 
 export interface ComponentRoute {
   path: string
@@ -32,6 +33,11 @@ export const componentsSections: ComponentSection[] = [
         path: "input",
         label: "Input",
         element: <InputPage />,
+      },
+      {
+        path: "switch",
+        label: "Switch",
+        element: <SwitchPage />,
       },
     ],
   },
