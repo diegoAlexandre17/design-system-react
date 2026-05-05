@@ -1,11 +1,21 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { Mail, Trash2, Plus, ChevronRight, Loader2 } from 'lucide-react'
+import { Mail, Trash2, Plus, ChevronRight, Loader2, LayoutGrid, List, Table2, LayoutList, AlignLeft, AlignCenter, AlignRight, SortAsc, SortDesc } from 'lucide-react'
+import ToolbarButton from '@/components/common/ToolbarButton'
 
 const tabItems = ['Activos', 'Pendientes', 'Inactivos']
 
+type ViewMode = 'table' | 'cards'
+type LayoutMode = 'list' | 'grid' | 'table'
+type AlignMode = 'left' | 'center' | 'right'
+type SortMode = 'asc' | 'desc'
+
 export default function ButtonsPage() {
   const [activeTab, setActiveTab] = useState('Activos')
+  const [view, setView] = useState<ViewMode>('table')
+  const [layout, setLayout] = useState<LayoutMode>('list')
+  const [align, setAlign] = useState<AlignMode>('left')
+  const [sort, setSort] = useState<SortMode>('asc')
 
   return (
     <div className="p-8 max-w-3xl space-y-10">
@@ -109,6 +119,43 @@ export default function ButtonsPage() {
               </Button>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Toolbar Button */}
+      <section className="space-y-3">
+        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">Toolbar Button</h2>
+        <div className="flex flex-col gap-4 p-6 rounded-xl border border-border bg-muted/30">
+
+          {/* Table / Cards — primary */}
+          <div className="flex items-center gap-3">
+            <div className="flex gap-1">
+              <ToolbarButton icon={<Table2 size={16} />}    color="primary" active={view === 'table'} onClick={() => setView('table')} title="Vista tabla" />
+              <ToolbarButton icon={<LayoutGrid size={16} />} color="primary" active={view === 'cards'} onClick={() => setView('cards')} title="Vista cards" />
+            </div>
+            <span className="text-sm text-muted-foreground">primary — activo: <strong>{view}</strong></span>
+          </div>
+
+          {/* List / Grid / Table — success */}
+          <div className="flex items-center gap-3">
+            <div className="flex gap-1">
+              <ToolbarButton icon={<LayoutList size={16} />} color="success" active={layout === 'list'}  onClick={() => setLayout('list')}  title="Lista" />
+              <ToolbarButton icon={<LayoutGrid size={16} />} color="success" active={layout === 'grid'}  onClick={() => setLayout('grid')}  title="Grilla" />
+              <ToolbarButton icon={<Table2 size={16} />}     color="success" active={layout === 'table'} onClick={() => setLayout('table')} title="Tabla" />
+            </div>
+            <span className="text-sm text-muted-foreground">success — activo: <strong>{layout}</strong></span>
+          </div>
+
+          {/* Align — destructive */}
+          <div className="flex items-center gap-3">
+            <div className="flex gap-1">
+              <ToolbarButton icon={<AlignLeft size={16} />}   color="destructive" active={align === 'left'}   onClick={() => setAlign('left')}   title="Alinear izquierda" />
+              <ToolbarButton icon={<AlignCenter size={16} />} color="destructive" active={align === 'center'} onClick={() => setAlign('center')} title="Centrar" />
+              <ToolbarButton icon={<AlignRight size={16} />}  color="destructive" active={align === 'right'}  onClick={() => setAlign('right')}  title="Alinear derecha" />
+            </div>
+            <span className="text-sm text-muted-foreground">destructive — activo: <strong>{align}</strong></span>
+          </div>
+
         </div>
       </section>
 
