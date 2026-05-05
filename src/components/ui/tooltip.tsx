@@ -9,8 +9,8 @@ const tooltipContentVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-[#333]",
-        gray: "bg-[#808080]",
+        default: "bg-black-light",
+        gray: "bg-gray-medium",
       },
     },
     defaultVariants: {
@@ -24,8 +24,8 @@ const tooltipArrowVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-[#333] fill-[#333]",
-        gray: "bg-[#808080] fill-[#808080]",
+        default: "bg-black-light fill-black-light",
+        gray: "bg-gray-medium fill-gray-medium",
       },
     },
     defaultVariants: {
