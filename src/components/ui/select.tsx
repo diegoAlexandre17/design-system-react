@@ -31,7 +31,7 @@ function SelectValue({
 }
 
 const selectTriggerVariants = cva(
-  "flex w-full items-center justify-between rounded-[4px] border bg-white transition-colors outline-none select-none disabled:cursor-not-allowed disabled:opacity-50 data-placeholder:text-muted-foreground *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-1.5 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "flex w-full items-center rounded-sm border bg-white transition-colors outline-none select-none disabled:cursor-not-allowed disabled:opacity-50 data-placeholder:text-muted-foreground *:data-[slot=select-value]:flex-1 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-1.5 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
@@ -70,7 +70,7 @@ function SelectTrigger({
       {children}
       <span
         aria-hidden
-        className="ml-2 mr-1 h-4 w-px shrink-0 bg-border"
+        className="mx-2 h-4 w-px shrink-0 bg-border"
       />
       <SelectPrimitive.Icon asChild>
         <ChevronDownIcon className="pointer-events-none size-4 text-muted-foreground" />
