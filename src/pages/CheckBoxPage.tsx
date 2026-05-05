@@ -5,10 +5,6 @@ export default function CheckBoxPage() {
     <div className="p-8 max-w-3xl space-y-10">
       <div>
         <h1 className="text-2xl font-semibold text-foreground">Checkbox</h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          A control for selecting one or more options with clear checked and
-          indeterminate states.
-        </p>
       </div>
 
       {/* Basic */}
@@ -30,9 +26,6 @@ export default function CheckBoxPage() {
             </label>
           </div>
         </div>
-        <p className="text-xs text-muted-foreground">
-          Unchecked and checked examples.
-        </p>
       </section>
 
       {/* Sizes */}
@@ -60,9 +53,6 @@ export default function CheckBoxPage() {
             </label>
           </div>
         </div>
-        <p className="text-xs text-muted-foreground">
-          Controlled with <code>className</code> size overrides.
-        </p>
       </section>
 
       {/* Disabled */}
@@ -87,54 +77,6 @@ export default function CheckBoxPage() {
             </label>
           </div>
         </div>
-        <p className="text-xs text-muted-foreground">
-          Disabled checkboxes are non-interactive.
-        </p>
-      </section>
-
-      {/* Indeterminate */}
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
-          Indeterminate
-        </h2>
-        <div className="flex items-center gap-6 p-6 rounded-xl border border-border bg-muted/30">
-          <div className="flex items-center gap-2">
-            <Checkbox id="indeterminate" checked="indeterminate" />
-            <label htmlFor="indeterminate" className="text-sm text-foreground">
-              Partial selection
-            </label>
-          </div>
-        </div>
-        <p className="text-xs text-muted-foreground">
-          Useful for parent items with mixed children.
-        </p>
-      </section>
-
-      {/* Invalid */}
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
-          Invalid
-        </h2>
-        <div className="flex items-center gap-6 p-6 rounded-xl border border-border bg-muted/30">
-          <div className="flex items-center gap-2">
-            <Checkbox id="invalid" aria-invalid />
-            <label htmlFor="invalid" className="text-sm text-foreground">
-              Marked invalid
-            </label>
-          </div>
-          <div className="flex items-center gap-2">
-            <Checkbox id="invalid-checked" checked aria-invalid />
-            <label
-              htmlFor="invalid-checked"
-              className="text-sm text-foreground"
-            >
-              Invalid checked
-            </label>
-          </div>
-        </div>
-        <p className="text-xs text-muted-foreground">
-          Uses <code>aria-invalid</code> for destructive border and ring styles.
-        </p>
       </section>
 
       {/* With Description */}
