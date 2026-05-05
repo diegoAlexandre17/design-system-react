@@ -10,6 +10,7 @@ import TablePage from "@/pages/TablePage"
 import ModalPage from "@/pages/ModalPage"
 import ButtonsPage from "@/pages/ButtonsPage"
 import CardPage from "@/pages/CardPage"
+import BadgePage from "@/pages/BadgePage"
 
 export interface ComponentRoute {
   path: string

@@ -176,7 +176,7 @@ export default function AvatarPage() {
             </Avatar>
           </AvatarGroup>
         </div>
-      </ShowcaseSection>
-    </ShowcasePage>
+      </section>
+    </div>
   )
 }
