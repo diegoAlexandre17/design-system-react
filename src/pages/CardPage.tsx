@@ -96,9 +96,19 @@ export default function CardPage() {
               <p className="text-muted-foreground">Útil cuando se anida en otros contenedores.</p>
             </CardContent>
           </Card>
+
+          <Card variant="borderless">
+            <CardHeader>
+              <CardTitle>Borderless</CardTitle>
+              <CardDescription>Fondo blanco sin borde</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">Limpio para superficies que ya tienen contorno.</p>
+            </CardContent>
+          </Card>
         </div>
         <p className="text-xs text-muted-foreground">
-          default · muted · primary · outline · ghost
+          default · muted · primary · outline · ghost · borderless
         </p>
       </section>
 
