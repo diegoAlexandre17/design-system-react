@@ -3,6 +3,7 @@ import AvatarPage from "@/pages/AvatarPage"
 import InputPage from "@/pages/InputPage"
 import TooltipPage from "@/pages/TooltipPage"
 import SwitchPage from "@/pages/SwitchPage"
+import SelectPage from '@/pages/SelectPage'
 
 export interface ComponentRoute {
   path: string
@@ -38,6 +39,11 @@ export const componentsSections: ComponentSection[] = [
         path: "switch",
         label: "Switch",
         element: <SwitchPage />,
+      },
+      {
+        path: "select",
+        label: "Selects",
+        element: <SelectPage />,
       },
     ],
   },
