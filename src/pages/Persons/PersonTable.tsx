@@ -2,8 +2,8 @@ import { useState } from "react";
 import type { ColumnDef } from "@tanstack/react-table";
 import { DataTable } from "@/components/common/DataTable";
 import { Text } from "@/components/ui/text";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card } from "@/components/ui/card";
+import EmployeeNameInfo from "@/components/common/EmployeeNameInfo";
 import { Input } from "@/components/ui/input";
 import { Bolt, Plus, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -26,7 +26,7 @@ const persons: Person[] = [
     identificacion: "1010237648",
     tipoDocumento: "Cédula",
     nombre: "Leidi Martinez",
-    cargo: "",
+    cargo: "Lider",
     avatarSrc: "https://i.pravatar.cc/32?img=1",
     departamento: "",
     fechaNacimiento: "22-01-1998",
@@ -124,27 +124,11 @@ const personColumns: ColumnDef<Person>[] = [
     accessorKey: "nombre",
     header: "Empleado",
     cell: ({ row }) => (
-      <div className="flex items-center gap-2">
-        <Avatar size="lg">
-          {row.original.avatarSrc && (
-            <AvatarImage
-              src={row.original.avatarSrc}
-              alt={row.original.nombre}
-            />
-          )}
-          <AvatarFallback>{row.original.nombre[0]}</AvatarFallback>
-        </Avatar>
-        <div className="flex flex-col gap-0.5">
-          <Text variant="span-table" className="font-medium text-primary">
-            {row.getValue("nombre")}
-          </Text>
-          {row.original.cargo && (
-            <Text variant="span-table" className="text-muted-foreground">
-              {row.original.cargo}
-            </Text>
-          )}
-        </div>
-      </div>
+      <EmployeeNameInfo
+        img={row.original.avatarSrc ?? ""}
+        name={row.original.nombre}
+        position={row.original.cargo}
+      />
     ),
   },
   {
