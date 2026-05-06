@@ -1,18 +1,20 @@
 import type { ReactNode } from "react"
 import AvatarPage from "@/pages/AvatarPage"
 import InputPage from "@/pages/InputPage"
+import InputPhonePage from "@/pages/InputPhonePage"
 import CheckBoxPage from "@/pages/CheckBoxPage"
 import TooltipPage from "@/pages/TooltipPage"
 import SwitchPage from "@/pages/SwitchPage"
-import SelectPage from '@/pages/SelectPage'
-import TextPage from '@/pages/TextPage'
-import TablePage from '@/pages/TablePage'
-import ModalPage from '@/pages/ModalPage'
-import ButtonsPage from '@/pages/ButtonsPage'
+import SelectPage from "@/pages/SelectPage"
+import TextPage from "@/pages/TextPage"
+import TablePage from "@/pages/TablePage"
+import ModalPage from "@/pages/ModalPage"
+import ButtonsPage from "@/pages/ButtonsPage"
 import CardPage from "@/pages/CardPage"
 import BreadcrumbPage from "@/pages/BreadcrumbPage"
 import ChartsPage from "@/pages/ChartsPage"
 import ChartsIconPage from "@/pages/ChartsIconPage"
+import BadgePage from "@/pages/BadgePage"
 
 export interface ComponentRoute {
   path: string
@@ -45,6 +47,11 @@ export const componentsSections: ComponentSection[] = [
         element: <InputPage />,
       },
       {
+        path: "input-phone",
+        label: "Input Phone",
+        element: <InputPhonePage />,
+      },
+      {
         path: "checkbox",
         label: "Checkbox",
         element: <CheckBoxPage />,
@@ -60,35 +67,39 @@ export const componentsSections: ComponentSection[] = [
         element: <SelectPage />,
       },
       {
-        path: 'text',
-        label: 'Text',
+        path: "text",
+        label: "Text",
         element: <TextPage />,
-
       },
       {
-        path: 'table',
-        label: 'Table',
+        path: "table",
+        label: "Table",
         element: <TablePage />,
       },
       {
-        path: 'modal',
-        label: 'Modal',
+        path: "modal",
+        label: "Modal",
         element: <ModalPage />,
       },
       {
-        path: 'buttons',
-        label: 'Buttons',
+        path: "buttons",
+        label: "Buttons",
         element: <ButtonsPage />,
       },
       {
-        path: 'card',
-        label: 'Card',
+        path: "card",
+        label: "Card",
         element: <CardPage />,
       },
       {
         path: "breadcrumb",
         label: "Breadcrumb",
         element: <BreadcrumbPage />,
+      },
+      {
+        path: "badge",
+        label: "Badges",
+        element: <BadgePage />,
       },
       {
         path: "charts",

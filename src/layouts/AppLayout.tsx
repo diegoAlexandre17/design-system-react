@@ -1,17 +1,17 @@
-import { NavLink, Outlet } from "react-router-dom";
-import { ChevronUp } from "lucide-react";
-import { useState } from "react";
-import { cn } from "@/lib/utils";
-import { componentsSections } from "@/routes/componentsRoutes";
-import logo from "@/assets/logo-myintelli-horizontal.jpg";
+import { NavLink, Outlet } from "react-router-dom"
+import { ChevronUp } from "lucide-react"
+import { useState } from "react"
+import { cn } from "@/lib/utils"
+import { componentsSections } from "@/routes/componentsRoutes"
+import logo from "@/assets/logo-myintelli-horizontal.jpg"
 
 export default function AppLayout() {
   const [openSections, setOpenSections] = useState<Record<string, boolean>>(
     Object.fromEntries(componentsSections.map((s) => [s.label, true])),
-  );
+  )
 
   const toggleSection = (label: string) =>
-    setOpenSections((prev) => ({ ...prev, [label]: !prev[label] }));
+    setOpenSections((prev) => ({ ...prev, [label]: !prev[label] }))
   return (
     <div className="flex flex-col h-screen bg-white">
       {/* Top Navbar */}
@@ -84,5 +84,5 @@ export default function AppLayout() {
         </main>
       </div>
     </div>
-  );
+  )
 }
