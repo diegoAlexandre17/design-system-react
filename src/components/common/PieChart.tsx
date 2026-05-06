@@ -2,14 +2,15 @@ import { useMemo, useState } from "react";
 import ReactECharts from "echarts-for-react";
 import type { CSSProperties } from "react";
 
-export type PieChartSegment = {
+export type ChartSegment = {
   name: string;
   value: number;
   color?: string;
+  tooltipBgColor?: string;
 };
 
 export type PieChartTooltipContext = {
-  segment: PieChartSegment;
+  segment: ChartSegment;
   total: number;
   percent: number;
 };
@@ -17,7 +18,7 @@ export type PieChartTooltipContext = {
 export type CenterLabelMode = "static" | "dynamic" | "hidden-on-hover";
 
 export interface PieChartProps {
-  data: PieChartSegment[];
+  data: ChartSegment[];
   centerLabel?: string;
   centerLabelMode?: CenterLabelMode;
   showLegend?: boolean;
@@ -26,6 +27,17 @@ export interface PieChartProps {
   height?: CSSProperties["height"];
   radius?: [string, string];
   center?: [string, string];
+  legendRight?: number;
+  legendIconSize?: number;
+  legendFontSize?: number;
+  centerLabelColor?: string;
+  centerLabelFontSize?: number;
+  centerLabelFontWeight?: number;
+  tooltipTextColor?: string;
+  tooltipFontSize?: number;
+  tooltipPadding?: number;
+  tooltipBorderRadius?: number;
+  tooltipLineHeight?: number;
   tooltipFormatter?: (ctx: PieChartTooltipContext) => string;
   centerLabelFormatter?: (ctx: PieChartTooltipContext) => string;
 }
@@ -51,6 +63,17 @@ const PieChart = ({
   height = 160,
   radius = ["55%", "80%"],
   center = ["35%", "50%"],
+  legendRight = 0,
+  legendIconSize = 12,
+  legendFontSize = 10,
+  centerLabelColor = "#334155",
+  centerLabelFontSize = 14,
+  centerLabelFontWeight = 400,
+  tooltipTextColor = "#fff",
+  tooltipFontSize = 10,
+  tooltipPadding = 4,
+  tooltipBorderRadius = 4,
+  tooltipLineHeight = 1.2,
   tooltipFormatter,
   centerLabelFormatter,
 }: PieChartProps) => {
@@ -102,44 +125,56 @@ const PieChart = ({
     }
   }
 
-  const tooltipEnabled = showTooltip && centerLabelMode !== "dynamic";
+  const tooltipEnabled = showTooltip;
+  const needsHoverTracking = centerLabelMode !== "static";
 
   const onEvents = useMemo(
-    () => ({
-      mouseover: (params: { name?: string }) => {
-        if (params.name) setHoveredName(params.name);
-      },
-      mouseout: () => setHoveredName(null),
-      globalout: () => setHoveredName(null),
-    }),
-    [],
+    () =>
+      needsHoverTracking
+        ? {
+            mouseover: (params: { name?: string }) => {
+              if (params.name) setHoveredName(params.name);
+            },
+            mouseout: () => setHoveredName(null),
+            globalout: () => setHoveredName(null),
+          }
+        : {},
+    [needsHoverTracking],
   );
 
   const option = {
     tooltip: tooltipEnabled
       ? {
           trigger: "item",
+          backgroundColor: "transparent",
+          borderColor: "transparent",
+          borderWidth: 0,
+          padding: 0,
+          extraCssText: "box-shadow: none;",
           formatter: (params: { name: string; value: number }) => {
             const segment = segments.find((s) => s.name === params.name);
             if (!segment) return "";
             const percent = total > 0 ? (segment.value / total) * 100 : 0;
-            return tipFmt({ segment, total, percent });
+            const text = tipFmt({ segment, total, percent });
+            const bg = segment.tooltipBgColor ?? segment.color;
+            return `<div style="background-color:${bg};color:${tooltipTextColor};font-size:${tooltipFontSize}px;padding:${tooltipPadding}px;border-radius:${tooltipBorderRadius}px;line-height:${tooltipLineHeight};">${text}</div>`;
           },
         }
       : { show: false },
     legend: showLegend
       ? {
           orient: "vertical",
-          right: 50,
+          right: legendRight,
           top: "middle",
           icon: "circle",
-          itemWidth: 12,
-          itemHeight: 12,
+          itemWidth: legendIconSize,
+          itemHeight: legendIconSize,
           formatter: (name: string) => `{label|${name}}`,
           textStyle: {
             rich: {
               label: {
-                lineHeight: 10,
+                fontSize: legendFontSize,
+                lineHeight: legendFontSize,
                 verticalAlign: "middle",
                 padding: [2, 0, 0, 4],
               },
@@ -163,9 +198,9 @@ const PieChart = ({
               text: displayedCenterText,
               textAlign: "center",
               textVerticalAlign: "middle",
-              fontSize: 14,
-              fontWeight: 600,
-              fill: "#334155",
+              fontSize: centerLabelFontSize,
+              fontWeight: centerLabelFontWeight,
+              fill: centerLabelColor,
             },
           },
         ]
@@ -176,7 +211,11 @@ const PieChart = ({
         radius,
         center,
         label: { show: false },
-        emphasis: { label: { show: false }, labelLine: { show: false } },
+        emphasis: {
+          scale: false,
+          label: { show: false },
+          labelLine: { show: false },
+        },
         labelLine: { show: false },
         data: segments.map((s) => ({
           value: s.value,

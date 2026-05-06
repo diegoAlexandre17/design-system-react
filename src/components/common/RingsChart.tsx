@@ -2,20 +2,21 @@ import { useMemo, useState } from "react";
 import ReactECharts from "echarts-for-react";
 import type { CSSProperties } from "react";
 
-export type RingSegment = {
+export type ChartSegment = {
   name: string;
   value: number;
   color?: string;
+  tooltipBgColor?: string;
 };
 
 export type Ring = {
-  segments: RingSegment[];
+  segments: ChartSegment[];
   fillTo?: number;
   radius?: [string, string];
 };
 
 export type RingsChartTooltipContext = {
-  segment: RingSegment;
+  segment: ChartSegment;
   ringTotal: number;
   percent: number;
 };
@@ -35,6 +36,17 @@ export interface RingsChartProps {
   height?: CSSProperties["height"];
   showLegend?: boolean;
   showTooltip?: boolean;
+  legendRight?: number;
+  legendIconSize?: number;
+  legendFontSize?: number;
+  centerLabelColor?: string;
+  centerLabelFontSize?: number;
+  centerLabelFontWeight?: number;
+  tooltipTextColor?: string;
+  tooltipFontSize?: number;
+  tooltipPadding?: number;
+  tooltipBorderRadius?: number;
+  tooltipLineHeight?: number;
   tooltipFormatter?: (ctx: RingsChartTooltipContext) => string;
   centerLabelFormatter?: (ctx: RingsChartTooltipContext) => string;
 }
@@ -65,6 +77,17 @@ const RingsChart = ({
   height = 200,
   showLegend = true,
   showTooltip = true,
+  legendRight = 0,
+  legendIconSize = 12,
+  legendFontSize = 10,
+  centerLabelColor = "#334155",
+  centerLabelFontSize = 14,
+  centerLabelFontWeight = 400,
+  tooltipTextColor = "#fff",
+  tooltipFontSize = 10,
+  tooltipPadding = 4,
+  tooltipBorderRadius = 4,
+  tooltipLineHeight = 1.2,
   tooltipFormatter,
   centerLabelFormatter,
 }: RingsChartProps) => {
@@ -90,7 +113,7 @@ const RingsChart = ({
   }, [rings, outerRadius, ringThickness, ringGap]);
 
   const segmentLookup = useMemo(() => {
-    const map = new Map<string, { segment: RingSegment; ringTotal: number }>();
+    const map = new Map<string, { segment: ChartSegment; ringTotal: number }>();
     enrichedRings.forEach((ring) => {
       ring.segments.forEach((seg) => {
         map.set(seg.name, { segment: seg, ringTotal: ring.ringTotal });
@@ -133,23 +156,33 @@ const RingsChart = ({
     }
   }
 
-  const tooltipEnabled = showTooltip && centerLabelMode !== "dynamic";
+  const tooltipEnabled = showTooltip;
+
+  const needsHoverTracking = centerLabelMode !== "static";
 
   const onEvents = useMemo(
-    () => ({
-      mouseover: (params: { name?: string }) => {
-        if (params.name) setHoveredName(params.name);
-      },
-      mouseout: () => setHoveredName(null),
-      globalout: () => setHoveredName(null),
-    }),
-    [],
+    () =>
+      needsHoverTracking
+        ? {
+            mouseover: (params: { name?: string }) => {
+              if (params.name) setHoveredName(params.name);
+            },
+            mouseout: () => setHoveredName(null),
+            globalout: () => setHoveredName(null),
+          }
+        : {},
+    [needsHoverTracking],
   );
 
   const option = {
     tooltip: tooltipEnabled
       ? {
           trigger: "item",
+          backgroundColor: "transparent",
+          borderColor: "transparent",
+          borderWidth: 0,
+          padding: 0,
+          extraCssText: "box-shadow: none;",
           formatter: (params: { name: string; value: number }) => {
             if (params.name === FILLER_NAME) return "";
             const found = segmentLookup.get(params.name);
@@ -157,23 +190,26 @@ const RingsChart = ({
             const { segment, ringTotal } = found;
             const percent =
               ringTotal > 0 ? (segment.value / ringTotal) * 100 : 0;
-            return tipFmt({ segment, ringTotal, percent });
+            const text = tipFmt({ segment, ringTotal, percent });
+            const bg = segment.tooltipBgColor ?? segment.color;
+            return `<div style="background-color:${bg};color:${tooltipTextColor};font-size:${tooltipFontSize}px;padding:${tooltipPadding}px;border-radius:${tooltipBorderRadius}px;line-height:${tooltipLineHeight};">${text}</div>`;
           },
         }
       : { show: false },
     legend: showLegend
       ? {
           orient: "vertical",
-          right: 0,
+          right: legendRight,
           top: "middle",
           icon: "circle",
-          itemWidth: 12,
-          itemHeight: 12,
+          itemWidth: legendIconSize,
+          itemHeight: legendIconSize,
           formatter: (name: string) => `{label|${name}}`,
           textStyle: {
             rich: {
               label: {
-                lineHeight: 10,
+                fontSize: legendFontSize,
+                lineHeight: legendFontSize,
                 verticalAlign: "middle",
                 padding: [2, 0, 0, 4],
               },
@@ -199,9 +235,9 @@ const RingsChart = ({
               text: displayedCenterText,
               textAlign: "center",
               textVerticalAlign: "middle",
-              fontSize: 14,
-              fontWeight: 700,
-              fill: "#334155",
+              fontSize: centerLabelFontSize,
+              fontWeight: centerLabelFontWeight,
+              fill: centerLabelColor,
             },
           },
         ]
@@ -212,6 +248,7 @@ const RingsChart = ({
         name: string;
         itemStyle: { color: string };
         tooltip?: { show: boolean };
+        emphasis?: { disabled: boolean };
       }> = ring.segments.map((s) => ({
         value: s.value,
         name: s.name,
@@ -227,6 +264,7 @@ const RingsChart = ({
             name: FILLER_NAME,
             itemStyle: { color: fillerColor },
             tooltip: { show: false },
+            emphasis: { disabled: true },
           });
         }
       }
@@ -236,7 +274,11 @@ const RingsChart = ({
         radius: ring.radius,
         center,
         label: { show: false },
-        emphasis: { label: { show: false }, labelLine: { show: false } },
+        emphasis: {
+          scale: false,
+          label: { show: false },
+          labelLine: { show: false },
+        },
         labelLine: { show: false },
         data,
       };
