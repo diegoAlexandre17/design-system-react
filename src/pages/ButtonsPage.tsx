@@ -128,8 +128,8 @@ export default function ButtonsPage() {
           {/* Table / Cards — primary */}
           <div className="flex items-center gap-3">
             <div className="flex gap-1">
-              <ToolbarButton icon={<Table2 size={16} />}    color="primary" active={view === 'table'} onClick={() => setView('table')} title="Vista tabla" />
-              <ToolbarButton icon={<LayoutGrid size={16} />} color="primary" active={view === 'cards'} onClick={() => setView('cards')} title="Vista cards" />
+              <ToolbarButton icon={<Table2 size={16} />}    color="primary" active={view === 'table'} onClick={() => setView('table')} title="Vista tabla"  tooltipText="Vista tabla" />
+              <ToolbarButton icon={<LayoutGrid size={16} />} color="primary" active={view === 'cards'} onClick={() => setView('cards')} title="Vista cards" tooltipText="Vista cards" />
             </div>
             <span className="text-sm text-muted-foreground">primary — activo: <strong>{view}</strong></span>
           </div>
@@ -137,9 +137,9 @@ export default function ButtonsPage() {
           {/* List / Grid / Table — success */}
           <div className="flex items-center gap-3">
             <div className="flex gap-1">
-              <ToolbarButton icon={<LayoutList size={16} />} color="success" active={layout === 'list'}  onClick={() => setLayout('list')}  title="Lista" />
-              <ToolbarButton icon={<LayoutGrid size={16} />} color="success" active={layout === 'grid'}  onClick={() => setLayout('grid')}  title="Grilla" />
-              <ToolbarButton icon={<Table2 size={16} />}     color="success" active={layout === 'table'} onClick={() => setLayout('table')} title="Tabla" />
+              <ToolbarButton icon={<LayoutList size={16} />} color="success" active={layout === 'list'}  onClick={() => setLayout('list')}  title="Lista"  tooltipText="Lista" />
+              <ToolbarButton icon={<LayoutGrid size={16} />} color="success" active={layout === 'grid'}  onClick={() => setLayout('grid')}  title="Grilla" tooltipText="Grilla" />
+              <ToolbarButton icon={<Table2 size={16} />}     color="success" active={layout === 'table'} onClick={() => setLayout('table')} title="Tabla"  tooltipText="Tabla" />
             </div>
             <span className="text-sm text-muted-foreground">success — activo: <strong>{layout}</strong></span>
           </div>
@@ -147,9 +147,9 @@ export default function ButtonsPage() {
           {/* Align — destructive */}
           <div className="flex items-center gap-3">
             <div className="flex gap-1">
-              <ToolbarButton icon={<AlignLeft size={16} />}   color="destructive" active={align === 'left'}   onClick={() => setAlign('left')}   title="Alinear izquierda" />
-              <ToolbarButton icon={<AlignCenter size={16} />} color="destructive" active={align === 'center'} onClick={() => setAlign('center')} title="Centrar" />
-              <ToolbarButton icon={<AlignRight size={16} />}  color="destructive" active={align === 'right'}  onClick={() => setAlign('right')}  title="Alinear derecha" />
+              <ToolbarButton icon={<AlignLeft size={16} />}   color="destructive" active={align === 'left'}   onClick={() => setAlign('left')}   title="Alinear izquierda" tooltipText="Alinear izquierda" />
+              <ToolbarButton icon={<AlignCenter size={16} />} color="destructive" active={align === 'center'} onClick={() => setAlign('center')} title="Centrar"            tooltipText="Centrar" />
+              <ToolbarButton icon={<AlignRight size={16} />}  color="destructive" active={align === 'right'}  onClick={() => setAlign('right')}  title="Alinear derecha"   tooltipText="Alinear derecha" />
             </div>
             <span className="text-sm text-muted-foreground">destructive — activo: <strong>{align}</strong></span>
           </div>
