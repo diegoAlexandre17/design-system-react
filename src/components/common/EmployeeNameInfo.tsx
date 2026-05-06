@@ -1,5 +1,11 @@
 import { Avatar, AvatarBadge, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Text } from "../ui/text";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface EmployeeNameInfoProps {
   img: string;
@@ -21,8 +27,22 @@ const EmployeeNameInfo = ({ img, name, position }: EmployeeNameInfoProps) => {
           <AvatarBadge />
         </Avatar>
         <div className="flex flex-col items-start justify-center gap-2">
-            <Text variant='span-13' className="font-semibold text-primary">{name}</Text>
-            <Text variant='small-11'>{position}</Text>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Text variant='span-13' className="font-semibold text-primary">{name}</Text>
+                </TooltipTrigger>
+                <TooltipContent arrow>{name}</TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Text variant='small-11'>{position}</Text>
+                </TooltipTrigger>
+                <TooltipContent arrow>{position}</TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
         </div>
     </div>
   )

@@ -5,8 +5,15 @@ import { Text } from "@/components/ui/text";
 import { Card } from "@/components/ui/card";
 import EmployeeNameInfo from "@/components/common/EmployeeNameInfo";
 import { Input } from "@/components/ui/input";
-import { Bolt, Plus, Search } from "lucide-react";
+import { Bolt, Plus, Search, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 type Person = {
   sede: string;
@@ -18,6 +25,7 @@ type Person = {
   departamento: string;
   fechaNacimiento: string;
   correo: string;
+  metodo: string;
 };
 
 const persons: Person[] = [
@@ -31,6 +39,7 @@ const persons: Person[] = [
     departamento: "",
     fechaNacimiento: "22-01-1998",
     correo: "Lm+4723@intelli-next.c...",
+    metodo: "Biometrico",
   },
   {
     sede: "Eeuu",
@@ -42,6 +51,7 @@ const persons: Person[] = [
     departamento: "Administracion",
     fechaNacimiento: "22-01-1998",
     correo: "Leidiowebinar@yopmail....",
+    metodo: "Biometrico",
   },
   {
     sede: "Oficina Colombia",
@@ -53,6 +63,7 @@ const persons: Person[] = [
     departamento: "Gerencia Capital Humano",
     fechaNacimiento: "03-02-1995",
     correo: "Juan.jerez@asd.com",
+    metodo: "Biometrico",
   },
   {
     sede: "Eeuu",
@@ -64,6 +75,7 @@ const persons: Person[] = [
     departamento: "Marcas Representadas",
     fechaNacimiento: "17-06-1986",
     correo: "Natali.caldero321n@co...",
+    metodo: "Biometrico",
   },
   {
     sede: "Colombia",
@@ -75,6 +87,7 @@ const persons: Person[] = [
     departamento: "",
     fechaNacimiento: "29-06-1992",
     correo: "Eduar.chaux@congrupo...",
+    metodo: "Biometrico",
   },
   {
     sede: "Eeuu",
@@ -86,6 +99,7 @@ const persons: Person[] = [
     departamento: "Mantenimiento",
     fechaNacimiento: "10-12-1993",
     correo: "Leidy.mendieta@congru...",
+    metodo: "Biometrico",
   },
   {
     sede: "Eeuu",
@@ -97,6 +111,7 @@ const persons: Person[] = [
     departamento: "Gcia Investigacion Y De...",
     fechaNacimiento: "18-04-1999",
     correo: "Jennifer.cuenca@congr...",
+    metodo: "Biometrico",
   },
 ];
 
@@ -129,6 +144,26 @@ const personColumns: ColumnDef<Person>[] = [
         name={row.original.nombre}
         position={row.original.cargo}
       />
+    ),
+  },
+  {
+    accessorKey: "metodo",
+    header: "Método",
+    cell: ({ row }) => (
+      <div className="flex justify-center">
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Avatar size="sm">
+                <AvatarFallback className="bg-success-light text-success">
+                  <Smartphone size={16} />
+                </AvatarFallback>
+              </Avatar>
+            </TooltipTrigger>
+            <TooltipContent arrow>{row.original.metodo}</TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      </div>
     ),
   },
   {
@@ -190,7 +225,7 @@ const PersonTable = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <Button size="icon"  className="shadow-none bg-success">
+            <Button size="icon" className="shadow-none bg-success">
               <Bolt />
             </Button>
             <Button size="icon-lg" variant="default" className="shadow-none">
