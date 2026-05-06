@@ -13,8 +13,7 @@ import ButtonsPage from "@/pages/ButtonsPage"
 import CardPage from "@/pages/CardPage"
 import BreadcrumbPage from "@/pages/BreadcrumbPage"
 import BadgePage from "@/pages/BadgePage"
-import ChartsPage from "@/pages/ChartsPage"
-import IconsPage from "@/components/icons/IconsPage"
+import IconsPage from "@/pages/IconsPage"
 
 export interface ComponentRoute {
   path: string

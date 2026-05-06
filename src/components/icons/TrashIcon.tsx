@@ -6,6 +6,8 @@ import {
   TooltipTrigger,
 } from "../ui/tooltip"
 
+//TODO - cambiar los colores por las var de estilos
+
 export default function TrashIcon() {
   const [selected, setSelected] = useState<boolean>(false)
 
