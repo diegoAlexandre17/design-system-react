@@ -27,7 +27,7 @@ export default function BreadcrumbsPage() {
         <div className="rounded-xl border border-border bg-background-gray p-3">
           <div className="h-15 bg-white flex items-center justify-between gap-4 rounded-lg px-3 py-2.5">
             <div className="flex items-center gap-3">
-              <Button size="icon" aria-label="Volver" className="size-7.5 shadow-none">
+              <Button size="icon"  aria-label="Volver" className="size-7.5 shadow-none">
                 <ArrowBigLeftIcon fill="#fff" className="size-5!" />
               </Button>
               <Breadcrumb variant="primary">
@@ -43,11 +43,11 @@ export default function BreadcrumbsPage() {
               </Breadcrumb>
             </div>
             <ButtonGroup>
-              <Button variant="outline" className="h-10 px-6 bg-primary font-semibold text-white border-primary rounded-s-[5px] shadow-none">
+              <Button variant="tab" className="h-10 px-6 bg-primary font-semibold text-white border-primary rounded-s-[5px] shadow-none">
                 <UserIcon />
                 Datos personales
               </Button>
-              <Button variant="outline" className="h-10 px-6 bg-white font-semibold text-primary border-primary rounded-e-[5px] shadow-none">
+              <Button variant="tab" className="h-10 px-6 bg-white font-semibold text-primary border-primary rounded-e-[5px] shadow-none">
                 <BriefcaseIcon />
                 Datos laborales
               </Button>

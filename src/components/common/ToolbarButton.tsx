@@ -1,5 +1,6 @@
 import React from 'react'
 import { cn } from '@/lib/utils'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 
 interface ToolbarButtonProps {
   icon: React.ReactNode
@@ -8,10 +9,11 @@ interface ToolbarButtonProps {
   active?: boolean
   onClick?: () => void
   title?: string
+  tooltipText?: string
 }
 
-const ToolbarButton = ({ icon, color, active = false, onClick, title }: ToolbarButtonProps) => {
-  return (
+const ToolbarButton = ({ icon, color, active = false, onClick, title, tooltipText }: ToolbarButtonProps) => {
+  const button = (
     <button
       title={title}
       onClick={onClick}
@@ -24,6 +26,17 @@ const ToolbarButton = ({ icon, color, active = false, onClick, title }: ToolbarB
     >
       {icon}
     </button>
+  )
+
+  if (!tooltipText) return button
+
+  return (
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>{button}</TooltipTrigger>
+        <TooltipContent arrow>{tooltipText}</TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   )
 }
 
