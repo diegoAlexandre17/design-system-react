@@ -1,6 +1,7 @@
 import type { ReactNode } from "react"
 import AvatarPage from "@/pages/AvatarPage"
 import InputPage from "@/pages/InputPage"
+import InputPhonePage from "@/pages/InputPhonePage"
 import CheckBoxPage from "@/pages/CheckBoxPage"
 import TooltipPage from "@/pages/TooltipPage"
 import SwitchPage from "@/pages/SwitchPage"
@@ -44,6 +45,11 @@ export const componentsSections: ComponentSection[] = [
         path: "input",
         label: "Input",
         element: <InputPage />,
+      },
+      {
+        path: "input-phone",
+        label: "Input Phone",
+        element: <InputPhonePage />,
       },
       {
         path: "checkbox",
@@ -94,11 +100,6 @@ export const componentsSections: ComponentSection[] = [
         path: "badge",
         label: "Badges",
         element: <BadgePage />,
-      },
-      {
-        path: "charts",
-        label: "Charts",
-        element: <ChartsPage />,
       },
       {
         path: "icon",

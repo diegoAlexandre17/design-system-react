@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
+import { ButtonGroup } from '@/components/ui/button-group'
 import { Mail, Trash2, Plus, ChevronRight, Loader2, LayoutGrid, List, Table2, LayoutList, AlignLeft, AlignCenter, AlignRight, SortAsc, SortDesc } from 'lucide-react'
 import ToolbarButton from '@/components/common/ToolbarButton'
 
@@ -104,21 +105,18 @@ export default function ButtonsPage() {
       <section className="space-y-3">
         <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">Tabs</h2>
         <div className="flex flex-wrap items-center gap-3 p-6 rounded-xl border border-border bg-muted/30">
-          <div className="inline-flex gap-0">
-            {tabItems.map((tab, index) => (
+          <ButtonGroup>
+            {tabItems.map((tab) => (
               <Button
                 key={tab}
                 size={'lg'}
                 variant={activeTab === tab ? 'tab-active' : 'tab'}
-                className={`rounded-none first:rounded-l-md last:rounded-r-md ${
-                  activeTab !== tab && index > 0 ? '-ml-px' : ''
-                }`}
                 onClick={() => setActiveTab(tab)}
               >
                 {tab}
               </Button>
             ))}
-          </div>
+          </ButtonGroup>
         </div>
       </section>
 
