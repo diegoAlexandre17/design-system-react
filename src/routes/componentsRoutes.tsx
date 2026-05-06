@@ -12,9 +12,11 @@ import ModalPage from "@/pages/ModalPage"
 import ButtonsPage from "@/pages/ButtonsPage"
 import CardPage from "@/pages/CardPage"
 import BreadcrumbPage from "@/pages/BreadcrumbPage"
-import BadgePage from "@/pages/BadgePage"
 import IconsPage from "@/pages/IconsPage"
 import ChartsPage from "@/pages/ChartsPage"
+import ChartsIconPage from "@/pages/ChartsIconPage"
+import BadgePage from "@/pages/BadgePage"
+import PersonsPage from "@/pages/Persons/PersonsPage"
 
 export interface ComponentRoute {
   path: string
@@ -107,12 +109,29 @@ export const componentsSections: ComponentSection[] = [
         element: <ChartsPage />,
       },
       {
+
         path: "icon",
         label: "Icons",
         element: <IconsPage />,
       },
+      {
+        path: "charts-icons",
+        label: "Charts Icons",
+        element: <ChartsIconPage />,
+
+      },
     ],
   },
+  {
+    label: "Pages",
+    items: [
+      {
+        path: "persons",
+        label: "Persons",
+        element: <PersonsPage />,
+      },
+    ],
+  }
 ]
 
 /** Flat list of all component routes — use this with React Router's <Route> */

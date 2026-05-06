@@ -11,14 +11,14 @@ import RingsChartApex from "@/components/common/RingsChartApex"
 import {
   ShowcasePage,
   ShowcaseSection,
-} from "@/components/component-showcase-page"
+} from "@/components/component-showcase-page";
 
 const formatHours = (ctx: PieChartTooltipContext | RingsChartTooltipContext) =>
-  `${ctx.segment.name}: ${ctx.segment.value}h 00m (${ctx.percent.toFixed(1)}%)`
+  `${ctx.segment.name}: ${ctx.segment.value}h 00m (${ctx.percent.toFixed(1)}%)`;
 
 const formatPercent = (
   ctx: PieChartTooltipContext | RingsChartTooltipContext,
-) => `${ctx.segment.name}: ${ctx.segment.value}%`
+) => `${ctx.segment.name}: ${ctx.segment.value}%`;
 
 const planningSegments: ChartSegment[] = [
   {
@@ -79,7 +79,7 @@ export default function ChartsPage() {
     { name: "Edge", value: 6 },
     { name: "Opera", value: 3 },
     { name: "Otros", value: 2 },
-  ]
+  ];
 
   const planningRingsEcharts = [
     {
@@ -348,5 +348,5 @@ export default function ChartsPage() {
         </div>
       </ShowcaseSection>
     </ShowcasePage>
-  )
+  );
 }
