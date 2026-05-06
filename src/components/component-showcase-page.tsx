@@ -6,6 +6,7 @@ type ShowcasePageProps = {
   title: string
   description: string
   children: ReactNode
+  wide?: boolean
 }
 
 type ShowcaseSectionProps = {
@@ -34,9 +35,16 @@ function ShowcaseSection({
   )
 }
 
-function ShowcasePage({ title, description, children }: ShowcasePageProps) {
+function ShowcasePage({
+  title,
+  description,
+  children,
+  wide = false,
+}: ShowcasePageProps) {
   return (
-    <div className="max-w-3xl space-y-10 p-8">
+    <div
+      className={`${wide ? "max-w-6xl" : "max-w-3xl"} space-y-10 p-8`}
+    >
       <div>
         <h1 className="text-2xl font-semibold text-foreground">{title}</h1>
         <p className="mt-1 text-sm text-muted-foreground">{description}</p>

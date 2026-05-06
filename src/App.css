@@ -160,4 +160,22 @@
     background-color: hsl(var(--secondary));
     border-radius: 3px;
   }
+
+  /* Strip ApexCharts default tooltip wrapper so our custom HTML controls all styling */
+  .apexcharts-tooltip {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  .apexcharts-tooltip-title {
+    display: none !important;
+  }
+
+  /* Vertically center ApexCharts legends positioned on the side */
+  .apexcharts-legend.apx-legend-position-right,
+  .apexcharts-legend.apx-legend-position-left {
+    inset-block: 0 !important;
+    justify-content: center !important;
+    align-content: center !important;
+  }
 }
