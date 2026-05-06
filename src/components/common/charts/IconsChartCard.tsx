@@ -24,7 +24,7 @@ const IconsChartCard = ({
   classNameCardContainer,
 }: IconsChartCardProps) => {
   return (
-    <Card className={`py-2 gap-2 ${classNameCardContainer}`}>
+    <Card variant="borderless" className={`py-2 gap-2 ${classNameCardContainer}`}>
       <CardHeader>
         <Text variant="card-title-graph">{title}</Text>
       </CardHeader>

@@ -15,7 +15,7 @@ import BreadcrumbPage from "@/pages/BreadcrumbPage"
 import ChartsPage from "@/pages/ChartsPage"
 import ChartsIconPage from "@/pages/ChartsIconPage"
 import BadgePage from "@/pages/BadgePage"
-import PersonsPage from "@/pages/PersonsPage"
+import PersonsPage from "@/pages/Persons/PersonsPage"
 
 export interface ComponentRoute {
   path: string

@@ -1,20 +1,20 @@
 import PieChart, {
   type PieChartTooltipContext,
-} from "@/components/common/PieChart"
+} from "@/components/common/PieChart";
 import RingsChart, {
   type RingsChartTooltipContext,
-} from "@/components/common/RingsChart"
+} from "@/components/common/RingsChart";
 import {
   ShowcasePage,
   ShowcaseSection,
-} from "@/components/component-showcase-page"
+} from "@/components/component-showcase-page";
 
 const formatHours = (ctx: PieChartTooltipContext | RingsChartTooltipContext) =>
-  `${ctx.segment.name}: ${ctx.segment.value}h 00m (${ctx.percent.toFixed(1)}%)`
+  `${ctx.segment.name}: ${ctx.segment.value}h 00m (${ctx.percent.toFixed(1)}%)`;
 
 const formatPercent = (
   ctx: PieChartTooltipContext | RingsChartTooltipContext,
-) => `${ctx.segment.name}: ${ctx.segment.value}%`
+) => `${ctx.segment.name}: ${ctx.segment.value}%`;
 
 export default function ChartsPage() {
   const planningSegments = [
@@ -22,8 +22,8 @@ export default function ChartsPage() {
     { name: "Horas de Descanso", value: 8 },
     { name: "Nocturnas", value: 12 },
     { name: "Permisos", value: 4 },
-  ]
-  const planningTotal = planningSegments.reduce((a, s) => a + s.value, 0)
+  ];
+  const planningTotal = planningSegments.reduce((a, s) => a + s.value, 0);
 
   const browserShare = [
     { name: "Chrome", value: 64 },
@@ -32,7 +32,7 @@ export default function ChartsPage() {
     { name: "Edge", value: 6 },
     { name: "Opera", value: 3 },
     { name: "Otros", value: 2 },
-  ]
+  ];
 
   return (
     <ShowcasePage
@@ -184,5 +184,5 @@ export default function ChartsPage() {
         </div>
       </ShowcaseSection>
     </ShowcasePage>
-  )
+  );
 }

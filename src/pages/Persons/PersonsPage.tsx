@@ -7,10 +7,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
 import { BriefcaseIcon, UserIcon } from "lucide-react";
+import PersonCharts from "./PersonCharts";
+import PersonTable from "./PersonTable";
 
 const PersonsPage = () => {
   return (
-    <div className="bg-background w-full h-full p-2.5">
+    <div className="bg-background w-full h-full p-2.5 flex flex-col gap-2.5">
       <div className="h-15 bg-white flex items-center justify-between gap-4 rounded-lg px-3 py-2.5">
         <div className="flex items-center gap-3">
           <Breadcrumb variant="primary">
@@ -39,7 +41,9 @@ const PersonsPage = () => {
         </ButtonGroup>
       </div>
 
-      
+      <PersonCharts />
+
+      <PersonTable />
     </div>
   );
 };
