@@ -15,6 +15,7 @@ import BreadcrumbPage from "@/pages/BreadcrumbPage"
 import ChartsPage from "@/pages/ChartsPage"
 import ChartsIconPage from "@/pages/ChartsIconPage"
 import BadgePage from "@/pages/BadgePage"
+import PersonsPage from "@/pages/PersonsPage"
 
 export interface ComponentRoute {
   path: string
@@ -113,6 +114,16 @@ export const componentsSections: ComponentSection[] = [
       },
     ],
   },
+  {
+    label: "Pages",
+    items: [
+      {
+        path: "persons",
+        label: "Persons",
+        element: <PersonsPage />,
+      },
+    ],
+  }
 ]
 
 /** Flat list of all component routes — use this with React Router's <Route> */
