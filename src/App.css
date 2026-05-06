@@ -8,6 +8,9 @@
   --color-primary: var(--primary);
   --color-success: var(--success);
   --color-success-light: var(--success-light);
+  --color-success-foreground: var(--success-foreground);
+  --color-green: var(--green);
+  /* --green: #53C18A; */
   --color-black-light: var(--black-light);
   --color-gray-medium: var(--gray-medium);
   --color-background: var(--background);
@@ -29,7 +32,6 @@
   --color-destructive: var(--destructive);
   --color-destructive-light: var(--destructive-light);
   --color-destructive-foreground: var(--destructive-foreground);
-  --color-success-foreground: var(--success-foreground);
   --color-warning: var(--warning);
   --color-warning-light: var(--warning-light);
   --color-warning-foreground: var(--warning-foreground);
@@ -64,6 +66,7 @@
     --destructive-foreground: #fafafa;
     --success: #5fc85f;
     --success-light: #DFF4DF;
+    --green: #53C18A;
     --success-foreground: #fafafa;
     --warning: #fc9245;
     --warning-light: #ffefe3;

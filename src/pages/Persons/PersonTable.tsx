@@ -206,7 +206,7 @@ const PersonTable = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <Button size="icon" variant="success" className="shadow-none">
+            <Button size="icon"  className="shadow-none bg-success">
               <Bolt />
             </Button>
             <Button size="icon-lg" variant="default" className="shadow-none">
