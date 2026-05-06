@@ -36,7 +36,7 @@ const selectTriggerVariants = cva(
     variants: {
       variant: {
         default:
-          "border-secondary hover:border-[hsl(var(--secondary-foreground))] focus:border-primary focus-visible:border-primary data-[state=open]:border-primary aria-invalid:border-[hsl(var(--destructive))] aria-invalid:hover:border-[hsl(var(--destructive))] aria-invalid:focus:border-[hsl(var(--destructive))] aria-invalid:focus-visible:border-[hsl(var(--destructive))] aria-invalid:data-[state=open]:border-[hsl(var(--destructive))]",
+          "border-secondary hover:border--secondary-foreground focus:border-primary focus-visible:border-primary data-[state=open]:border-primary aria-invalid:border--destructive aria-invalid:hover:border--destructive aria-invalid:focus:border--destructive aria-invalid:focus-visible:border--destructive aria-invalid:data-[state=open]:border--destructive",
       },
       size: {
         sm: "h-7 px-2 text-xs",
