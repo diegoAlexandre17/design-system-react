@@ -13,6 +13,7 @@ import CardPage from "@/pages/CardPage"
 import BreadcrumbPage from "@/pages/BreadcrumbPage"
 import BadgePage from "@/pages/BadgePage"
 import ChartsPage from "@/pages/ChartsPage"
+import IconsPage from "@/components/icons/IconsPage"
 
 export interface ComponentRoute {
   path: string
@@ -93,9 +94,16 @@ export const componentsSections: ComponentSection[] = [
         path: "badge",
         label: "Badges",
         element: <BadgePage />,
+      },
+      {
         path: "charts",
         label: "Charts",
         element: <ChartsPage />,
+      },
+      {
+        path: "icon",
+        label: "Icons",
+        element: <IconsPage />,
       },
     ],
   },

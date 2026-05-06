@@ -1,3 +1,4 @@
+import StarIcon from "@/components/icons/StarIcon"
 import { Input } from "@/components/ui/input"
 import {
   AlertTriangle,
@@ -11,6 +12,7 @@ import {
 export default function InputPage() {
   return (
     <div className="p-8 max-w-3xl space-y-10">
+      <StarIcon />
       <div>
         <h1 className="text-2xl font-semibold text-foreground">Input</h1>
       </div>
