@@ -132,8 +132,13 @@ const RingsChartApex = ({
           dataLabels: centerLabel
             ? {
                 name: {
-                  show: centerLabelMode === "dynamic",
-                  fontSize: `${dynamicLabelFontSize}px`,
+                  show: true,
+                  fontSize:
+                    centerLabelMode === "dynamic"
+                      ? `${dynamicLabelFontSize}px`
+                      : `${centerLabelFontSize}px`,
+                  fontWeight: centerLabelFontWeight,
+                  color: centerLabelColor,
                   formatter: (label: string) => {
                     if (centerLabelMode === "dynamic") {
                       const r = enriched.find((x) => x.name === label);
@@ -157,6 +162,7 @@ const RingsChartApex = ({
                 value: { show: false },
                 total: {
                   show: centerLabelMode !== "hidden-on-hover",
+                  showAlways: centerLabelMode === "static",
                   label: centerLabel,
                   fontSize: `${centerLabelFontSize}px`,
                   fontWeight: centerLabelFontWeight,

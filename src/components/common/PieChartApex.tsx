@@ -93,8 +93,7 @@ const PieChartApex = ({
   const colors = segments.map((s) => s.color!);
 
   const options: ApexOptions = useMemo(() => {
-    const showName = centerLabelMode === "dynamic";
-    const showValue = centerLabelMode === "dynamic";
+    const isDynamic = centerLabelMode === "dynamic";
 
     return {
       chart: {
@@ -120,11 +119,13 @@ const PieChartApex = ({
               ? {
                   show: true,
                   name: {
-                    show: showName,
-                    offsetY: 8,
-                    fontSize: "12px",
+                    show: true,
+                    offsetY: 0,
+                    fontSize: `${centerLabelFontSize}px`,
+                    fontWeight: centerLabelFontWeight,
+                    color: centerLabelColor,
                     formatter: (label: string) => {
-                      if (centerLabelMode === "dynamic") {
+                      if (isDynamic) {
                         const segment = segments.find((s) => s.name === label);
                         if (segment) {
                           const percent =
@@ -137,10 +138,7 @@ const PieChartApex = ({
                     },
                   },
                   value: {
-                    show: showValue,
-                    fontSize: "0px",
-                    offsetY: 0,
-                    formatter: () => "",
+                    show: false,
                   },
                   total: {
                     show: centerLabelMode !== "hidden-on-hover",
