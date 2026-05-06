@@ -133,6 +133,11 @@ const RingsChartApex = ({
             ? {
                 name: {
                   show: true,
+                  offsetY: Math.round(
+                    (centerLabelMode === "dynamic"
+                      ? dynamicLabelFontSize
+                      : centerLabelFontSize) / 3,
+                  ),
                   fontSize:
                     centerLabelMode === "dynamic"
                       ? `${dynamicLabelFontSize}px`

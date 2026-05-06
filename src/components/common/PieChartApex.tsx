@@ -120,7 +120,7 @@ const PieChartApex = ({
                   show: true,
                   name: {
                     show: true,
-                    offsetY: 0,
+                    offsetY: Math.round(centerLabelFontSize / 3),
                     fontSize: `${centerLabelFontSize}px`,
                     fontWeight: centerLabelFontWeight,
                     color: centerLabelColor,
