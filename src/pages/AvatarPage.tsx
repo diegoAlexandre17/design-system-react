@@ -4,7 +4,8 @@ import {
   AvatarImage,
   AvatarBadge,
   AvatarGroup,
-} from "@/components/ui/avatar"
+} from "@/components/ui/avatar";
+import { CalendarIcon } from "lucide-react";
 
 export default function AvatarPage() {
   return (
@@ -81,6 +82,43 @@ export default function AvatarPage() {
           </Avatar>
         </div>
         <p className="text-xs text-muted-foreground">xl (56px) · xxl (80px)</p>
+      </section>
+
+      {/* With Icon */}
+      <section className="space-y-3">
+        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
+          With Icon and other border radius
+        </h2>
+        <div className="flex items-end gap-4 p-6 rounded-xl border border-border bg-muted/30">
+          <Avatar size="sm">
+            <AvatarFallback>
+              <CalendarIcon className="size-3" />
+            </AvatarFallback>
+          </Avatar>
+          <Avatar size="default">
+            <AvatarFallback>
+              <CalendarIcon className="size-4" />
+            </AvatarFallback>
+          </Avatar>
+          <Avatar size="lg">
+            <AvatarFallback>
+              <CalendarIcon className="size-5" />
+            </AvatarFallback>
+          </Avatar>
+          <Avatar size="xl" className="rounded-xl">
+            <AvatarFallback className="rounded-xl bg-warning-light">
+              <CalendarIcon className="size-6 text-warning" />
+            </AvatarFallback>
+          </Avatar>
+          <Avatar size="xxl">
+            <AvatarFallback className="bg-destructive-light">
+              <CalendarIcon className="size-8 text-destructive" />
+            </AvatarFallback>
+          </Avatar>
+        </div>
+        <p className="text-xs text-muted-foreground">
+          Fallback con icono en lugar de iniciales
+        </p>
       </section>
 
       {/* Fallback */}
@@ -178,5 +216,5 @@ export default function AvatarPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }

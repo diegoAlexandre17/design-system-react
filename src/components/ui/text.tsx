@@ -17,6 +17,7 @@ const textVariants = cva("", {
       "span-table": "text-[12px] leading-none",
       "span-13": "text-[13px] leading-none",
       "span-15": "text-[15px] leading-none",
+      "card-title-graph": "text-[15px] font-semibold leading-none",
     },
   },
   defaultVariants: {
@@ -36,6 +37,7 @@ const tagMap: Record<NonNullable<VariantProps<typeof textVariants>["variant"]>, 
   "span-table": "span",
   "span-13": "span",
   "span-15": "span",
+  "card-title-graph": "p",
 }
 
 type TextProps = React.HTMLAttributes<HTMLElement> &
