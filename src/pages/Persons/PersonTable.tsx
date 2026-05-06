@@ -34,7 +34,7 @@ const persons: Person[] = [
     identificacion: "1010237648",
     tipoDocumento: "Cédula",
     nombre: "Leidi Martinez",
-    cargo: "Lider",
+    cargo: "",
     avatarSrc: "https://i.pravatar.cc/32?img=1",
     departamento: "",
     fechaNacimiento: "22-01-1998",

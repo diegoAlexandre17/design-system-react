@@ -10,7 +10,7 @@ import {
 interface EmployeeNameInfoProps {
   img: string;
   name: string;
-  position: string;
+  position?: string;
 }
 
 const EmployeeNameInfo = ({ img, name, position }: EmployeeNameInfoProps) => {
@@ -35,14 +35,16 @@ const EmployeeNameInfo = ({ img, name, position }: EmployeeNameInfoProps) => {
                 <TooltipContent arrow>{name}</TooltipContent>
               </Tooltip>
             </TooltipProvider>
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Text variant='small-11'>{position}</Text>
-                </TooltipTrigger>
-                <TooltipContent arrow>{position}</TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
+            {position && (
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Text variant='small-11'>{position}</Text>
+                  </TooltipTrigger>
+                  <TooltipContent arrow>{position}</TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            )}
         </div>
     </div>
   )
