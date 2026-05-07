@@ -5,9 +5,10 @@ import { Text } from "@/components/ui/text";
 import { Card } from "@/components/ui/card";
 import EmployeeNameInfo from "@/components/common/EmployeeNameInfo";
 import { Input } from "@/components/ui/input";
-import { Bolt, Plus, Search, Smartphone } from "lucide-react";
+import { Bolt, IdCard, Plus, Search, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import {
   Tooltip,
   TooltipContent,
@@ -26,6 +27,7 @@ type Person = {
   fechaNacimiento: string;
   correo: string;
   metodo: string;
+  autenticacion: string;
 };
 
 const persons: Person[] = [
@@ -40,6 +42,7 @@ const persons: Person[] = [
     fechaNacimiento: "22-01-1998",
     correo: "Lm+4723@intelli-next.c...",
     metodo: "Biometrico",
+    autenticacion: "SSO",
   },
   {
     sede: "Eeuu",
@@ -52,6 +55,7 @@ const persons: Person[] = [
     fechaNacimiento: "22-01-1998",
     correo: "Leidiowebinar@yopmail....",
     metodo: "Biometrico",
+    autenticacion: "2FA",
   },
   {
     sede: "Oficina Colombia",
@@ -64,6 +68,7 @@ const persons: Person[] = [
     fechaNacimiento: "03-02-1995",
     correo: "Juan.jerez@asd.com",
     metodo: "Biometrico",
+    autenticacion: "PIN",
   },
   {
     sede: "Eeuu",
@@ -76,6 +81,7 @@ const persons: Person[] = [
     fechaNacimiento: "17-06-1986",
     correo: "Natali.caldero321n@co...",
     metodo: "Biometrico",
+    autenticacion: "SSO",
   },
   {
     sede: "Colombia",
@@ -88,6 +94,7 @@ const persons: Person[] = [
     fechaNacimiento: "29-06-1992",
     correo: "Eduar.chaux@congrupo...",
     metodo: "Biometrico",
+    autenticacion: "Proximidad",
   },
   {
     sede: "Eeuu",
@@ -100,6 +107,7 @@ const persons: Person[] = [
     fechaNacimiento: "10-12-1993",
     correo: "Leidy.mendieta@congru...",
     metodo: "Biometrico",
+    autenticacion: "2FA",
   },
   {
     sede: "Eeuu",
@@ -112,6 +120,7 @@ const persons: Person[] = [
     fechaNacimiento: "18-04-1999",
     correo: "Jennifer.cuenca@congr...",
     metodo: "Biometrico",
+    autenticacion: "PIN",
   },
 ];
 
@@ -181,6 +190,24 @@ const personColumns: ColumnDef<Person>[] = [
     ),
   },
   {
+    accessorKey: "autenticacion",
+    header: "Autenticación",
+    cell: ({ row }) => (
+      <div className="flex justify-center">
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Badge className="bg-primary-light text-primary w-fit cursor-default">
+                <IdCard size={20} />
+              </Badge>
+            </TooltipTrigger>
+            <TooltipContent arrow>{row.original.autenticacion}</TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      </div>
+    ),
+  },
+  {
     accessorKey: "fechaNacimiento",
     header: "Fec. de nac.",
     cell: ({ row }) => (
@@ -211,7 +238,7 @@ const PersonTable = () => {
   });
 
   return (
-    <Card variant="borderless">
+    <Card variant="borderless" className='flex-1'>
       <div className="px-4">
         <div className="relative flex items-center justify-between">
           <div>

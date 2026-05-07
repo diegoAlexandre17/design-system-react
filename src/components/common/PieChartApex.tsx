@@ -22,6 +22,7 @@ export interface PieChartApexProps {
   height?: CSSProperties["height"];
   donutSize?: string;
   legendOffsetX?: number;
+  legendWidth?: number;
   legendMarkerSize?: number;
   legendFontSize?: number;
   centerLabelColor?: string;
@@ -56,9 +57,10 @@ const PieChartApex = ({
   width = 420,
   height = 200,
   donutSize = "65%",
-  legendOffsetX = -40,
+  legendOffsetX = 0,
+  legendWidth = 130,
   legendMarkerSize = 5,
-  legendFontSize = 12,
+  legendFontSize = 10,
   centerLabelColor = "#334155",
   centerLabelFontSize = 14,
   centerLabelFontWeight = 400,
@@ -108,6 +110,7 @@ const PieChartApex = ({
         show: showLegend,
         position: "right",
         offsetX: legendOffsetX,
+        width: legendWidth,
         markers: { size: legendMarkerSize },
         fontSize: `${legendFontSize}px`,
       },
@@ -172,6 +175,7 @@ const PieChartApex = ({
     colors,
     showLegend,
     legendOffsetX,
+    legendWidth,
     legendMarkerSize,
     legendFontSize,
     donutSize,
