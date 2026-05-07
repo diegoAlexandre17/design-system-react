@@ -89,7 +89,7 @@ const PersonCharts = () => {
   ) => `${ctx.segment.name}: ${ctx.segment.value}`;
 
   return (
-    <div className="grid grid-cols-24 gap-4">
+    <div className="grid grid-cols-24 gap-2">
       <div className="col-span-3">
         <IconsChartCard data={dataFirstChart} title={"Estatus"} />
       </div>
