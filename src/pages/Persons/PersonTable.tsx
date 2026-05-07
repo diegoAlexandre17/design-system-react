@@ -5,7 +5,7 @@ import { Text } from "@/components/ui/text";
 import { Card } from "@/components/ui/card";
 import EmployeeNameInfo from "@/components/common/EmployeeNameInfo";
 import { Input } from "@/components/ui/input";
-import { Bolt, IdCard, Plus, Search, Smartphone } from "lucide-react";
+import { Bolt, IdCard, Plus, Search, SearchIcon, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -15,6 +15,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { ComboboxField, type ComboboxFieldOption } from "@/components/ui/combobox";
 
 type Person = {
   sede: string;
@@ -237,17 +238,28 @@ const PersonTable = () => {
     );
   });
 
+  const frameworks: ComboboxFieldOption[] = [
+    { label: "Next.js", value: "next" },
+    { label: "SvelteKit", value: "sveltekit" },
+    { label: "Nuxt.js", value: "nuxt" },
+    { label: "Remix", value: "remix" },
+    { label: "Astro", value: "astro" },
+    { label: "Vite", value: "vite" },
+    { label: "Gatsby", value: "gatsby" },
+    { label: "Solid Start", value: "solid-start" },
+  ]
+
   return (
-    <Card variant="borderless" className='flex-1'>
-      <div className="px-4">
+    <Card variant="borderless" className='flex-1 p-2.5'>
+      <div>
         <div className="relative flex items-center justify-between">
-          <div>
-            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground pointer-events-none" />
-            <Input
-              placeholder="Buscar"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="pl-8 w-100"
+          <div className='w-150'>
+            <ComboboxField
+              id="cb-search-left"
+              items={frameworks}
+              placeholder="Buscar..."
+              startIcon={<SearchIcon />}
+              showTrigger={false}
             />
           </div>
 
