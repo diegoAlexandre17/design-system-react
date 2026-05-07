@@ -34,7 +34,7 @@ const IconsChartCard = ({
             {index > 0 && <Separator className="my-3" />}
             <div className="flex gap-2.5">
               <Avatar size="xl">
-                <AvatarFallback className={`rounded-xl ${item.color}`}>
+                <AvatarFallback className={`rounded-md ${item.color}`}>
                   {item.icon}
                 </AvatarFallback>
               </Avatar>
