@@ -1,4 +1,8 @@
 import { useMemo, useState } from "react"
+import {
+  ShowcasePage,
+  ShowcaseSection,
+} from "@/components/component-showcase-page"
 import { InputPhone } from "@/components/ui/input-phone"
 import { Label } from "@/components/ui/label"
 import type { CountryIso2 } from "react-international-phone"
@@ -13,21 +17,12 @@ export default function InputPhonePage() {
   const preferred = useMemo(() => PREFERRED, [])
 
   return (
-    <div className="p-8 max-w-3xl space-y-10">
-      <div>
-        <h1 className="text-2xl font-semibold text-foreground">Input Phone</h1>
-        <p className="text-sm text-muted-foreground mt-1">
-          Phone input built on top of the shadcn <code>Input</code> using the{" "}
-          <code>usePhoneInput</code> hook from{" "}
-          <code>react-international-phone</code>.
-        </p>
-      </div>
-
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
-          Default
-        </h2>
-        <div className="p-6 rounded-xl border border-border bg-muted/30 max-w-sm">
+    <ShowcasePage
+      title="Input Phone"
+      description="Phone input built on top of the shadcn Input using the usePhoneInput hook from react-international-phone."
+    >
+      <ShowcaseSection title="Default">
+        <div className="max-w-sm">
           <div className="space-y-1.5 flex flex-col">
             <Label className="text-xs text-muted-foreground">
               Teléfono
@@ -42,13 +37,10 @@ export default function InputPhonePage() {
             </p>
           </div>
         </div>
-      </section>
+      </ShowcaseSection>
 
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
-          Default — empty
-        </h2>
-        <div className="p-6 rounded-xl border border-border bg-muted/30 max-w-sm">
+      <ShowcaseSection title="Default — empty">
+        <div className="max-w-sm">
           <InputPhone
             value={phone}
             onChange={setPhone}
@@ -58,13 +50,10 @@ export default function InputPhonePage() {
             Value: <code>{phone || "—"}</code>
           </p>
         </div>
-      </section>
+      </ShowcaseSection>
 
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
-          Separator variant + searchable
-        </h2>
-        <div className="p-6 rounded-xl border border-border bg-muted/30 max-w-sm">
+      <ShowcaseSection title="Separator variant + searchable">
+        <div className="max-w-sm">
           <InputPhone
             variant="separator"
             searchable
@@ -78,83 +67,85 @@ export default function InputPhonePage() {
             Value: <code>{phoneAr || "—"}</code>
           </p>
         </div>
-      </section>
+      </ShowcaseSection>
 
-      <section className="space-y-3 p-10 bg-white">
-        <div className="grid gap-12 md:grid-cols-2 xl:grid-cols-4">
+      <ShowcaseSection title="States">
+        <div className="rounded-xl bg-white p-4 sm:p-6">
+          <div className="grid gap-12 md:grid-cols-2 xl:grid-cols-4">
           {/* Default */}
-          <div className="space-y-6">
-            <h3 className="text-[28px] font-normal tracking-tight text-[#4A4A4A]">
-              Default
-            </h3>
-            <div className="space-y-1.5 flex flex-col">
-              <Label
-                required
-                className="text-xs text-muted-foreground"
-              >
-                Phone
-              </Label>
-              <InputPhone defaultCountry="us" />
+            <div className="space-y-6">
+              <h3 className="text-[28px] font-normal tracking-tight text-[#4A4A4A]">
+                Default
+              </h3>
+              <div className="space-y-1.5 flex flex-col">
+                <Label
+                  required
+                  className="text-xs text-muted-foreground"
+                >
+                  Phone
+                </Label>
+                <InputPhone defaultCountry="us" />
+              </div>
             </div>
-          </div>
 
           {/* Error */}
-          <div className="space-y-6">
-            <h3 className="text-[28px] font-normal tracking-tight text-[#4A4A4A]">
-              Error
-            </h3>
-            <div className="space-y-1.5 flex flex-col">
-              <Label
-                required
-                className="text-xs text-muted-foreground"
-              >
-                Phone
-              </Label>
-              <InputPhone aria-invalid defaultCountry="us" />
-              <div className="flex items-center gap-1.5 text-[#FF6B6B] mt-1">
-                <AlertTriangle className="size-3.5 fill-current" />
-                <span className="text-[13px]">Help text</span>
+            <div className="space-y-6">
+              <h3 className="text-[28px] font-normal tracking-tight text-[#4A4A4A]">
+                Error
+              </h3>
+              <div className="space-y-1.5 flex flex-col">
+                <Label
+                  required
+                  className="text-xs text-muted-foreground"
+                >
+                  Phone
+                </Label>
+                <InputPhone aria-invalid defaultCountry="us" />
+                <div className="mt-1 flex items-center gap-1.5 text-[#FF6B6B]">
+                  <AlertTriangle className="size-3.5 fill-current" />
+                  <span className="text-[13px]">Help text</span>
+                </div>
               </div>
             </div>
-          </div>
 
           {/* Success */}
-          <div className="space-y-6">
-            <h3 className="text-[28px] font-normal tracking-tight text-[#4A4A4A]">
-              Success
-            </h3>
-            <div className="space-y-1.5 flex flex-col">
-              <Label
-                required
-                className="text-xs text-muted-foreground"
-              >
-                Phone
-              </Label>
-              <InputPhone
-                defaultCountry="us"
-                containerClassName="border-success focus-within:border-success"
-              />
-              <div className="flex items-center gap-1.5 text-success mt-1">
-                <Check className="size-3.5" strokeWidth={3} />
-                <span className="text-[13px]">Help text</span>
+            <div className="space-y-6">
+              <h3 className="text-[28px] font-normal tracking-tight text-[#4A4A4A]">
+                Success
+              </h3>
+              <div className="space-y-1.5 flex flex-col">
+                <Label
+                  required
+                  className="text-xs text-muted-foreground"
+                >
+                  Phone
+                </Label>
+                <InputPhone
+                  defaultCountry="us"
+                  containerClassName="border-success focus-within:border-success"
+                />
+                <div className="mt-1 flex items-center gap-1.5 text-success">
+                  <Check className="size-3.5" strokeWidth={3} />
+                  <span className="text-[13px]">Help text</span>
+                </div>
               </div>
             </div>
-          </div>
 
           {/* Disabled */}
-          <div className="space-y-6">
-            <h3 className="text-[28px] font-normal tracking-tight text-[#4A4A4A]">
-              Disabled
-            </h3>
-            <div className="space-y-1.5 flex flex-col">
-              <Label className="text-xs text-muted-foreground">
-                Phone
-              </Label>
-              <InputPhone disabled defaultCountry="us" />
+            <div className="space-y-6">
+              <h3 className="text-[28px] font-normal tracking-tight text-[#4A4A4A]">
+                Disabled
+              </h3>
+              <div className="space-y-1.5 flex flex-col">
+                <Label className="text-xs text-muted-foreground">
+                  Phone
+                </Label>
+                <InputPhone disabled defaultCountry="us" />
+              </div>
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </ShowcaseSection>
+    </ShowcasePage>
   )
 }
