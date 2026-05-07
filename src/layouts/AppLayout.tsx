@@ -79,7 +79,7 @@ export default function AppLayout() {
         </aside>
 
         {/* Page content */}
-        <main className="flex-1 overflow-auto">
+        <main className="flex-1 overflow-auto min-h-0">
           <Outlet />
         </main>
       </div>
