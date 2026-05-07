@@ -16,6 +16,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { ComboboxField, type ComboboxFieldOption } from "@/components/ui/combobox";
+import { paddingTable } from "@/constants/styles/styles";
 
 type Person = {
   sede: string;
@@ -250,7 +251,7 @@ const PersonTable = () => {
   ]
 
   return (
-    <Card variant="borderless" className='flex-1 p-2.5'>
+    <Card variant="borderless" className={`flex-1 ${paddingTable}`}>
       <div>
         <div className="relative flex items-center justify-between">
           <div className='w-150'>
