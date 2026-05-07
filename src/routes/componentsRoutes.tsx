@@ -14,6 +14,7 @@ import CardPage from "@/pages/CardPage"
 import BreadcrumbPage from "@/pages/BreadcrumbPage"
 import BadgePage from "@/pages/BadgePage"
 import IconsPage from "@/pages/IconsPage"
+import ColorsPage from "@/pages/ColorsPage"
 
 export interface ComponentRoute {
   path: string
@@ -99,6 +100,11 @@ export const componentsSections: ComponentSection[] = [
         path: "badge",
         label: "Badges",
         element: <BadgePage />,
+      },
+      {
+        path: "colors",
+        label: "Colors",
+        element: <ColorsPage />,
       },
       {
         path: "icon",

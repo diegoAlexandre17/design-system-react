@@ -1,236 +1,347 @@
+import { useState } from "react"
 import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import {
+  Info,
+  Eye,
   AlertTriangle,
   Check,
   Clock,
-  Calendar,
-  Info,
-  ChevronDown,
+  CalendarDays,
 } from "lucide-react"
+import {
+  ShowcasePage,
+  ShowcaseSection,
+} from "@/components/component-showcase-page"
 
 export default function InputPage() {
+  const [showPassword, setShowPassword] = useState(false)
+
   return (
-    <div className="p-8 max-w-3xl space-y-10">
-      <div>
-        <h1 className="text-2xl font-semibold text-foreground">Input</h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Displays a form input field or a component that looks like an input
-          field.
-        </p>
-      </div>
-      {/* Sizes */}
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
-          Sizes
-        </h2>
-        <div className="flex flex-wrap items-start gap-4 p-12 rounded-xl border border-border bg-muted/30">
-          <Input className="h-7 text-xs w-32" placeholder="Small" />
-          <Input className="w-32" placeholder="Default" />
-          <Input className="h-10 text-base w-32" placeholder="Large" />
-        </div>
-      </section>
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
-          Examples
-        </h2>
-        <div className="grid gap-12 md:grid-cols-3 p-12 rounded-xl border border-border bg-muted/30">
-          {/* Primer Nombre (Focus Simulation) */}
-          <div className="space-y-1.5 flex flex-col">
-            <label className="text-[13px] font-normal text-[#8e8e8e]">
-              Primer nombre *
-            </label>
-            <Input
-              defaultValue="Karen"
-              className="w-full border-[#4A90E2]  text-[#4A4A4A] font-normal rounded-md"
-            />
+    <ShowcasePage
+      title="Input"
+      description="Displays a form input field or a component that looks like an input field."
+    >
+      <ShowcaseSection title="Sizes">
+        <div className="flex flex-wrap items-end gap-6">
+          <div className="flex flex-col space-y-1.5">
+            <Label>Small</Label>
+            <Input size="sm" placeholder="Small" />
           </div>
-          {/* Select Simulation */}
-          <div className="space-y-1.5 flex flex-col">
-            <div className="flex justify-between items-center px-1">
-              <label className="text-[13px] font-normal text-[#8e8e8e]">
+          <div className="flex flex-col space-y-1.5">
+            <Label>Medium (Default)</Label>
+            <Input size="md" placeholder="Medium" />
+          </div>
+          <div className="flex flex-col space-y-1.5">
+            <Label>Large</Label>
+            <Input size="lg" placeholder="Large" />
+          </div>
+        </div>
+      </ShowcaseSection>
+
+      <ShowcaseSection title="Label Variants">
+        <div className="flex flex-wrap items-start gap-6">
+          <div className="flex flex-col space-y-1.5">
+            <Label htmlFor="required-input" required>
+              Primer nombre
+            </Label>
+            <Input id="required-input" placeholder="Karen" />
+          </div>
+          <div className="flex flex-col space-y-1.5">
+            <Label htmlFor="optional-input">Descripción</Label>
+            <Input id="optional-input" placeholder="Descripción" />
+          </div>
+          <div className="flex flex-col space-y-1.5">
+            <div className="flex items-center justify-between px-1">
+              <Label htmlFor="trabajar-dia" required>
                 Trabajar Día Libre
-              </label>
+              </Label>
               <Info className="size-3.5 text-[#8e8e8e]" />
             </div>
+            <Input id="trabajar-dia" defaultValue="Media" />
+          </div>
+        </div>
+      </ShowcaseSection>
+
+      <ShowcaseSection title="Input Types">
+        <div className="flex flex-wrap items-start gap-6">
+          <div className="flex flex-col space-y-1.5">
+            <Label htmlFor="password-input" required>
+              Contraseña
+            </Label>
             <div className="relative">
               <Input
-                defaultValue="Media"
-                className="w-full border-[#E2E8F0]  text-[#4A4A4A] pr-10 font-normal rounded-md"
+                id="password-input"
+                type={showPassword ? "text" : "password"}
+                defaultValue="mypassword123"
+                className="pr-8"
               />
-              <div className="absolute right-2.5 top-1/2 -translate-y-1/2 flex items-center text-[#cbd5e1] gap-1.5">
-                <div className="w-px h-4 bg-[#e2e8f0]" />
-                <ChevronDown className="size-4" strokeWidth={3} />
-              </div>
+              <button
+                type="button"
+                onClick={() => setShowPassword((v) => !v)}
+                className="absolute inset-y-0 right-2 flex items-center text-muted-foreground hover:text-foreground"
+              >
+                {" "}
+                <Eye className="size-3.5" />
+              </button>
             </div>
           </div>
-          {/* Password with Icons */}
-          <div className="space-y-1.5 flex flex-col">
-            <label className="text-[13px] font-normal text-[#8e8e8e]">
-              Contraseña actual
-            </label>
+          <div className="flex flex-col space-y-1.5">
+            <Label htmlFor="date-input">Fecha de nacimiento</Label>
+            <Input id="date-input" type="date" defaultValue="2001-12-11" />
+          </div>
+          <div className="flex flex-col space-y-1.5">
+            <Label htmlFor="email-input" required>
+              Correo principal
+            </Label>
             <Input
-              type="password"
-              placeholder="Ingresa tu contraseña"
-              className="w-full pl-9 border-[#E2E8F0]   text-[#4A4A4A] placeholder:text-[#cbd5e1] font-normal rounded-md"
+              id="email-input"
+              type="email"
+              placeholder="karen@gmail.com"
             />
           </div>
         </div>
-      </section>
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
-          States
-        </h2>
-        <div className="flex flex-col gap-10 p-12 rounded-xl border border-border bg-muted/30">
-          <div className="flex flex-col gap-10 max-w-[280px]">
-            {/* Default */}
-            <div className="space-y-6">
-              <h3 className="text-[28px] font-normal tracking-tight text-[#4A4A4A]">
-                Default
-              </h3>
-              <div className="space-y-1.5 flex flex-col">
-                <label
-                  htmlFor="val-default"
-                  className="text-[13px] font-normal text-[#8e8e8e]"
-                >
-                  Title <span className="text-[#FF6B6B]">*</span>
-                </label>
-                <Input
-                  id="val-default"
-                  placeholder="Text"
-                  className="w-full border-[#E2E8F0]  text-[#4A4A4A] placeholder:text-[#cbd5e1] font-normal rounded-md"
-                />
-              </div>
-            </div>
-            {/* Focus */}
-            <div className="space-y-6">
-              <h3 className="text-[28px] font-normal tracking-tight text-[#4A4A4A]">
-                Focus
-              </h3>
-              <div className="space-y-1.5 flex flex-col">
-                <label
-                  htmlFor="val-focus"
-                  className="text-[13px] font-normal text-[#8e8e8e]"
-                >
-                  Title <span className="text-[#FF6B6B]">*</span>
-                </label>
-                <Input
-                  id="val-focus"
-                  placeholder="Text"
-                  className="w-full border-[#4A90E2]  focus:border-[#4A90E2] focus:ring-1 focus:ring-[#4A90E2] text-[#4A4A4A] placeholder:text-[#cbd5e1] font-normal rounded-md"
-                />
-              </div>
-            </div>
-            {/* Error */}
-            <div className="space-y-6">
-              <h3 className="text-[28px] font-normal tracking-tight text-[#4A4A4A]">
-                Error
-              </h3>
-              <div className="space-y-1.5 flex flex-col">
-                <label
-                  htmlFor="val-error"
-                  className="text-[13px] font-normal text-[#8e8e8e]"
-                >
-                  Title <span className="text-[#FF6B6B]">*</span>
-                </label>
-                <Input
-                  id="val-error"
-                  placeholder="Text"
-                  className="w-full border-[#FF6B6B] focus:border-[#FF6B6B] text-[#4A4A4A] placeholder:text-[#cbd5e1] font-normal rounded-md"
-                />
-                <div className="flex items-center gap-1.5 text-[#FF6B6B] mt-1">
-                  <AlertTriangle className="size-3.5 fill-current" />
-                  <span className="text-[13px]">Help text</span>
-                </div>
-              </div>
-            </div>
-            {/* Success */}
-            <div className="space-y-6">
-              <h3 className="text-[28px] font-normal tracking-tight text-[#4A4A4A]">
-                Success
-              </h3>
-              <div className="space-y-1.5 flex flex-col">
-                <label
-                  htmlFor="val-success"
-                  className="text-[13px] font-normal text-[#8e8e8e]"
-                >
-                  Title <span className="text-[#FF6B6B]">*</span>
-                </label>
-                <Input
-                  id="val-success"
-                  placeholder="Text"
-                  className="w-full border-[#53C65B] focus:border-[#53C65B] text-[#4A4A4A] placeholder:text-[#cbd5e1] font-normal rounded-md"
-                />
-                <div className="flex items-center gap-1.5 text-[#53C65B] mt-1">
-                  <Check className="size-3.5" strokeWidth={3} />
-                  <span className="text-[13px]">Help text</span>
-                </div>
-              </div>
-            </div>
+      </ShowcaseSection>
 
-            {/* Disabled */}
-            <div className="space-y-6">
-              <h3 className="text-[28px] font-normal tracking-tight text-[#4A4A4A]">
-                Disabled
-              </h3>
-              <div className="space-y-5">
-                <div className="space-y-1.5 flex flex-col">
-                  <label className="text-[13px] font-normal text-[#8e8e8e]">
-                    Title <span className="text-[#FF6B6B]">*</span>
-                  </label>
-                  <Input
-                    disabled
-                    value="Text"
-                    className="w-full bg-[#f8fafc] border-[#e2e8f0] text-[#94a3b8] font-normal rounded-md"
-                  />
-                </div>
-
-                <div className="space-y-1.5 flex flex-col">
-                  <label className="text-[13px] font-normal text-[#8e8e8e]">
-                    Hora de Reincorporación
-                  </label>
-                  <div className="relative">
-                    <div className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[#4A90E2]">
-                      <Clock className="size-4" />
-                    </div>
-                    <Input
-                      disabled
-                      value="4:00 pm"
-                      className="w-full pl-9 bg-[#f0f7ff] border-transparent text-[#64748b] font-normal rounded-md"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-1.5 flex flex-col">
-                  <label className="text-[13px] font-normal text-[#8e8e8e]">
-                    Día de Reincorporación
-                  </label>
-                  <div className="relative">
-                    <div className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[#53C65B]">
-                      <Calendar className="size-4" />
-                    </div>
-                    <Input
-                      disabled
-                      value="Jue, 25-03-2025"
-                      className="w-full pl-9 bg-[#f0fdf4] border-transparent text-[#64748b] font-normal rounded-md"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-1.5 flex flex-col">
-                  <label className="text-[13px] font-normal text-[#8e8e8e]">
-                    Correo principal <span className="text-[#e2e8f0]">*</span>
-                  </label>
-                  <Input
-                    disabled
-                    placeholder="karenrogrlgrd958@gmail.com"
-                    className="w-full bg-white border-[#f1f5f9] text-[#cbd5e1] font-normal rounded-md"
-                  />
-                </div>
-              </div>
+      <ShowcaseSection title="States">
+        <div className="flex flex-wrap items-start gap-10">
+          <div className="flex flex-col gap-3">
+            <span className="text-base font-medium text-foreground">
+              Default
+            </span>
+            <div className="flex flex-col space-y-1.5">
+              <Label required>Title</Label>
+              <Input defaultValue="Text" />
+            </div>
+          </div>
+          <div className="flex flex-col gap-3">
+            <span className="text-base font-medium text-foreground">Focus</span>
+            <div className="flex flex-col space-y-1.5">
+              <Label required>Title</Label>
+              <Input defaultValue="Text" className="border-primary" />
+            </div>
+          </div>
+          <div className="flex flex-col gap-3">
+            <span className="text-base font-medium text-foreground">Error</span>
+            <div className="flex flex-col space-y-1.5">
+              <Label required>Title</Label>
+              <Input defaultValue="Text" aria-invalid="true" />
+              <p className="flex items-center gap-1 text-xs text-destructive">
+                <AlertTriangle className="size-3" />
+                Help text
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col gap-3">
+            <span className="text-base font-medium text-foreground">
+              Success
+            </span>
+            <div className="flex flex-col space-y-1.5">
+              <Label required>Title</Label>
+              <Input defaultValue="Text" className="border-green-500" />
+              <p className="flex items-center gap-1 text-xs text-green-600">
+                <Check className="size-3" />
+                Help text
+              </p>
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </ShowcaseSection>
+
+      <ShowcaseSection title="Read Only">
+        <p className="mb-4 text-xs text-muted-foreground">
+          Informative inputs — you can click and select the text, but cannot
+          edit the value. Different from disabled, which is fully
+          non-interactive.
+        </p>
+        <div className="flex flex-wrap items-start gap-6">
+          <div className="flex flex-col space-y-1.5">
+            <Label required>Title</Label>
+            <Input defaultValue="Text" readOnly />
+          </div>
+          <div className="flex flex-col space-y-1.5">
+            <Label>Hora de Reincorporación</Label>
+            <div className="relative">
+              <Clock className="absolute left-2.5 top-1/2 size-3.5 -translate-y-1/2 text-primary" />
+              <Input
+                type="time"
+                defaultValue="16:00"
+                readOnly
+                className="bg-blue-50 pl-8"
+              />
+            </div>
+          </div>
+          <div className="flex flex-col space-y-1.5">
+            <Label>Día de Reincorporación</Label>
+            <div className="relative">
+              <CalendarDays className="absolute left-2.5 top-1/2 size-3.5 -translate-y-1/2 text-green-500" />
+              <Input
+                type="date"
+                defaultValue="2025-03-25"
+                readOnly
+                className="bg-green-50 pl-8"
+              />
+            </div>
+          </div>
+          <div className="flex flex-col space-y-1.5">
+            <Label required>Correo principal</Label>
+            <Input
+              type="email"
+              placeholder="karenrogrigrd958@gmail.com"
+              readOnly
+            />
+          </div>
+        </div>
+      </ShowcaseSection>
+
+      <ShowcaseSection title="Props">
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="border-b border-border">
+                <th className="py-2 pr-6 text-left font-semibold text-foreground">
+                  Prop
+                </th>
+                <th className="py-2 pr-6 text-left font-semibold text-foreground">
+                  Type
+                </th>
+                <th className="py-2 pr-6 text-left font-semibold text-foreground">
+                  Default
+                </th>
+                <th className="py-2 text-left font-semibold text-foreground">
+                  Description
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-border">
+              {[
+                {
+                  prop: "size",
+                  type: '"sm" | "md" | "lg"',
+                  default: '"md"',
+                  description: "Controls height and text size.",
+                },
+                {
+                  prop: "type",
+                  type: "string",
+                  default: '"text"',
+                  description:
+                    'HTML input type — "text", "email", "password", "date", "time", etc.',
+                },
+                {
+                  prop: "placeholder",
+                  type: "string",
+                  default: "—",
+                  description: "Hint text shown when the input is empty.",
+                },
+                {
+                  prop: "disabled",
+                  type: "boolean",
+                  default: "false",
+                  description:
+                    "Prevents all interaction. Applies reduced opacity and blocks pointer events.",
+                },
+                {
+                  prop: "readOnly",
+                  type: "boolean",
+                  default: "false",
+                  description:
+                    "Allows focus and text selection but not editing. Use for informative fields.",
+                },
+                {
+                  prop: "aria-invalid",
+                  type: "boolean",
+                  default: "false",
+                  description:
+                    "Applies error border styling. Pair with a help text message below the input.",
+                },
+                {
+                  prop: "className",
+                  type: "string",
+                  default: "—",
+                  description:
+                    "Extra Tailwind classes merged via cn(). Use to override width, colors, or spacing.",
+                },
+              ].map(({ prop, type, default: def, description }) => (
+                <tr key={prop} className="align-top">
+                  <td className="py-2.5 pr-6 font-mono text-xs text-foreground">
+                    {prop}
+                  </td>
+                  <td className="py-2.5 pr-6 font-mono text-xs text-primary whitespace-nowrap">
+                    {type}
+                  </td>
+                  <td className="py-2.5 pr-6 font-mono text-xs text-muted-foreground">
+                    {def}
+                  </td>
+                  <td className="py-2.5 text-xs text-muted-foreground">
+                    {description}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </ShowcaseSection>
+
+      <ShowcaseSection title="Sizes">
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="border-b border-border">
+                <th className="py-2 pr-6 text-left font-semibold text-foreground">
+                  Size
+                </th>
+                <th className="py-2 pr-6 text-left font-semibold text-foreground">
+                  Height
+                </th>
+                <th className="py-2 pr-6 text-left font-semibold text-foreground">
+                  Font size
+                </th>
+                <th className="py-2 text-left font-semibold text-foreground">
+                  Use case
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-border">
+              {[
+                {
+                  size: "sm",
+                  height: "24px",
+                  font: "12px (xs)",
+                  use: "Compact layouts, tables, inline edits.",
+                },
+                {
+                  size: "md",
+                  height: "34px",
+                  font: "14px (sm)",
+                  use: "Default for all standard forms.",
+                },
+                {
+                  size: "lg",
+                  height: "40px",
+                  font: "16px (base)",
+                  use: "Prominent fields, login / hero forms.",
+                },
+              ].map(({ size, height, font, use }) => (
+                <tr key={size} className="align-top">
+                  <td className="py-2.5 pr-6 font-mono text-xs text-foreground">
+                    {size}
+                  </td>
+                  <td className="py-2.5 pr-6 font-mono text-xs text-muted-foreground">
+                    {height}
+                  </td>
+                  <td className="py-2.5 pr-6 font-mono text-xs text-muted-foreground">
+                    {font}
+                  </td>
+                  <td className="py-2.5 text-xs text-muted-foreground">
+                    {use}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </ShowcaseSection>
+    </ShowcasePage>
   )
 }

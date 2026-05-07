@@ -16,14 +16,16 @@ function Label({
       data-slot="label"
       className={cn(
         "flex items-center text-foreground gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
-        className
+        className,
       )}
       {...props}
     >
       {required ? (
         <span className="inline-flex items-center gap-0.5">
           {children}
-          <span aria-hidden className="text-[hsl(var(--destructive))]">*</span>
+          <span aria-hidden className="text-destructive">
+            *
+          </span>
         </span>
       ) : (
         children
