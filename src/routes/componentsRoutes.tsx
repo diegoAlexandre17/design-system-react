@@ -18,6 +18,8 @@ import ChartsPage from "@/pages/ChartsPage"
 import ChartsIconPage from "@/pages/ChartsIconPage"
 import BadgePage from "@/pages/BadgePage"
 import PersonsPage from "@/pages/Persons/PersonsPage"
+import ColorsPage from "@/pages/ColorsPage"
+
 
 export interface ComponentRoute {
   path: string
@@ -115,7 +117,11 @@ export const componentsSections: ComponentSection[] = [
         element: <ChartsPage />,
       },
       {
-
+        path: "colors",
+        label: "Colors",
+        element: <ColorsPage />,
+      },
+      {
         path: "icon",
         label: "Icons",
         element: <IconsPage />,

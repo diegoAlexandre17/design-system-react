@@ -76,7 +76,7 @@ export default function SwitchPage() {
             <span className="text-sm font-medium text-muted-foreground">
               Default
             </span>
-            <Switch />
+            <Switch size="sm" />
           </div>
         </div>
       </section>

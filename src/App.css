@@ -55,6 +55,17 @@
   --color-mint-badge: var(--mint-badge);
   --color-rose-badge: var(--rose-badge);
   --color-purple-badge: var(--purple-badge);
+  --color-success-badge-text: var(--success-badge-text);
+  --color-warning-badge-text: var(--warning-badge-text);
+  --color-error-badge-text: var(--error-badge-text);
+  --color-info-badge-text: var(--info-badge-text);
+  --color-orange-badge-text: var(--orange-badge-text);
+  --color-cyan-badge-text: var(--cyan-badge-text);
+  --color-sky-badge-text: var(--sky-badge-text);
+  --color-neutral-badge-text: var(--neutral-badge-text);
+  --color-blue-badge-text: var(--blue-badge-text);
+  --color-indigo-badge-text: var(--indigo-badge-text);
+  --color-purple-badge-text: var(--purple-badge-text);
 }
 
 @layer theme {
@@ -112,9 +123,17 @@
     --mint-badge: #DFF4DF;
     --rose-badge: #FFEBEB;
     --purple-badge: #B66DFF;
-    --chart-4: #e9c468;
-    --chart-5: #f4a462;
-
+    --success-badge-text: #5EC85E;
+    --warning-badge-text: #F1CC05;
+    --error-badge-text: #FD5656;
+    --info-badge-text: #33B7C9;
+    --orange-badge-text: #FF885C;
+    --cyan-badge-text: #00D7D7;
+    --sky-badge-text: #55ADFF;
+    --neutral-badge-text: #5C6696;
+    --blue-badge-text: #2485F4;
+    --indigo-badge-text: #6176CE;
+    --purple-badge-text: #B66DFF;
   }
 
   .dark {
