@@ -36,7 +36,7 @@ const selectTriggerVariants = cva(
     variants: {
       variant: {
         default:
-          "border-secondary hover:border--secondary-foreground focus:border-primary focus-visible:border-primary data-[state=open]:border-primary aria-invalid:border--destructive aria-invalid:hover:border--destructive aria-invalid:focus:border--destructive aria-invalid:focus-visible:border--destructive aria-invalid:data-[state=open]:border--destructive",
+          "border-border hover:border-secondary focus:border-primary focus-visible:border-primary data-[state=open]:border-primary aria-invalid:border-destructive aria-invalid:hover:border-destructive aria-invalid:focus:border-destructive aria-invalid:focus-visible:border-destructive aria-invalid:data-[state=open]:border-destructive",
       },
       size: {
         sm: "h-7 px-2 text-xs",
@@ -131,7 +131,10 @@ function SelectLabel({
   return (
     <SelectPrimitive.Label
       data-slot="select-label"
-      className={cn("px-1.5 py-1 text-xs text-muted-foreground", className)}
+      className={cn(
+        "px-1.5 pt-2 pb-1 text-[10px] tracking-wide text-gray-light uppercase",
+        className
+      )}
       {...props}
     />
   )
