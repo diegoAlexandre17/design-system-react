@@ -9,6 +9,7 @@
   --color-success: var(--success);
   --color-black-light: var(--black-light);
   --color-gray-medium: var(--gray-medium);
+  --color-gray-light: var(--gray-light);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -25,9 +26,11 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
+  --color-destructive-light: var(--destructive-light);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-success-foreground: var(--success-foreground);
   --color-border: var(--border);
+  --color-chip-background: var(--chip-background);
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-background-gray: var(--background-gray);
@@ -68,16 +71,19 @@
     --accent: #F5F5F5;
     --accent-foreground: #171717;
     --destructive: #FD5656;
+    --destructive-light: #FFBDAD;
     --destructive-foreground: #FAFAFA;
     --success: #5FC85F;
     --success-foreground: #FAFAFA;
     --warning: #FC9145;
     --warning-foreground: #FAFAFA;
     --border: #E5E5E5;
+    --chip-background: #E6E6E6;
     --input: #E5E5E5;
     --ring: #0A0A0A;
     --black-light: #333;
     --gray-medium: #808080;
+    --gray-light: #999999;
     --radius: 0.5rem;
     --chart-1: #E76E50;
     --chart-2: #2A9D90;
@@ -125,6 +131,7 @@
     --border: #262626;
     --input: #262626;
     --ring: #D4D4D4;
+    --gray-light: #999999;
     --chart-1: #2662D9;
     --chart-2: #2EB88A;
     --chart-3: #E88C30;
@@ -138,6 +145,13 @@
     border-color: var(--border);
   }
 
+  html,
+  body,
+  #root {
+    height: 100%;
+    overflow: hidden;
+  }
+
   body {
     font-family: 'Lato', sans-serif;
     background-color: var(--background);
@@ -145,18 +159,22 @@
   }
 
   /* Override Radix Select's hidden scrollbar so the native bar is visible */
-  [data-radix-select-viewport] {
+  [data-radix-select-viewport],
+  [data-slot="combobox-list"] {
     scrollbar-width: thin !important;
     scrollbar-color: hsl(var(--secondary)) transparent;
   }
-  [data-radix-select-viewport]::-webkit-scrollbar {
+  [data-radix-select-viewport]::-webkit-scrollbar,
+  [data-slot="combobox-list"]::-webkit-scrollbar {
     display: block !important;
     width: 6px;
   }
-  [data-radix-select-viewport]::-webkit-scrollbar-track {
+  [data-radix-select-viewport]::-webkit-scrollbar-track,
+  [data-slot="combobox-list"]::-webkit-scrollbar-track {
     background: transparent;
   }
-  [data-radix-select-viewport]::-webkit-scrollbar-thumb {
+  [data-radix-select-viewport]::-webkit-scrollbar-thumb,
+  [data-slot="combobox-list"]::-webkit-scrollbar-thumb {
     background-color: hsl(var(--secondary));
     border-radius: 3px;
   }

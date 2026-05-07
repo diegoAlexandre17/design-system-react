@@ -6,6 +6,7 @@ import CheckBoxPage from "@/pages/CheckBoxPage"
 import TooltipPage from "@/pages/TooltipPage"
 import SwitchPage from "@/pages/SwitchPage"
 import SelectPage from "@/pages/SelectPage"
+import ComboboxPage from "@/pages/ComboboxPage"
 import TextPage from "@/pages/TextPage"
 import TablePage from "@/pages/TablePage"
 import ModalPage from "@/pages/ModalPage"
@@ -65,6 +66,11 @@ export const componentsSections: ComponentSection[] = [
         path: "select",
         label: "Selects",
         element: <SelectPage />,
+      },
+      {
+        path: "combobox",
+        label: "Combobox",
+        element: <ComboboxPage />,
       },
       {
         path: "text",

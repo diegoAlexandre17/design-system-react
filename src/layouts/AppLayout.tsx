@@ -15,7 +15,7 @@ export default function AppLayout() {
   return (
     <div className="flex flex-col h-screen bg-white">
       {/* Top Navbar */}
-      <header className="flex items-center justify-between px-6 h-14 border-b border-border bg-white shrink-0">
+      <header className="z-10 flex items-center justify-between px-6 h-14 border-b border-border bg-white shrink-0">
         {/* Left: logo */}
         <img
           src={logo}
