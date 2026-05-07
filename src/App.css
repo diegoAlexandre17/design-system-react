@@ -162,10 +162,20 @@
     color: var(--foreground);
   }
 
+  * {
+    scrollbar-color: #606060 #f9f9f9;
+    scrollbar-width: thin;
+  }
+
   body {
     font-family: "Lato", sans-serif;
     background-color: var(--background);
     color: var(--foreground);
+  }
+
+  main {
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   /* Override Radix Select's hidden scrollbar so the native bar is visible */
