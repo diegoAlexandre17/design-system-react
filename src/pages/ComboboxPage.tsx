@@ -107,7 +107,7 @@ export default function ComboboxPage() {
       {/* Single sync */}
       <section className="space-y-3">
         <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
-          Single — datos en memoria
+          Single — datos en constantes
         </h2>
         <div className="p-6 rounded-xl border border-border bg-muted/30">
           <div className="max-w-xs space-y-1.5">
@@ -133,7 +133,7 @@ export default function ComboboxPage() {
       {/* Multiple sync */}
       <section className="space-y-3">
         <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
-          Multiple — datos en memoria
+          Multiple — datos en constantes
         </h2>
         <div className="p-6 rounded-xl border border-border bg-muted/30">
           <div className="max-w-md space-y-1.5">
