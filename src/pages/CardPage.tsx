@@ -8,8 +8,18 @@ import {
   CardAction,
 } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { IconTileCard } from '@/components/ui/icon-tile-card'
 import EmployeeStatusCard from '@/components/common/EmployeeStatusCard'
-import { Backpack, FileText } from 'lucide-react'
+import {
+  Backpack,
+  FileText,
+  EyeOff,
+  CalendarDays,
+  Coffee,
+  Plane,
+  GraduationCap,
+  Stethoscope,
+} from 'lucide-react'
 
 export default function CardPage() {
   return (
@@ -85,6 +95,23 @@ export default function CardPage() {
         </div>
         <p className="text-xs text-muted-foreground">
           working · absent · permit · worked
+        </p>
+      </section>
+
+      {/* Icon tile card */}
+      <section className="space-y-3">
+        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">Icon tile card</h2>
+        <div className="flex flex-wrap gap-4 p-6 rounded-xl border border-border bg-muted/30">
+          <IconTileCard variant="info" icon={<EyeOff />} label="Impares" onClick={() => {}} />
+          <IconTileCard variant="success" icon={<CalendarDays />} label="Tiempo libre" count={4} onClick={() => {}} />
+          <IconTileCard variant="warning" icon={<Coffee />} label="Pausa" count={2} onClick={() => {}} />
+          <IconTileCard variant="error" icon={<Stethoscope />} label="Permiso médico" onClick={() => {}} />
+          <IconTileCard variant="orange" icon={<Plane />} label="Vacaciones" count={12} onClick={() => {}} />
+          <IconTileCard variant="purple" icon={<GraduationCap />} label="Capacitación" />
+        </div>
+        <p className="text-xs text-muted-foreground">
+          Tile clickable con icon + label. Pasá <code>count</code> para mostrar el widget de novedades.
+          Variantes: info · success · warning · error · orange · cyan · sky · neutral · blue · indigo · purple.
         </p>
       </section>
 
