@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Icon } from "@/components/icons/IconWrapper";
 import {
   ShowcasePage,
@@ -6,8 +7,21 @@ import {
 import { PendingIcon } from "@/components/icons-components/all-icons/PendingIcon";
 import { UsersSlashIcon } from "@/components/icons-components/all-icons/UsersSlashIcon";
 import { UsersIcon } from "@/components/icons-components/all-icons/Users";
+import { Input } from "@/components/ui/input";
+
+const ALL_ICONS = [
+  { icon: UsersIcon, name: "users", label: "Users" },
+  { icon: UsersSlashIcon, name: "users-slash", label: "Users Slash" },
+  { icon: PendingIcon, name: "user-clock", label: "User Clock" },
+];
 
 function IconsPage() {
+  const [search, setSearch] = useState("");
+
+  const filtered = ALL_ICONS.filter((item) =>
+    item.name.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <ShowcasePage
       title="Icons"
@@ -25,27 +39,30 @@ function IconsPage() {
             </pre>
           </div>
 
+          <Input
+            placeholder="Search icons by name…"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-            <div className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-lg border border-border bg-card px-4 py-5">
-              <Icon icon={UsersIcon} size="3xl" className="text-primary" />
-              <span className="text-xs font-medium tracking-wide text-muted-foreground">
-                Users
-              </span>
-            </div>
-
-            <div className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-lg border border-border bg-card px-4 py-5">
-              <Icon icon={UsersSlashIcon} size="3xl" className="text-primary" />
-              <span className="text-xs font-medium tracking-wide text-muted-foreground">
-                Users Slash
-              </span>
-            </div>
-
-            <div className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-lg border border-border bg-card px-4 py-5">
-              <Icon icon={PendingIcon} size="3xl" className="text-primary" />
-              <span className="text-xs font-medium tracking-wide text-muted-foreground">
-                User Clock
-              </span>
-            </div>
+            {filtered.length > 0 ? (
+              filtered.map(({ icon, name, label }) => (
+                <div
+                  key={name}
+                  className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-lg border border-border bg-card px-4 py-5"
+                >
+                  <Icon icon={icon} size="3xl" className="text-primary" name={name} />
+                  <span className="text-xs font-medium tracking-wide text-muted-foreground">
+                    {label}
+                  </span>
+                </div>
+              ))
+            ) : (
+              <p className="col-span-full text-sm text-muted-foreground">
+                No icons match &ldquo;{search}&rdquo;.
+              </p>
+            )}
           </div>
         </div>
       </ShowcaseSection>
