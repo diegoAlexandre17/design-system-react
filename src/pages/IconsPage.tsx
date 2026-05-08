@@ -1,9 +1,11 @@
 import { Icon } from "@/components/icons/IconWrapper"
-import { ActiveIcon, InactiveIcon, PendingIcon } from "@/components/icons/icons"
 import {
   ShowcasePage,
   ShowcaseSection,
 } from "@/components/component-showcase-page"
+import { ActiveIcon } from "@/components/icons-components/all-icons/ActiveIcon"
+import { InactiveIcon } from "@/components/icons-components/all-icons/InactiveIcon"
+import { PendingIcon } from "@/components/icons-components/all-icons/PendingIcon"
 
 function IconsPage() {
   return (

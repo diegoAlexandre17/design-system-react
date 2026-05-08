@@ -1,5 +1,6 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
+import type { SvgIconComponent } from "./types"
 
 /**
  * Tamaños relativos al `font-size` del contenedor (em),
@@ -18,10 +19,6 @@ const SIZE_CLASSES: Record<IconSize, string> = {
   "4xl": "text-4xl",
   "5xl": "text-5xl",
 }
-
-export type SvgIconComponent = React.ComponentType<
-  React.SVGProps<SVGSVGElement>
->
 
 export interface IconProps
   extends Omit<React.SVGProps<SVGSVGElement>, "ref"> {
