@@ -1,11 +1,11 @@
-import { Icon } from "@/components/icons/IconWrapper"
+import { Icon } from "@/components/icons/IconWrapper";
 import {
   ShowcasePage,
   ShowcaseSection,
-} from "@/components/component-showcase-page"
-import { ActiveIcon } from "@/components/icons-components/all-icons/ActiveIcon"
-import { InactiveIcon } from "@/components/icons-components/all-icons/InactiveIcon"
-import { PendingIcon } from "@/components/icons-components/all-icons/PendingIcon"
+} from "@/components/component-showcase-page";
+import { PendingIcon } from "@/components/icons-components/all-icons/PendingIcon";
+import { UsersSlashIcon } from "@/components/icons-components/all-icons/UsersSlashIcon";
+import { UsersIcon } from "@/components/icons-components/all-icons/Users";
 
 function IconsPage() {
   return (
@@ -26,35 +26,31 @@ function IconsPage() {
           </div>
 
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-            
+            <div className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-lg border border-border bg-card px-4 py-5">
+              <Icon icon={UsersIcon} size="3xl" className="text-primary" />
+              <span className="text-xs font-medium tracking-wide text-muted-foreground">
+                Users
+              </span>
+            </div>
 
             <div className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-lg border border-border bg-card px-4 py-5">
-              <Icon icon={ActiveIcon} size="3xl" className="text-primary" />
+              <Icon icon={UsersSlashIcon} size="3xl" className="text-primary" />
               <span className="text-xs font-medium tracking-wide text-muted-foreground">
-                Active Icon
+                Users Slash
               </span>
             </div>
 
             <div className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-lg border border-border bg-card px-4 py-5">
               <Icon icon={PendingIcon} size="3xl" className="text-primary" />
               <span className="text-xs font-medium tracking-wide text-muted-foreground">
-                Pending Icon
+                User Clock
               </span>
             </div>
-
-            <div className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-lg border border-border bg-card px-4 py-5">
-              <Icon icon={InactiveIcon} size="3xl" className="text-primary" />
-              <span className="text-xs font-medium tracking-wide text-muted-foreground">
-                Inactive Icon
-              </span>
-            </div>
-
           </div>
         </div>
       </ShowcaseSection>
-
     </ShowcasePage>
-  )
+  );
 }
 
-export default IconsPage
+export default IconsPage;
