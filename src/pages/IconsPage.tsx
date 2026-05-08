@@ -4,9 +4,9 @@ import {
   ShowcasePage,
   ShowcaseSection,
 } from "@/components/component-showcase-page";
-import { PendingIcon } from "@/components/icons-components/all-icons/PendingIcon";
-import { UsersSlashIcon } from "@/components/icons-components/all-icons/UsersSlashIcon";
-import { UsersIcon } from "@/components/icons-components/all-icons/Users";
+import PendingIcon from "@/assets/icons-svg/user-clock.svg?react";
+import UsersSlashIcon from "@/assets/icons-svg/users-slash.svg?react";
+import UsersIcon from "@/assets/icons-svg/users.svg?react";
 import { Input } from "@/components/ui/input";
 
 const ALL_ICONS = [
