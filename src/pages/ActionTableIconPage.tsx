@@ -5,7 +5,9 @@ import {
 } from "@/components/component-showcase-page"
 import PendingIcon from "@/assets/icons-svg/user-clock.svg?react"
 import StarIcon from "@/assets/icons-svg/star-solid.svg?react"
+import StarRegularIcon from "@/assets/icons-svg/star-regular.svg?react"
 import TrashIcon from "@/assets/icons-svg/trash-solid.svg?react"
+import TrashRegularIcon from "@/assets/icons-svg/trash-regular.svg?react"
 import UsersSlashIcon from "@/assets/icons-svg/users-slash.svg?react"
 import UsersIcon from "@/assets/icons-svg/users.svg?react"
 
@@ -20,6 +22,21 @@ export default function ActionTableIconPage() {
           <ActionTableIcon icon={UsersIcon} tooltip="Ver usuarios" />
           <ActionTableIcon icon={TrashIcon} tooltip="Eliminar" />
           <ActionTableIcon icon={StarIcon} tooltip="Destacar" />
+        </div>
+      </ShowcaseSection>
+
+      <ShowcaseSection title="Hover Solid">
+        <div className="flex items-center gap-4">
+          <ActionTableIcon
+            icon={TrashRegularIcon}
+            iconSolid={TrashIcon}
+            tooltip="Eliminar"
+          />
+          <ActionTableIcon
+            icon={StarRegularIcon}
+            iconSolid={StarIcon}
+            tooltip="Destacar"
+          />
         </div>
       </ShowcaseSection>
 
