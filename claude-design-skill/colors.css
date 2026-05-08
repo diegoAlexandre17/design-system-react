@@ -1,0 +1,125 @@
+/*
+ * colors.css — MyIntelli Design System CSS custom properties
+ * Source: src/App.css (verbatim snapshot 2026-05-08)
+ *
+ * Paste this block into any project to seed the token palette.
+ * All components in the design system reference these variables.
+ */
+
+@layer theme {
+  :root {
+    /* Light theme */
+    --background: #e9f3fe;
+    --background-gray: #eff6fe;
+    --foreground: #5d5d5d;
+    --card: #ffffff;
+    --card-foreground: #0a0a0a;
+    --popover: #ffffff;
+    --popover-foreground: #0a0a0a;
+    --primary: #2585f4;
+    --primary-light: #ecf4fe;
+    --primary-foreground: #fafafa;
+    --secondary: #a7a7a7;
+    --secondary-light: #dfdfdf;
+    --secondary-foreground: #171717;
+    --muted: #f5f5f5;
+    --muted-foreground: #737373;
+    --accent: #f5f5f5;
+    --accent-foreground: #171717;
+    --destructive: #fd5656;
+    --destructive-light: #ffdddd;
+    --destructive-medium: #FFBDAD;
+    --destructive-foreground: #fafafa;
+    --success: #5fc85f;
+    --success-light: #DFF4DF;
+    --working: #5ec85e;
+    --working-bg: #5ec85e33;
+    --absent: #fd5656;
+    --absent-bg: #fd565633;
+    --permit: #fc9245;
+    --permit-bg: #fc924533;
+    --worked: #5d5d5d;
+    --worked-bg: #5d5d5d33;
+    --green: #53C18A;
+    --success-foreground: #fafafa;
+    --warning: #fc9245;
+    --warning-light: #ffefe3;
+    --warning-foreground: #fafafa;
+    --border: #e5e5e5;
+    --input: #e5e5e5;
+    --ring: #0a0a0a;
+    --chip-background: #E6E6E6;
+    --black-light: #333;
+    --gray-medium: #808080;
+    --gray-light: #999999;
+    --radius: 0.5rem;
+    --chart-1: #e76e50;
+    --chart-2: #2a9d90;
+    --chart-3: #274754;
+    --success-badge: #EFF9EF;
+    --warning-badge: #FEFAE6;
+    --error-badge: #FFEEEE;
+    --info-badge: #EDF7F9;
+    --orange-badge: #FFF0EC;
+    --cyan-badge: #E9FCFC;
+    --sky-badge: #DDF0FF;
+    --neutral-badge: #E8EBF2;
+    --blue-badge: #E5F0FE;
+    --indigo-badge: #EFF1FA;
+    --mint-badge: #DFF4DF;
+    --rose-badge: #FFEBEB;
+    --purple-badge: #B66DFF;
+    --success-badge-text: #5EC85E;
+    --warning-badge-text: #F1CC05;
+    --error-badge-text: #FD5656;
+    --info-badge-text: #33B7C9;
+    --orange-badge-text: #FF885C;
+    --cyan-badge-text: #00D7D7;
+    --sky-badge-text: #55ADFF;
+    --neutral-badge-text: #5C6696;
+    --blue-badge-text: #2485F4;
+    --indigo-badge-text: #6176CE;
+    --purple-badge-text: #B66DFF;
+  }
+
+  .dark {
+    --background: #0a0a0a;
+    --foreground: #fafafa;
+    --card: #0a0a0a;
+    --card-foreground: #fafafa;
+    --popover: #0a0a0a;
+    --popover-foreground: #fafafa;
+    --primary: #1d6cc6;
+    --primary-light: #ecf4fe;
+    --primary-foreground: #fafafa;
+    --secondary: #a7a7a7;
+    --secondary-foreground: #fafafa;
+    --muted: #262626;
+    --muted-foreground: #a3a3a3;
+    --accent: #262626;
+    --accent-foreground: #fafafa;
+    --destructive: #fd5656;
+    --destructive-foreground: #fafafa;
+    --success: #1b9849;
+    --working: #5ec85e;
+    --working-bg: #5ec85e33;
+    --absent: #fd5656;
+    --absent-bg: #fd565633;
+    --permit: #fc9245;
+    --permit-bg: #fc924533;
+    --worked: #5d5d5d;
+    --worked-bg: #5d5d5d33;
+    --success-foreground: #fafafa;
+    --warning: #f37216;
+    --warning-foreground: #171717;
+    --border: #262626;
+    --input: #262626;
+    --ring: #D4D4D4;
+    --gray-light: #999999;
+    --chart-1: #2662D9;
+    --chart-2: #2EB88A;
+    --chart-3: #E88C30;
+    --chart-4: #AF57DB;
+    --chart-5: #E23670;
+  }
+}
