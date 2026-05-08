@@ -3,11 +3,13 @@ import {
   ShowcasePage,
   ShowcaseSection,
 } from "@/components/component-showcase-page"
-import { PendingIcon } from "@/components/icons-components/all-icons/PendingIcon"
-import { StarIcon } from "@/components/icons-components/all-icons/StarIcon"
-import { TrashIcon } from "@/components/icons-components/all-icons/TrashIcon"
-import { UsersSlashIcon } from "@/components/icons-components/all-icons/UsersSlashIcon"
-import { Users } from "lucide-react"
+import PendingIcon from "@/assets/icons-svg/user-clock.svg?react"
+import StarIcon from "@/assets/icons-svg/star-solid.svg?react"
+import StarRegularIcon from "@/assets/icons-svg/star-regular.svg?react"
+import TrashIcon from "@/assets/icons-svg/trash-solid.svg?react"
+import TrashRegularIcon from "@/assets/icons-svg/trash-regular.svg?react"
+import UsersSlashIcon from "@/assets/icons-svg/users-slash.svg?react"
+import UsersIcon from "@/assets/icons-svg/users.svg?react"
 
 export default function ActionTableIconPage() {
   return (
@@ -17,16 +19,31 @@ export default function ActionTableIconPage() {
     >
       <ShowcaseSection title="Default">
         <div className="flex items-center gap-4">
-          <ActionTableIcon icon={Users} tooltip="Ver usuarios" />
-          <ActionTableIcon icon={TrashIcon} tooltip="Pendiente" />
-          <ActionTableIcon icon={StarIcon} tooltip="Usuarios inactivos" />
+          <ActionTableIcon icon={UsersIcon} tooltip="Ver usuarios" />
+          <ActionTableIcon icon={TrashIcon} tooltip="Eliminar" />
+          <ActionTableIcon icon={StarIcon} tooltip="Destacar" />
+        </div>
+      </ShowcaseSection>
+
+      <ShowcaseSection title="Hover Solid">
+        <div className="flex items-center gap-4">
+          <ActionTableIcon
+            icon={TrashRegularIcon}
+            iconSolid={TrashIcon}
+            tooltip="Eliminar"
+          />
+          <ActionTableIcon
+            icon={StarRegularIcon}
+            iconSolid={StarIcon}
+            tooltip="Destacar"
+          />
         </div>
       </ShowcaseSection>
 
       <ShowcaseSection title="Disabled">
         <div className="flex items-center gap-4">
-          <ActionTableIcon icon={Users} tooltip="Ver usuarios" disabled />
-          <ActionTableIcon icon={StarIcon} tooltip="Pendiente" disabled />
+          <ActionTableIcon icon={UsersIcon} tooltip="Ver usuarios" disabled />
+          <ActionTableIcon icon={StarIcon} tooltip="Destacar" disabled />
           <ActionTableIcon
             icon={UsersSlashIcon}
             tooltip="Usuarios inactivos"
@@ -37,7 +54,7 @@ export default function ActionTableIconPage() {
 
       <ShowcaseSection title="Loading">
         <div className="flex items-center gap-4">
-          <ActionTableIcon icon={Users} tooltip="Ver usuarios" loading />
+          <ActionTableIcon icon={UsersIcon} tooltip="Ver usuarios" loading />
           <ActionTableIcon icon={PendingIcon} tooltip="Pendiente" loading />
           <ActionTableIcon
             icon={UsersSlashIcon}

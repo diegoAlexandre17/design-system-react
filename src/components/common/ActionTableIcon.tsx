@@ -10,6 +10,8 @@ import { cn } from "@/lib/utils"
 
 interface ActionTableIconProps {
   icon: IconProps["icon"]
+  /** Ícono alternativo que se muestra al hacer hover (ej: versión solid). */
+  iconSolid?: IconProps["icon"]
   tooltip: string
   disabled?: boolean
   loading?: boolean
@@ -19,6 +21,7 @@ interface ActionTableIconProps {
 
 const ActionTableIcon = ({
   icon,
+  iconSolid,
   tooltip,
   disabled = false,
   loading = false,
@@ -34,7 +37,7 @@ const ActionTableIcon = ({
             disabled={disabled || loading}
             onClick={onClick}
             className={cn(
-              "inline-flex items-center cursor-pointer justify-center text-primary transition-colors",
+              "group inline-flex items-center cursor-pointer justify-center text-primary transition-colors",
               "hover:text-primary/80 disabled:pointer-events-none disabled:opacity-50",
               className
             )}
@@ -42,7 +45,12 @@ const ActionTableIcon = ({
             {loading ? (
               <Loader2 className="animate-spin" />
             ) : (
-              <Icon icon={icon} size='md' />
+              <>
+                <Icon icon={icon} size='md' className={cn(iconSolid && "group-hover:hidden")} />
+                {iconSolid && (
+                  <Icon icon={iconSolid} size='md' className="hidden group-hover:block" />
+                )}
+              </>
             )}
           </button>
         </TooltipTrigger>

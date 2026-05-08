@@ -1,6 +1,7 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 import type { SvgIconComponent } from "./types"
+import { defaultProps } from "./iconDefaultProps"
 
 /**
  * Tamaños relativos al `font-size` del contenedor (em),
@@ -51,10 +52,13 @@ export function Icon({
 }: IconProps) {
   return (
     <SvgComponent
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
       focusable="false"
       width="1em"
       height="1em"
+      {...defaultProps}
       {...props}
       className={cn("inline-block shrink-0", SIZE_CLASSES[size], className)}
     />
