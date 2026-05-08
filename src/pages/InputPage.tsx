@@ -1,14 +1,7 @@
 import { useState } from "react"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import {
-  Info,
-  Eye,
-  AlertTriangle,
-  Check,
-  Clock,
-  CalendarDays,
-} from "lucide-react"
+import { Info, Eye, AlertTriangle, Check } from "lucide-react"
 import {
   ShowcasePage,
   ShowcaseSection,
@@ -156,40 +149,8 @@ export default function InputPage() {
         </p>
         <div className="flex flex-wrap items-start gap-6">
           <div className="flex flex-col space-y-1.5">
-            <Label required>Title</Label>
-            <Input defaultValue="Text" readOnly />
-          </div>
-          <div className="flex flex-col space-y-1.5">
-            <Label>Hora de Reincorporación</Label>
-            <div className="relative">
-              <Clock className="absolute left-2.5 top-1/2 size-3.5 -translate-y-1/2 text-primary" />
-              <Input
-                type="time"
-                defaultValue="16:00"
-                readOnly
-                className="bg-blue-50 pl-8"
-              />
-            </div>
-          </div>
-          <div className="flex flex-col space-y-1.5">
-            <Label>Día de Reincorporación</Label>
-            <div className="relative">
-              <CalendarDays className="absolute left-2.5 top-1/2 size-3.5 -translate-y-1/2 text-green-500" />
-              <Input
-                type="date"
-                defaultValue="2025-03-25"
-                readOnly
-                className="bg-green-50 pl-8"
-              />
-            </div>
-          </div>
-          <div className="flex flex-col space-y-1.5">
             <Label required>Correo principal</Label>
-            <Input
-              type="email"
-              placeholder="karenrogrigrd958@gmail.com"
-              readOnly
-            />
+            <Input type="email" placeholder="karen@gmail.com" readOnly />
           </div>
         </div>
       </ShowcaseSection>
@@ -240,13 +201,6 @@ export default function InputPage() {
                   default: "false",
                   description:
                     "Prevents all interaction. Applies reduced opacity and blocks pointer events.",
-                },
-                {
-                  prop: "readOnly",
-                  type: "boolean",
-                  default: "false",
-                  description:
-                    "Allows focus and text selection but not editing. Use for informative fields.",
                 },
                 {
                   prop: "aria-invalid",
