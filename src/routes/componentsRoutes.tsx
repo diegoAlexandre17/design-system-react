@@ -19,6 +19,7 @@ import ChartsIconPage from "@/pages/ChartsIconPage"
 import BadgePage from "@/pages/BadgePage"
 import PersonsPage from "@/pages/Persons/PersonsPage"
 import ColorsPage from "@/pages/ColorsPage"
+import ActionTableIconPage from "@/pages/ActionTableIconPage"
 
 
 export interface ComponentRoute {
@@ -125,6 +126,11 @@ export const componentsSections: ComponentSection[] = [
         path: "icon",
         label: "Icons",
         element: <IconsPage />,
+      },
+      {
+        path: "action-table-icon",
+        label: "Table Action Icon",
+        element: <ActionTableIconPage />,
       },
       {
         path: "charts-icons",
