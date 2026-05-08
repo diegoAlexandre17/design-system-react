@@ -8,6 +8,8 @@ import {
   CardAction,
 } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import EmployeeStatusCard from '@/components/common/EmployeeStatusCard'
+import { Backpack, FileText } from 'lucide-react'
 
 export default function CardPage() {
   return (
@@ -18,6 +20,73 @@ export default function CardPage() {
           Container component to group related content. Composed of header, content and footer slots.
         </p>
       </div>
+
+      {/* Employee status */}
+      <section className="space-y-3">
+        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">Employee status</h2>
+        <div className="flex flex-wrap gap-4 p-6 rounded-xl border border-border bg-muted/30">
+          <EmployeeStatusCard
+            name="Jose Blanco"
+            avatarSrc="https://github.com/shadcn.png"
+            status="working"
+            data={{
+              clockin: '07:43 am',
+              hours: '3.32 hrs',
+              location: 'Oficina Colombia',
+            }}
+            roleBadges={[
+              { icon: <Backpack />, label: 'Equipo de campo', variant: 'info' },
+            ]}
+            devices={['faceMobile']}
+          />
+
+          <EmployeeStatusCard
+            name="Ana Torres"
+            status="absent"
+            data={{
+              planned: '08:00 am',
+              hours: '6.00 hrs',
+              location: 'Eeuu',
+            }}
+          />
+
+          <EmployeeStatusCard
+            name="Carlos Ruiz"
+            status="permit"
+            data={{
+              planned: 'Diario',
+              location: 'Permiso médico',
+            }}
+            roleBadges={[
+              {
+                icon: <FileText />,
+                label: 'Permiso documentado',
+                variant: 'orange',
+              },
+              {
+                icon: <Backpack />,
+                label: 'Equipo de campo',
+                variant: 'info',
+              },
+            ]}
+          />
+
+          <EmployeeStatusCard
+            name="Mario Díaz"
+            status="worked"
+            data={{
+              clockin: '07:43 am',
+              clockout: '16:50 pm',
+              hours: '9.07 hrs',
+              location: 'Valencia',
+            }}
+            devices={['fingerprintBiometric']}
+          />
+        </div>
+        <p className="text-xs text-muted-foreground">
+          working · absent · permit · worked
+        </p>
+      </section>
 
       {/* Default */}
       <section className="space-y-3">
@@ -34,7 +103,7 @@ export default function CardPage() {
               </p>
             </CardContent>
             <CardFooter>
-              <Button size="sm" variant='outline'>Ver todo</Button>
+              <Button size="sm" variant="outline" className="font-normal shadow-none">Ver todo</Button>
             </CardFooter>
           </Card>
         </div>
@@ -148,7 +217,7 @@ export default function CardPage() {
               <CardTitle>Equipo de diseño</CardTitle>
               <CardDescription>5 miembros activos</CardDescription>
               <CardAction>
-                <Button size="sm" variant="outline">Editar</Button>
+                <Button size="sm" variant="outline" className="font-normal shadow-none" >Editar</Button>
               </CardAction>
             </CardHeader>
             <CardContent>
@@ -172,6 +241,7 @@ export default function CardPage() {
           </Card>
         </div>
       </section>
+
     </div>
   )
 }
