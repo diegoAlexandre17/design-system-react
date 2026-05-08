@@ -26,60 +26,29 @@ function IconsPage() {
           </div>
 
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-            <div className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-lg border border-border bg-card px-4 py-5">
-              <Icon icon={ActiveIcon} size="xs" className="text-primary" />
-              <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                xs
-              </span>
-            </div>
-            <div className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-lg border border-border bg-card px-4 py-5">
-              <Icon icon={InactiveIcon} size="sm" className="text-primary" />
-              <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                sm
-              </span>
-            </div>
-            <div className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-lg border border-border bg-card px-4 py-5">
-              <Icon icon={ActiveIcon} size="md" className="text-primary" />
-              <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                md
-              </span>
-            </div>
-            <div className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-lg border border-border bg-card px-4 py-5">
-              <Icon icon={ActiveIcon} size="lg" className="text-primary" />
-              <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                lg
-              </span>
-            </div>
-            <div className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-lg border border-border bg-card px-4 py-5">
-              <Icon icon={ActiveIcon} size="xl" className="text-primary" />
-              <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                xl
-              </span>
-            </div>
-            <div className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-lg border border-border bg-card px-4 py-5">
-              <Icon icon={ActiveIcon} size="2xl" className="text-primary" />
-              <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                2xl
-              </span>
-            </div>
+            
+
             <div className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-lg border border-border bg-card px-4 py-5">
               <Icon icon={ActiveIcon} size="3xl" className="text-primary" />
-              <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                3xl
+              <span className="text-xs font-medium tracking-wide text-muted-foreground">
+                Active Icon
               </span>
             </div>
+
             <div className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-lg border border-border bg-card px-4 py-5">
-              <Icon icon={ActiveIcon} size="4xl" className="text-primary" />
-              <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                4xl
+              <Icon icon={PendingIcon} size="3xl" className="text-primary" />
+              <span className="text-xs font-medium tracking-wide text-muted-foreground">
+                Pending Icon
               </span>
             </div>
+
             <div className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-lg border border-border bg-card px-4 py-5">
-              <Icon icon={PendingIcon} size="5xl" className="text-primary" />
-              <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                5xl
+              <Icon icon={InactiveIcon} size="3xl" className="text-primary" />
+              <span className="text-xs font-medium tracking-wide text-muted-foreground">
+                Inactive Icon
               </span>
             </div>
+
           </div>
         </div>
       </ShowcaseSection>
