@@ -55,13 +55,13 @@ function Calendar({
           defaultClassNames.nav
         ),
         button_previous: cn(
-          buttonVariants({ variant: buttonVariant }),
-          "size-(--cell-size) p-0 select-none aria-disabled:opacity-50",
+          buttonVariants({ variant: buttonVariant, size: "icon" }),
+          "size-6 p-0 shadow-none select-none aria-disabled:opacity-50",
           defaultClassNames.button_previous
         ),
         button_next: cn(
-          buttonVariants({ variant: buttonVariant }),
-          "size-(--cell-size) p-0 select-none aria-disabled:opacity-50",
+          buttonVariants({ variant: buttonVariant, size: "icon" }),
+          "size-6 p-0 shadow-none select-none aria-disabled:opacity-50",
           defaultClassNames.button_next
         ),
         month_caption: cn(
@@ -110,12 +110,12 @@ function Calendar({
           defaultClassNames.day
         ),
         range_start: cn(
-          "relative isolate z-0 rounded-l-(--cell-radius) bg-info after:absolute after:inset-y-0 after:right-0 after:w-4 after:bg-info",
+          "relative isolate z-0 rounded-l-(--cell-radius) bg-primary-light after:absolute after:inset-y-0 after:right-0 after:w-4 after:bg-primary-light",
           defaultClassNames.range_start
         ),
         range_middle: cn("rounded-none", defaultClassNames.range_middle),
         range_end: cn(
-          "relative isolate z-0 rounded-r-(--cell-radius) bg-info after:absolute after:inset-y-0 after:left-0 after:w-4 after:bg-info",
+          "relative isolate z-0 rounded-r-(--cell-radius) bg-primary-light after:absolute after:inset-y-0 after:left-0 after:w-4 after:bg-primary-light",
           defaultClassNames.range_end
         ),
         today: cn(
@@ -210,7 +210,7 @@ function CalendarDayButton({
       data-range-end={modifiers.range_end}
       data-range-middle={modifiers.range_middle}
       className={cn(
-        "relative isolate z-10 flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 border-0 leading-none font-normal focus-visible:ring-0 focus-visible:outline-none data-[range-end=true]:rounded-(--cell-radius) data-[range-end=true]:rounded-r-(--cell-radius) data-[range-end=true]:bg-primary data-[range-end=true]:text-primary-foreground data-[range-middle=true]:rounded-none data-[range-middle=true]:bg-info data-[range-middle=true]:text-foreground data-[range-start=true]:rounded-(--cell-radius) data-[range-start=true]:rounded-l-(--cell-radius) data-[range-start=true]:bg-primary data-[range-start=true]:text-primary-foreground data-[selected-single=true]:bg-primary data-[selected-single=true]:text-primary-foreground dark:hover:text-foreground [&>span]:text-xs [&>span]:opacity-70",
+        "relative isolate z-10 flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 border-0 shadow-none leading-none font-normal focus-visible:ring-0 focus-visible:outline-none data-[range-end=true]:rounded-(--cell-radius) data-[range-end=true]:rounded-r-(--cell-radius) data-[range-end=true]:bg-primary data-[range-end=true]:text-primary-foreground data-[range-middle=true]:rounded-none data-[range-middle=true]:bg-primary-light data-[range-middle=true]:text-foreground data-[range-start=true]:rounded-(--cell-radius) data-[range-start=true]:rounded-l-(--cell-radius) data-[range-start=true]:bg-primary data-[range-start=true]:text-primary-foreground data-[selected-single=true]:bg-primary data-[selected-single=true]:text-primary-foreground dark:hover:text-foreground [&>span]:text-xs [&>span]:opacity-70",
         defaultClassNames.day,
         className
       )}
