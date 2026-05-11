@@ -23,7 +23,6 @@ import ColorsPage from "@/pages/ColorsPage"
 import ActionTableIconPage from "@/pages/ActionTableIconPage"
 import DatepickerPage from "@/pages/DatepickerPage"
 
-
 export interface ComponentRoute {
   path: string
   label: string
@@ -160,7 +159,7 @@ export const componentsSections: ComponentSection[] = [
         element: <PersonsPage />,
       },
     ],
-  }
+  },
 ]
 
 /** Flat list of all component routes — use this with React Router's <Route> */

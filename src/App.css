@@ -22,6 +22,7 @@
   --color-black-light: var(--black-light);
   --color-gray-medium: var(--gray-medium);
   --color-gray-light: var(--gray-light);
+  --color-gray-ultra-light: var(--gray-ultra-light);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -136,6 +137,7 @@
     --black-light: #333;
     --gray-medium: #808080;
     --gray-light: #999999;
+    --gray-ultra-light: #D7D7D7;
     --radius: 0.5rem;
     --chart-1: #e76e50;
     --chart-2: #2a9d90;

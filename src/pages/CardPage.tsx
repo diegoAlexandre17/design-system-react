@@ -21,6 +21,9 @@ import {
   GraduationCap,
   Stethoscope,
 } from 'lucide-react'
+import ProfilePanelSection from "./ProfilePanelSection"
+import ProfileShiftSection from "./ProfileShiftSection"
+
 
 export default function CardPage() {
   const [selectedTile, setSelectedTile] = useState<string | null>('success')
@@ -31,36 +34,39 @@ export default function CardPage() {
       <div>
         <h1 className="text-2xl font-semibold text-foreground">Card</h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          Container component to group related content. Composed of header, content and footer slots.
+          Container component to group related content. Composed of header,
+          content and footer slots.
         </p>
       </div>
 
       {/* Employee status */}
       <section className="space-y-3">
-        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">Employee status</h2>
+        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
+          Employee status
+        </h2>
         <div className="flex flex-wrap gap-4 p-6 rounded-xl border border-border bg-muted/30">
           <EmployeeStatusCard
             name="Jose Blanco"
             avatarSrc="https://github.com/shadcn.png"
             status="working"
             data={{
-              clockin: '07:43 am',
-              hours: '3.32 hrs',
-              location: 'Oficina Colombia',
+              clockin: "07:43 am",
+              hours: "3.32 hrs",
+              location: "Oficina Colombia",
             }}
             roleBadges={[
-              { icon: <Backpack />, label: 'Equipo de campo', variant: 'info' },
+              { icon: <Backpack />, label: "Equipo de campo", variant: "info" },
             ]}
-            devices={['faceMobile']}
+            devices={["faceMobile"]}
           />
 
           <EmployeeStatusCard
             name="Ana Torres"
             status="absent"
             data={{
-              planned: '08:00 am',
-              hours: '6.00 hrs',
-              location: 'Eeuu',
+              planned: "08:00 am",
+              hours: "6.00 hrs",
+              location: "Eeuu",
             }}
           />
 
@@ -68,19 +74,19 @@ export default function CardPage() {
             name="Carlos Ruiz"
             status="permit"
             data={{
-              planned: 'Diario',
-              location: 'Permiso médico',
+              planned: "Diario",
+              location: "Permiso médico",
             }}
             roleBadges={[
               {
                 icon: <FileText />,
-                label: 'Permiso documentado',
-                variant: 'orange',
+                label: "Permiso documentado",
+                variant: "orange",
               },
               {
                 icon: <Backpack />,
-                label: 'Equipo de campo',
-                variant: 'info',
+                label: "Equipo de campo",
+                variant: "info",
               },
             ]}
           />
@@ -89,12 +95,12 @@ export default function CardPage() {
             name="Mario Díaz"
             status="worked"
             data={{
-              clockin: '07:43 am',
-              clockout: '16:50 pm',
-              hours: '9.07 hrs',
-              location: 'Valencia',
+              clockin: "07:43 am",
+              clockout: "16:50 pm",
+              hours: "9.07 hrs",
+              location: "Valencia",
             }}
-            devices={['fingerprintBiometric']}
+            devices={["fingerprintBiometric"]}
           />
         </div>
         <p className="text-xs text-muted-foreground">
@@ -137,7 +143,9 @@ export default function CardPage() {
 
       {/* Default */}
       <section className="space-y-3">
-        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">Default</h2>
+        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
+          Default
+        </h2>
         <div className="p-6 rounded-xl border border-border bg-muted/30">
           <Card className="max-w-sm">
             <CardHeader>
@@ -146,11 +154,18 @@ export default function CardPage() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                Revisá tu bandeja para ver las últimas actualizaciones de tus proyectos.
+                Revisá tu bandeja para ver las últimas actualizaciones de tus
+                proyectos.
               </p>
             </CardContent>
             <CardFooter>
-              <Button size="sm" variant="outline" className="font-normal shadow-none">Ver todo</Button>
+              <Button
+                size="sm"
+                variant="outline"
+                className="font-normal shadow-none"
+              >
+                Ver todo
+              </Button>
             </CardFooter>
           </Card>
         </div>
@@ -161,7 +176,9 @@ export default function CardPage() {
 
       {/* Variants */}
       <section className="space-y-3">
-        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">Variants</h2>
+        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
+          Variants
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-6 rounded-xl border border-border bg-muted/30">
           <Card>
             <CardHeader>
@@ -179,7 +196,9 @@ export default function CardPage() {
               <CardDescription>Fondo neutro</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">Para contenido secundario.</p>
+              <p className="text-muted-foreground">
+                Para contenido secundario.
+              </p>
             </CardContent>
           </Card>
 
@@ -189,7 +208,9 @@ export default function CardPage() {
               <CardDescription>Tinte de marca</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">Resalta acciones o anuncios destacados.</p>
+              <p className="text-muted-foreground">
+                Resalta acciones o anuncios destacados.
+              </p>
             </CardContent>
           </Card>
 
@@ -199,7 +220,9 @@ export default function CardPage() {
               <CardDescription>Borde más suave</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">Igual que default pero con border-border.</p>
+              <p className="text-muted-foreground">
+                Igual que default pero con border-border.
+              </p>
             </CardContent>
           </Card>
 
@@ -209,7 +232,9 @@ export default function CardPage() {
               <CardDescription>Sin fondo ni borde</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">Útil cuando se anida en otros contenedores.</p>
+              <p className="text-muted-foreground">
+                Útil cuando se anida en otros contenedores.
+              </p>
             </CardContent>
           </Card>
 
@@ -219,7 +244,9 @@ export default function CardPage() {
               <CardDescription>Fondo blanco sin borde</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">Limpio para superficies que ya tienen contorno.</p>
+              <p className="text-muted-foreground">
+                Limpio para superficies que ya tienen contorno.
+              </p>
             </CardContent>
           </Card>
         </div>
@@ -230,7 +257,9 @@ export default function CardPage() {
 
       {/* Sizes */}
       <section className="space-y-3">
-        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">Sizes</h2>
+        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
+          Sizes
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-6 rounded-xl border border-border bg-muted/30">
           <Card size="default">
             <CardHeader>
@@ -248,7 +277,9 @@ export default function CardPage() {
               <CardDescription>gap 3 · padding 3</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">Compacto para listas densas.</p>
+              <p className="text-muted-foreground">
+                Compacto para listas densas.
+              </p>
             </CardContent>
           </Card>
         </div>
@@ -257,19 +288,28 @@ export default function CardPage() {
 
       {/* With action */}
       <section className="space-y-3">
-        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">With action</h2>
+        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
+          With action
+        </h2>
         <div className="p-6 rounded-xl border border-border bg-muted/30">
           <Card className="max-w-md">
             <CardHeader>
               <CardTitle>Equipo de diseño</CardTitle>
               <CardDescription>5 miembros activos</CardDescription>
               <CardAction>
-                <Button size="sm" variant="outline" className="font-normal shadow-none" >Editar</Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="font-normal shadow-none"
+                >
+                  Editar
+                </Button>
               </CardAction>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                Espacio compartido para gestionar componentes y tokens del design system.
+                Espacio compartido para gestionar componentes y tokens del
+                design system.
               </p>
             </CardContent>
           </Card>
@@ -278,7 +318,9 @@ export default function CardPage() {
 
       {/* Header only */}
       <section className="space-y-3">
-        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">Header only</h2>
+        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
+          Header only
+        </h2>
         <div className="p-6 rounded-xl border border-border bg-muted/30">
           <Card className="max-w-sm">
             <CardHeader>
@@ -289,6 +331,29 @@ export default function CardPage() {
         </div>
       </section>
 
+      {/* Card Profile Monitoreo */}
+      <section className="space-y-3">
+        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
+          Panel Monitoreo
+        </h2>
+        <div className="p-6 rounded-xl border border-border bg-muted/30">
+          <ProfilePanelSection
+            name="Luis Agustin Linares Novellino"
+            job="Diseño Gráfico"
+            department="Diseño"
+            location="Venezuela"
+            avatarFallback="LN"
+          />
+        </div>
+      </section>
+      <section className="space-y-3">
+        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">
+          Panel Planificación y Tiempos
+        </h2>
+        <div className="p-6 rounded-xl border border-border bg-muted/30">
+          <ProfileShiftSection />
+        </div>
+      </section>
     </div>
   )
 }
