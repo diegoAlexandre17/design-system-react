@@ -2,10 +2,9 @@ import IconsChartCard from "@/components/common/charts/IconsChartCard";
 import type {
   ChartSegment,
   PieChartTooltipContext,
-} from "@/components/common/PieChart";
-import PieChart from "@/components/common/PieChart";
-import PieChartApex from "@/components/common/PieChartApex";
-import type { RingsChartTooltipContext } from "@/components/common/RingsChart";
+} from "@/components/common/charts/PieChart";
+import PieChartApex from "@/components/common/charts/PieChartApex";
+import type { RingsChartTooltipContext } from "@/components/common/charts/RingsChart";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Text } from "@/components/ui/text";
 import { User, UserMinus, UserPlus } from "lucide-react";

@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import Chart from "react-apexcharts";
 import type { ApexOptions } from "apexcharts";
 import type { CSSProperties } from "react";
-import type { ChartSegment } from "./PieChart";
+import type { ChartSegment } from "./charts/PieChart";
 
 export type PieChartApexTooltipContext = {
   segment: ChartSegment;

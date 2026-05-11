@@ -2,16 +2,16 @@ import type { ReactNode } from "react"
 import PieChart, {
   type ChartSegment,
   type PieChartTooltipContext,
-} from "@/components/common/PieChart"
-import PieChartApex from "@/components/common/PieChartApex"
+} from "@/components/common/charts/PieChart"
 import RingsChart, {
   type RingsChartTooltipContext,
-} from "@/components/common/RingsChart"
-import RingsChartApex from "@/components/common/RingsChartApex"
+} from "@/components/common/charts/RingsChart"
+import RingsChartApex from "@/components/common/charts/RingsChartApex"
 import {
   ShowcasePage,
   ShowcaseSection,
 } from "@/components/component-showcase-page";
+import PieChartApex from "@/components/common/charts/PieChartApex";
 
 const formatHours = (ctx: PieChartTooltipContext | RingsChartTooltipContext) =>
   `${ctx.segment.name}: ${ctx.segment.value}h 00m (${ctx.percent.toFixed(1)}%)`;
