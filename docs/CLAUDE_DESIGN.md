@@ -31,8 +31,10 @@ La documentación está dividida en archivos por componente — usá este índic
 
 ## 🧩 Componentes Compuestos (`src/components/common/`)
 
+- [ActionTableIcon](ActionTableIcon.md)
 - [DataTable](DataTable.md)
 - [EmployeeNameInfo](EmployeeNameInfo.md)
+- [EmployeeStatusCard](EmployeeStatusCard.md)
 - [IconsChartCard](IconsChartCard.md)
 - [PieChart / PieChartApex](PieChart.md)
 - [RingsChart / RingsChartApex](RingsChart.md)
@@ -40,7 +42,11 @@ La documentación está dividida en archivos por componente — usá este índic
 
 ## 🌟 Iconos custom (`src/components/icons/`)
 
-- [Icons (StarIcon, TrashIcon)](Icons.md)
+- [Icons (IconWrapper + SVGs)](Icons.md)
+
+## 📐 Layouts (`src/layouts/`)
+
+- [AppLayout](AppLayout.md)
 
 ## 🎨 Tokens y patrones
 

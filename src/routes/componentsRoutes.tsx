@@ -19,6 +19,8 @@ import ChartsIconPage from "@/pages/ChartsIconPage"
 import BadgePage from "@/pages/BadgePage"
 import PersonsPage from "@/pages/Persons/PersonsPage"
 import ColorsPage from "@/pages/ColorsPage"
+import ActionTableIconPage from "@/pages/ActionTableIconPage"
+import DatepickerPage from "@/pages/DatepickerPage"
 
 export interface ComponentRoute {
   path: string
@@ -126,9 +128,19 @@ export const componentsSections: ComponentSection[] = [
         element: <IconsPage />,
       },
       {
+        path: "action-table-icon",
+        label: "Table Action Icon",
+        element: <ActionTableIconPage />,
+      },
+      {
         path: "charts-icons",
         label: "Charts Icons",
         element: <ChartsIconPage />,
+      },
+      {
+        path: "datepicker",
+        label: "Datepicker",
+        element: <DatepickerPage />,
       },
     ],
   },

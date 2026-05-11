@@ -5,7 +5,7 @@ import { Slot } from "radix-ui";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium font-semibold cursor-pointer shadow-[0px_3px_1px_-2px_rgba(0,0,0,0.2),_0px_2px_2px_0px_rgba(0,0,0,0.14),_0px_1px_5px_0px_rgba(0,0,0,0.12)] ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium font-semibold cursor-pointer shadow-[0px_3px_1px_-2px_rgba(0,0,0,0.2),_0px_2px_2px_0px_rgba(0,0,0,0.14),_0px_1px_5px_0px_rgba(0,0,0,0.12)] ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none",
   {
     variants: {
       variant: {
@@ -58,4 +58,4 @@ function Button({
   );
 }
 
-export { Button };
+export { Button, buttonVariants };
