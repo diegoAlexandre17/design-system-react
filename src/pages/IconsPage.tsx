@@ -52,7 +52,7 @@ function IconsPage() {
                   key={name}
                   className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-lg border border-border bg-card px-4 py-5"
                 >
-                  <Icon icon={icon} size="3xl" className="text-destructive" name={name} />
+                  <Icon icon={icon} size="3xl" className="text-primary" name={name} />
                   <span className="text-xs font-medium tracking-wide text-muted-foreground">
                     {label}
                   </span>
