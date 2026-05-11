@@ -1,4 +1,4 @@
-import { ArrowBigLeftIcon, BriefcaseIcon, SlashIcon, UserIcon } from 'lucide-react'
+import { ArrowBigLeftIcon, BriefcaseIcon, UserIcon } from 'lucide-react'
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -165,34 +165,6 @@ export default function BreadcrumbsPage() {
         </p>
       </section>
 
-      {/* Custom separator */}
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">Custom separator</h2>
-        <div className="p-6 rounded-xl border border-border bg-muted/30">
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink href="#">Inicio</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator>
-                <SlashIcon />
-              </BreadcrumbSeparator>
-              <BreadcrumbItem>
-                <BreadcrumbLink href="#">Componentes</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator>
-                <SlashIcon />
-              </BreadcrumbSeparator>
-              <BreadcrumbItem>
-                <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-        </div>
-        <p className="text-xs text-muted-foreground">
-          El separador acepta <code>children</code>; podés pasar cualquier ícono.
-        </p>
-      </section>
     </div>
   )
 }
