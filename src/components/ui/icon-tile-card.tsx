@@ -5,12 +5,31 @@ import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 
 const iconTileCardVariants = cva(
-  "group/tile relative flex h-20 w-50 flex-col items-center justify-center gap-1 rounded-xl border-2 border-border-light bg-white px-4 text-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+  "group/tile relative flex w-50 flex-col items-center justify-center rounded-xl border-2 px-4 text-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
   {
     variants: {
-      clickable: {
-        true: "cursor-pointer hover:border-primary hover:bg-primary-light",
+      size: {
+        default: "h-20 gap-1",
+        lg: "h-[155px] gap-2",
       },
+      selected: {
+        true: "",
+        false: "border-border-light bg-white",
+      },
+      clickable: {
+        true: "cursor-pointer",
+      },
+    },
+    compoundVariants: [
+      {
+        clickable: true,
+        selected: false,
+        class: "hover:border-primary hover:bg-primary-light",
+      },
+    ],
+    defaultVariants: {
+      size: "default",
+      selected: false,
     },
   }
 )
@@ -44,8 +63,34 @@ type IconTileCardVariant = NonNullable<
   VariantProps<typeof labelVariants>["variant"]
 >
 
+type IconTileCardSize = NonNullable<
+  VariantProps<typeof iconTileCardVariants>["size"]
+>
+
+const selectedClasses: Record<IconTileCardVariant, string> = {
+  info: "border-info-badge-text bg-info-badge",
+  success: "border-success-badge-text bg-success-badge",
+  warning: "border-warning-badge-text bg-warning-badge",
+  error: "border-error-badge-text bg-error-badge",
+  orange: "border-orange-badge-text bg-orange-badge",
+  cyan: "border-cyan-badge-text bg-cyan-badge",
+  sky: "border-sky-badge-text bg-sky-badge",
+  neutral: "border-neutral-badge-text bg-neutral-badge",
+  blue: "border-blue-badge-text bg-blue-badge",
+  indigo: "border-indigo-badge-text bg-indigo-badge",
+  purple: "border-purple-badge-text bg-purple-badge",
+  tangerine: "border-tangerine-badge-text bg-tangerine-badge",
+  mustard: "border-mustard-badge-text bg-mustard-badge",
+  forest: "border-forest-badge-text bg-forest-badge",
+  slate: "border-slate-badge-text bg-slate-badge",
+  violet: "border-violet-badge-text bg-violet-badge",
+  teal: "border-teal-badge-text bg-teal-badge",
+}
+
 type IconTileCardProps = Omit<React.HTMLAttributes<HTMLElement>, "onClick"> & {
   variant?: IconTileCardVariant
+  size?: IconTileCardSize
+  selected?: boolean
   icon: React.ReactNode
   label: React.ReactNode
   count?: number
@@ -54,6 +99,8 @@ type IconTileCardProps = Omit<React.HTMLAttributes<HTMLElement>, "onClick"> & {
 
 function IconTileCard({
   variant = "info",
+  size = "default",
+  selected = false,
   icon,
   label,
   count,
@@ -69,10 +116,17 @@ function IconTileCard({
     <Comp
       data-slot="icon-tile-card"
       data-variant={variant}
+      data-size={size}
+      data-selected={selected ? "true" : undefined}
       data-clickable={clickable ? "true" : undefined}
       type={clickable ? "button" : undefined}
       onClick={onClick}
-      className={cn(iconTileCardVariants({ clickable }), className)}
+      aria-pressed={clickable ? selected : undefined}
+      className={cn(
+        iconTileCardVariants({ size, clickable, selected }),
+        selected && selectedClasses[variant],
+        className
+      )}
       {...props}
     >
       <Badge
@@ -80,17 +134,26 @@ function IconTileCard({
         aria-hidden
         className={cn(
           "size-10 rounded-lg p-0 [&>svg]:size-5",
+          "group-data-[size=lg]/tile:size-20 group-data-[size=lg]/tile:rounded-2xl group-data-[size=lg]/tile:[&>svg]:size-[46px]",
+          selected && "bg-white",
           clickable && "group-hover/tile:bg-white"
         )}
       >
         {icon}
       </Badge>
-      <span className={labelVariants({ variant })}>{label}</span>
+      <span
+        className={cn(
+          labelVariants({ variant }),
+          "group-data-[size=lg]/tile:text-base"
+        )}
+      >
+        {label}
+      </span>
 
       {showCount && (
         <span
           aria-label={`${count} novedades`}
-          className="absolute top-2 right-2 ring-2 ring-white inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-destructive px-1 text-[11px] font-semibold text-destructive-foreground"
+          className="absolute top-2 right-2 ring-2 ring-white inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-destructive px-1 text-[11px] font-semibold text-destructive-foreground group-data-[size=lg]/tile:h-[30px] group-data-[size=lg]/tile:min-w-[30px] group-data-[size=lg]/tile:text-xs"
         >
           {count}
         </span>
@@ -99,4 +162,9 @@ function IconTileCard({
   )
 }
 
-export { IconTileCard, type IconTileCardProps, type IconTileCardVariant }
+export {
+  IconTileCard,
+  type IconTileCardProps,
+  type IconTileCardSize,
+  type IconTileCardVariant,
+}

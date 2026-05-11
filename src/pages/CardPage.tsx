@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   Card,
   CardHeader,
@@ -22,6 +23,9 @@ import {
 } from 'lucide-react'
 
 export default function CardPage() {
+  const [selectedTile, setSelectedTile] = useState<string | null>('success')
+  const [selectedTileLg, setSelectedTileLg] = useState<string | null>('orange')
+
   return (
     <div className="p-8 max-w-4xl space-y-10">
       <div>
@@ -102,16 +106,32 @@ export default function CardPage() {
       <section className="space-y-3">
         <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">Icon tile card</h2>
         <div className="flex flex-wrap gap-4 p-6 rounded-xl border border-border bg-muted/30">
-          <IconTileCard variant="info" icon={<EyeOff />} label="Impares" onClick={() => {}} />
-          <IconTileCard variant="success" icon={<CalendarDays />} label="Tiempo libre" count={4} onClick={() => {}} />
-          <IconTileCard variant="warning" icon={<Coffee />} label="Pausa" count={2} onClick={() => {}} />
-          <IconTileCard variant="error" icon={<Stethoscope />} label="Permiso médico" onClick={() => {}} />
-          <IconTileCard variant="orange" icon={<Plane />} label="Vacaciones" count={12} onClick={() => {}} />
-          <IconTileCard variant="purple" icon={<GraduationCap />} label="Capacitación" />
+          <IconTileCard variant="info" icon={<EyeOff />} label="Impares" selected={selectedTile === 'info'} onClick={() => setSelectedTile('info')} />
+          <IconTileCard variant="success" icon={<CalendarDays />} label="Tiempo libre" count={4} selected={selectedTile === 'success'} onClick={() => setSelectedTile('success')} />
+          <IconTileCard variant="warning" icon={<Coffee />} label="Pausa" count={2} selected={selectedTile === 'warning'} onClick={() => setSelectedTile('warning')} />
+          <IconTileCard variant="error" icon={<Stethoscope />} label="Permiso médico" selected={selectedTile === 'error'} onClick={() => setSelectedTile('error')} />
+          <IconTileCard variant="orange" icon={<Plane />} label="Vacaciones" count={12} selected={selectedTile === 'orange'} onClick={() => setSelectedTile('orange')} />
+          <IconTileCard variant="purple" icon={<GraduationCap />} label="Capacitación" selected={selectedTile === 'purple'} onClick={() => setSelectedTile('purple')} />
         </div>
         <p className="text-xs text-muted-foreground">
-          Tile clickable con icon + label. Pasá <code>count</code> para mostrar el widget de novedades.
+          Tile clickable con icon + label. Pasá <code>count</code> para mostrar el widget de novedades. Cuando <code>selected</code> está activo, el border toma el color del label, el bg del badge pasa a blanco y el bg de la card al color del badge.
           Variantes: info · success · warning · error · orange · cyan · sky · neutral · blue · indigo · purple.
+        </p>
+      </section>
+
+      {/* Icon tile card — Large */}
+      <section className="space-y-3">
+        <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">Icon tile card — Large</h2>
+        <div className="flex flex-wrap gap-4 p-6 rounded-xl border border-border bg-muted/30">
+          <IconTileCard size="lg" variant="info" icon={<EyeOff />} label="Impares" selected={selectedTileLg === 'info'} onClick={() => setSelectedTileLg('info')} />
+          <IconTileCard size="lg" variant="success" icon={<CalendarDays />} label="Tiempo libre" count={4} selected={selectedTileLg === 'success'} onClick={() => setSelectedTileLg('success')} />
+          <IconTileCard size="lg" variant="warning" icon={<Coffee />} label="Pausa" count={2} selected={selectedTileLg === 'warning'} onClick={() => setSelectedTileLg('warning')} />
+          <IconTileCard size="lg" variant="error" icon={<Stethoscope />} label="Permiso médico" selected={selectedTileLg === 'error'} onClick={() => setSelectedTileLg('error')} />
+          <IconTileCard size="lg" variant="orange" icon={<Plane />} label="Vacaciones" count={12} selected={selectedTileLg === 'orange'} onClick={() => setSelectedTileLg('orange')} />
+          <IconTileCard size="lg" variant="purple" icon={<GraduationCap />} label="Capacitación" selected={selectedTileLg === 'purple'} onClick={() => setSelectedTileLg('purple')} />
+        </div>
+        <p className="text-xs text-muted-foreground">
+          <code>size="lg"</code> — card 200×155 · badge 80×80 con icon 46×46 · label <code>text-base</code> · widget 30×30 con texto 12px.
         </p>
       </section>
 

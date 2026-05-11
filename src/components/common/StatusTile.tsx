@@ -88,11 +88,18 @@ const STATUS_KEYS = Object.keys(STATUS_CONFIG) as StatusKey[]
 type StatusTileProps = {
   status: StatusKey
   count?: number
+  selected?: boolean
   onClick?: () => void
   className?: string
 }
 
-function StatusTile({ status, count, onClick, className }: StatusTileProps) {
+function StatusTile({
+  status,
+  count,
+  selected,
+  onClick,
+  className,
+}: StatusTileProps) {
   const config = STATUS_CONFIG[status]
   return (
     <IconTileCard
@@ -100,6 +107,7 @@ function StatusTile({ status, count, onClick, className }: StatusTileProps) {
       icon={config.icon}
       label={config.label}
       count={count}
+      selected={selected}
       onClick={onClick}
       className={className}
     />
