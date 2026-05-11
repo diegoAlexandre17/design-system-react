@@ -12,6 +12,7 @@ import TablePage from "@/pages/TablePage"
 import ModalPage from "@/pages/ModalPage"
 import ButtonsPage from "@/pages/ButtonsPage"
 import CardPage from "@/pages/CardPage"
+import CarouselPage from "@/pages/CarouselPage"
 import BreadcrumbPage from "@/pages/BreadcrumbPage"
 import IconsPage from "@/pages/IconsPage"
 import ChartsPage from "@/pages/ChartsPage"
@@ -102,6 +103,11 @@ export const componentsSections: ComponentSection[] = [
         path: "card",
         label: "Card",
         element: <CardPage />,
+      },
+      {
+        path: "carousel",
+        label: "Carousel",
+        element: <CarouselPage />,
       },
       {
         path: "breadcrumb",
