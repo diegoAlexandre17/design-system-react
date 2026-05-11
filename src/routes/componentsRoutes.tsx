@@ -20,6 +20,7 @@ import BadgePage from "@/pages/BadgePage"
 import PersonsPage from "@/pages/Persons/PersonsPage"
 import ColorsPage from "@/pages/ColorsPage"
 import ActionTableIconPage from "@/pages/ActionTableIconPage"
+import DatepickerPage from "@/pages/DatepickerPage"
 
 
 export interface ComponentRoute {
@@ -136,7 +137,11 @@ export const componentsSections: ComponentSection[] = [
         path: "charts-icons",
         label: "Charts Icons",
         element: <ChartsIconPage />,
-
+      },
+      {
+        path: "datepicker",
+        label: "Datepicker",
+        element: <DatepickerPage />,
       },
     ],
   },
