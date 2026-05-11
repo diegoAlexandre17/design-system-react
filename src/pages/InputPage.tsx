@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Info, Eye, AlertTriangle, Check } from "lucide-react"
+import { Info, Eye, AlertTriangle, Check, Search } from "lucide-react"
 import {
   ShowcasePage,
   ShowcaseSection,
@@ -93,6 +93,15 @@ export default function InputPage() {
               placeholder="karen@gmail.com"
             />
           </div>
+          <div className="flex flex-col space-y-1.5">
+            <Label htmlFor="search-input">Búsqueda con icono</Label>
+            <Input
+              id="search-input"
+              type="text"
+              placeholder="Buscar..."
+              startIcon={<Search className="size-4" />}
+            />
+          </div>
         </div>
       </ShowcaseSection>
 
@@ -150,7 +159,7 @@ export default function InputPage() {
         <div className="flex flex-wrap items-start gap-6">
           <div className="flex flex-col space-y-1.5">
             <Label required>Correo principal</Label>
-            <Input type="email" placeholder="karen@gmail.com" readOnly />
+            <Input type="email" value={"Karen@gmail.com"} readOnly />
           </div>
         </div>
       </ShowcaseSection>
@@ -188,6 +197,20 @@ export default function InputPage() {
                   default: '"text"',
                   description:
                     'HTML input type — "text", "email", "password", "date", "time", etc.',
+                },
+                {
+                  prop: "startIcon",
+                  type: "React.ReactNode",
+                  default: "—",
+                  description:
+                    "Icon element rendered on the left side, inside the input.",
+                },
+                {
+                  prop: "endIcon",
+                  type: "React.ReactNode",
+                  default: "—",
+                  description:
+                    "Icon element rendered on the right side, inside the input.",
                 },
                 {
                   prop: "placeholder",

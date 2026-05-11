@@ -16,6 +16,7 @@ const textVariants = cva("", {
       small: "text-sm font-medium leading-none",
       "span-table": "text-[12px] leading-none",
       "span-13": "text-[13px] leading-none",
+      "span-14": "text-[14px] leading-none",
       "span-15": "text-[15px] leading-none",
       "small-11": "text-[11px] leading-none",
       "card-title-graph": "text-[15px] font-semibold leading-none",
@@ -26,7 +27,10 @@ const textVariants = cva("", {
   },
 })
 
-const tagMap: Record<NonNullable<VariantProps<typeof textVariants>["variant"]>, React.ElementType> = {
+const tagMap: Record<
+  NonNullable<VariantProps<typeof textVariants>["variant"]>,
+  React.ElementType
+> = {
   h1: "h1",
   h2: "h2",
   h3: "h3",
@@ -37,6 +41,7 @@ const tagMap: Record<NonNullable<VariantProps<typeof textVariants>["variant"]>, 
   small: "small",
   "span-table": "span",
   "span-13": "span",
+  "span-14": "span",
   "span-15": "span",
   "small-11": "small",
   "card-title-graph": "p",

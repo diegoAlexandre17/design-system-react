@@ -20,7 +20,6 @@ import BadgePage from "@/pages/BadgePage"
 import PersonsPage from "@/pages/Persons/PersonsPage"
 import ColorsPage from "@/pages/ColorsPage"
 
-
 export interface ComponentRoute {
   path: string
   label: string
@@ -130,7 +129,6 @@ export const componentsSections: ComponentSection[] = [
         path: "charts-icons",
         label: "Charts Icons",
         element: <ChartsIconPage />,
-
       },
     ],
   },
@@ -143,7 +141,7 @@ export const componentsSections: ComponentSection[] = [
         element: <PersonsPage />,
       },
     ],
-  }
+  },
 ]
 
 /** Flat list of all component routes — use this with React Router's <Route> */
