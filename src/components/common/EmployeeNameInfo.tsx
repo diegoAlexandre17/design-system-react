@@ -26,7 +26,7 @@ const EmployeeNameInfo = ({ img, name, position }: EmployeeNameInfoProps) => {
           <AvatarFallback>{name[0]}</AvatarFallback>
           <AvatarBadge />
         </Avatar>
-        <div className="flex flex-col items-start justify-center gap-2 min-w-0 w-full">
+        <div className="flex flex-col items-start justify-center gap-1 min-w-0 w-full">
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
