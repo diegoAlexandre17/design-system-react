@@ -7,12 +7,20 @@ import {
 import PendingIcon from "@/assets/icons-svg/user-clock.svg?react";
 import UsersSlashIcon from "@/assets/icons-svg/users-slash.svg?react";
 import UsersIcon from "@/assets/icons-svg/users.svg?react";
+import StarRegularIcon from "@/assets/icons-svg/star-regular.svg?react";
+import StarSolidIcon from "@/assets/icons-svg/star-solid.svg?react";
+import TrashRegularIcon from "@/assets/icons-svg/trash-regular.svg?react";
+import TrashSolidIcon from "@/assets/icons-svg/trash-solid.svg?react";
 import { Input } from "@/components/ui/input";
 
 const ALL_ICONS = [
   { icon: UsersIcon, name: "users", label: "Users" },
   { icon: UsersSlashIcon, name: "users-slash", label: "Users Slash" },
   { icon: PendingIcon, name: "user-clock", label: "User Clock" },
+  { icon: StarRegularIcon, name: "star-regular", label: "Star Regular" },
+  { icon: StarSolidIcon, name: "star-solid", label: "Star Solid" },
+  { icon: TrashRegularIcon, name: "trash-regular", label: "Trash Regular" },
+  { icon: TrashSolidIcon, name: "trash-solid", label: "Trash Solid" },
 ];
 
 function IconsPage() {
