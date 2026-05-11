@@ -47,6 +47,7 @@
 --color-warning-light: var(--warning-light);
 --color-warning-foreground: var(--warning-foreground);
 --color-border: var(--border);
+--color-border-light: var(--border-light);
 --color-chip-background: var(--chip-background);
 --color-input: var(--input);
 --color-ring: var(--ring);
@@ -64,6 +65,12 @@
 --color-mint-badge: var(--mint-badge);
 --color-rose-badge: var(--rose-badge);
 --color-purple-badge: var(--purple-badge);
+--color-tangerine-badge: var(--tangerine-badge);
+--color-mustard-badge: var(--mustard-badge);
+--color-forest-badge: var(--forest-badge);
+--color-slate-badge: var(--slate-badge);
+--color-violet-badge: var(--violet-badge);
+--color-teal-badge: var(--teal-badge);
 --color-success-badge-text: var(--success-badge-text);
 --color-warning-badge-text: var(--warning-badge-text);
 --color-error-badge-text: var(--error-badge-text);
@@ -75,6 +82,12 @@
 --color-blue-badge-text: var(--blue-badge-text);
 --color-indigo-badge-text: var(--indigo-badge-text);
 --color-purple-badge-text: var(--purple-badge-text);
+--color-tangerine-badge-text: var(--tangerine-badge-text);
+--color-mustard-badge-text: var(--mustard-badge-text);
+--color-forest-badge-text: var(--forest-badge-text);
+--color-slate-badge-text: var(--slate-badge-text);
+--color-violet-badge-text: var(--violet-badge-text);
+--color-teal-badge-text: var(--teal-badge-text);
 
 /* :root — tema claro */
 --background: #e9f3fe;
@@ -114,6 +127,7 @@
 --warning-light: #ffefe3;
 --warning-foreground: #fafafa;
 --border: #e5e5e5;
+--border-light: #f3f3f3;
 --input: #e5e5e5;
 --ring: #0a0a0a;
 --chip-background: #E6E6E6;
@@ -136,7 +150,13 @@
 --indigo-badge: #EFF1FA;
 --mint-badge: #DFF4DF;
 --rose-badge: #FFEBEB;
---purple-badge: #B66DFF;
+--purple-badge: #F2E5FF;
+--tangerine-badge: #FFE5D5;
+--mustard-badge: #FCF5D5;
+--forest-badge: #D6EDDF;
+--slate-badge: #DCDFE9;
+--violet-badge: #DEE2FF;
+--teal-badge: #CDF7F4;
 --success-badge-text: #5EC85E;
 --warning-badge-text: #F1CC05;
 --error-badge-text: #FD5656;
@@ -148,6 +168,12 @@
 --blue-badge-text: #2485F4;
 --indigo-badge-text: #6176CE;
 --purple-badge-text: #B66DFF;
+--tangerine-badge-text: #fc9245;
+--mustard-badge-text: #f4d742;
+--forest-badge-text: #007c40;
+--slate-badge-text: #48517d;
+--violet-badge-text: #4b5dff;
+--teal-badge-text: #06ded1;
 
 /* .dark — tema oscuro */
 --background: #0a0a0a;
