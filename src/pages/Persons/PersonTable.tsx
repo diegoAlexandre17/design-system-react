@@ -129,12 +129,26 @@ const persons: Person[] = [
 const personColumns: ColumnDef<Person>[] = [
   {
     accessorKey: "sede",
-    header: "Sede",
+    header: () => (
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger>Sede</TooltipTrigger>
+          <TooltipContent arrow>Sede</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    ),
     cell: ({ row }) => <Text variant="span-table">{row.getValue("sede")}</Text>,
   },
   {
     accessorKey: "identificacion",
-    header: "Identificación",
+    header: () => (
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger>Identificación</TooltipTrigger>
+          <TooltipContent arrow>Identificación</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    ),
     cell: ({ row }) => (
       <div className="flex flex-col gap-0.5">
         <Text variant="span-table" className="font-medium">
@@ -148,7 +162,14 @@ const personColumns: ColumnDef<Person>[] = [
   },
   {
     accessorKey: "nombre",
-    header: "Empleado",
+    header: () => (
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger>Empleado</TooltipTrigger>
+          <TooltipContent arrow>Empleado</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    ),
     cell: ({ row }) => (
       <EmployeeNameInfo
         img={row.original.avatarSrc ?? ""}
@@ -159,7 +180,14 @@ const personColumns: ColumnDef<Person>[] = [
   },
   {
     accessorKey: "metodo",
-    header: "Método",
+    header: () => (
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger>Método</TooltipTrigger>
+          <TooltipContent arrow>Método</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    ),
     cell: ({ row }) => (
       <div className="flex justify-center">
         <TooltipProvider>
@@ -179,21 +207,42 @@ const personColumns: ColumnDef<Person>[] = [
   },
   {
     accessorKey: "departamento",
-    header: "Departamento",
+    header: () => (
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger>Departamento</TooltipTrigger>
+          <TooltipContent arrow>Departamento</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    ),
     cell: ({ row }) => (
       <Text variant="span-table">{row.getValue("departamento")}</Text>
     ),
   },
   {
     accessorKey: "tipoDocumento",
-    header: "Tipo de documento",
+    header: () => (
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger>Tipo de documento</TooltipTrigger>
+          <TooltipContent arrow>Tipo de documento</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    ),
     cell: ({ row }) => (
       <Text variant="span-table">{row.getValue("tipoDocumento")}</Text>
     ),
   },
   {
     accessorKey: "autenticacion",
-    header: "Autenticación",
+    header: () => (
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger>Autenticación</TooltipTrigger>
+          <TooltipContent arrow>Autenticación</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    ),
     cell: ({ row }) => (
       <div className="flex justify-center">
         <TooltipProvider>
@@ -211,14 +260,28 @@ const personColumns: ColumnDef<Person>[] = [
   },
   {
     accessorKey: "fechaNacimiento",
-    header: "Fec. de nac.",
+    header: () => (
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger>Fec. de nac.</TooltipTrigger>
+          <TooltipContent arrow>Fec. de nac.</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    ),
     cell: ({ row }) => (
       <Text variant="span-table">{row.getValue("fechaNacimiento")}</Text>
     ),
   },
   {
     accessorKey: "correo",
-    header: "Correo",
+    header: () => (
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger>Correo</TooltipTrigger>
+          <TooltipContent arrow>Correo</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    ),
     cell: ({ row }) => (
       <Text variant="span-table">{row.getValue("correo")}</Text>
     ),
