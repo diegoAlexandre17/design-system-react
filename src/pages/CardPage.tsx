@@ -190,54 +190,6 @@ export default function CardPage() {
             </CardContent>
           </Card>
 
-          <Card variant="muted">
-            <CardHeader>
-              <CardTitle>Muted</CardTitle>
-              <CardDescription>Fondo neutro</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Para contenido secundario.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card variant="primary">
-            <CardHeader>
-              <CardTitle>Primary</CardTitle>
-              <CardDescription>Tinte de marca</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Resalta acciones o anuncios destacados.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card variant="outline">
-            <CardHeader>
-              <CardTitle>Outline</CardTitle>
-              <CardDescription>Borde más suave</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Igual que default pero con border-border.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card variant="ghost">
-            <CardHeader>
-              <CardTitle>Ghost</CardTitle>
-              <CardDescription>Sin fondo ni borde</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Útil cuando se anida en otros contenedores.
-              </p>
-            </CardContent>
-          </Card>
-
           <Card variant="borderless">
             <CardHeader>
               <CardTitle>Borderless</CardTitle>
@@ -251,7 +203,7 @@ export default function CardPage() {
           </Card>
         </div>
         <p className="text-xs text-muted-foreground">
-          default · muted · primary · outline · ghost · borderless
+          default - borderless
         </p>
       </section>
 
