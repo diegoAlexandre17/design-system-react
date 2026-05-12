@@ -6,7 +6,10 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
-import { BriefcaseIcon, UserIcon } from "lucide-react";
+import UsersIcon from "@/assets/icons-svg/users.svg?react";
+import UserClockIcon from "@/assets/icons-svg/user-clock.svg?react";
+import UserDashedIcon from "@/assets/icons-svg/user-dashed-solid.svg?react";
+import { Icon } from "@/components/icons/IconWrapper";
 import PersonCharts from "./PersonCharts";
 import PersonTable from "./PersonTable";
 import { paddingHeaderBreadcrumbs } from "@/constants/styles/styles";
@@ -27,17 +30,24 @@ const PersonsPage = () => {
         <ButtonGroup>
           <Button
             variant="tab"
-            className="h-10 px-6 bg-primary font-semibold text-white border-primary rounded-s-[5px] shadow-none"
+            className="h-10 w-[148px] px-6 bg-primary font-semibold text-white border-primary rounded-s-[5px] shadow-none"
           >
-            <UserIcon />
-            Datos personales
+            <Icon icon={UsersIcon} />
+            Activos
           </Button>
           <Button
             variant="tab"
-            className="h-10 px-6 bg-white font-semibold text-primary border-primary rounded-e-[5px] shadow-none"
+            className="h-10 w-[148px] px-6 bg-white font-semibold text-primary border-primary shadow-none"
           >
-            <BriefcaseIcon />
-            Datos laborales
+            <Icon icon={UserClockIcon} />
+            Pendientes
+          </Button>
+          <Button
+            variant="tab"
+            className="h-10 w-[148px] px-6 bg-white font-semibold text-primary border-primary rounded-e-[5px] shadow-none"
+          >
+            <Icon icon={UserDashedIcon} />
+            Inactivos
           </Button>
         </ButtonGroup>
       </div>
