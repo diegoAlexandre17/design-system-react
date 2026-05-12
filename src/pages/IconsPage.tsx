@@ -12,6 +12,15 @@ import StarSolidIcon from "@/assets/icons-svg/star-solid.svg?react";
 import TrashRegularIcon from "@/assets/icons-svg/trash-regular.svg?react";
 import TrashSolidIcon from "@/assets/icons-svg/trash-solid.svg?react";
 import ConfigSolidIcon from "@/assets/icons-svg/config-solid.svg?react";
+import BriefcaseClockSolidIcon from "@/assets/icons-svg/briefcase-clock-solid.svg?react";
+import ChartLineupSolidIcon from "@/assets/icons-svg/chart-lineup-solid.svg?react";
+import ClockRotateLeftIcon from "@/assets/icons-svg/clock-rotate-left.svg?react";
+import ExclamationTriangleSolidIcon from "@/assets/icons-svg/exclamation-triangle-solid.svg?react";
+import FileChartIcon from "@/assets/icons-svg/file-chart.svg?react";
+import FileSpreadsheetSolidIcon from "@/assets/icons-svg/file-spreadsheet-solid.svg?react";
+import GaugeSolidIcon from "@/assets/icons-svg/gauge-solid.svg?react";
+import GearsIcon from "@/assets/icons-svg/gears.svg?react";
+import MapSolidIcon from "@/assets/icons-svg/map-solid.svg?react";
 import { Input } from "@/components/ui/input";
 
 const ALL_ICONS = [
@@ -23,6 +32,15 @@ const ALL_ICONS = [
   { icon: TrashRegularIcon, name: "trash-regular", label: "Trash Regular" },
   { icon: TrashSolidIcon, name: "trash-solid", label: "Trash Solid" },
   { icon: ConfigSolidIcon, name: "config-solid", label: "Config Solid" },
+  { icon: BriefcaseClockSolidIcon, name: "briefcase-clock-solid", label: "Briefcase Clock" },
+  { icon: ChartLineupSolidIcon, name: "chart-lineup-solid", label: "Chart Lineup" },
+  { icon: ClockRotateLeftIcon, name: "clock-rotate-left", label: "Clock Rotate Left" },
+  { icon: ExclamationTriangleSolidIcon, name: "exclamation-triangle-solid", label: "Exclamation Triangle" },
+  { icon: FileChartIcon, name: "file-chart", label: "File Chart" },
+  { icon: FileSpreadsheetSolidIcon, name: "file-spreadsheet-solid", label: "File Spreadsheet" },
+  { icon: GaugeSolidIcon, name: "gauge-solid", label: "Gauge" },
+  { icon: GearsIcon, name: "gears", label: "Gears" },
+  { icon: MapSolidIcon, name: "map-solid", label: "Map" },
 ];
 
 function IconsPage() {
