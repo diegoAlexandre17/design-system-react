@@ -7,19 +7,23 @@ import PieChartApex from "@/components/common/charts/PieChartApex";
 import type { RingsChartTooltipContext } from "@/components/common/charts/RingsChart";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Text } from "@/components/ui/text";
-import { User, UserMinus, UserPlus } from "lucide-react";
+import { Icon } from "@/components/icons/IconWrapper";
+import UserSolidIcon from "@/assets/icons-svg/user-solid.svg?react";
+import UserDashedSolidIcon from "@/assets/icons-svg/user-dashed-solid.svg?react";
+import UserPlusSolidIcon from "@/assets/icons-svg/user-plus-solid.svg?react";
+import UserMinusSolidIcon from "@/assets/icons-svg/user-minus-solid.svg?react";
 
 const PersonCharts = () => {
   const dataFirstChart = [
     {
-      icon: <User className="text-success" />,
+      icon: <Icon icon={UserSolidIcon} size="3xl" className="text-success" />,
       color: "bg-success-light",
       count: 100,
       title: "Activos",
       textColor: "text-success",
     },
     {
-      icon: <UserMinus className="text-secondary" />,
+      icon: <Icon icon={UserDashedSolidIcon} size="3xl" className="text-secondary" />,
       color: "bg-secondary-light",
       count: 10,
       title: "Inactivos",
@@ -29,14 +33,14 @@ const PersonCharts = () => {
 
   const dataSecondChart = [
     {
-      icon: <UserPlus className="text-success" />,
+      icon: <Icon icon={UserPlusSolidIcon} size="3xl" className="text-success" />,
       color: "bg-success-light",
       count: 29,
       title: "Ingresos",
       textColor: "text-success",
     },
     {
-      icon: <UserMinus className="text-destructive" />,
+      icon: <Icon icon={UserMinusSolidIcon} size="3xl" className="text-destructive" />,
       color: "bg-destructive-light",
       count: 10,
       title: "Egresos",
