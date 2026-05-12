@@ -1,21 +1,23 @@
 import * as React from "react"
 import { Avatar as AvatarPrimitive } from "radix-ui"
-
 import { cn } from "@/lib/utils"
 
 function Avatar({
   className,
   size = "default",
+  ring = false,
   ...props
 }: React.ComponentProps<typeof AvatarPrimitive.Root> & {
-  size?: "default" | "sm" | "lg" | "xl" | "xxl" | "profile"
+  size?: "default" | "sm" | "lg" | "xl" | "xxl" | "profile",
+  ring?: boolean,
 }) {
   return (
     <AvatarPrimitive.Root
       data-slot="avatar"
       data-size={size}
       className={cn(
-        "group/avatar relative flex size-8 shrink-0 rounded-full select-none data-[size=sm]:size-7.5 data-[size=lg]:size-10 data-[size=xl]:size-14 data-[size=xxl]:size-20 data-[size=profile]:size-[125px] data-[size=profile]:border-4 data-[size=profile]:border-primary",
+        "group/avatar relative flex size-8 shrink-0 rounded-full select-none data-[size=sm]:size-7.5 data-[size=md]:size-8.5 data-[size=lg]:size-10 data-[size=xl]:size-14 data-[size=xxl]:size-20 data-[size=profile]:size-[125px] data-[size=profile]:border-4 data-[size=profile]:border-primary",
+        { "border-2 border-primary": ring },
         className,
       )}
       {...props}

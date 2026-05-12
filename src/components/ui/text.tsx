@@ -19,6 +19,7 @@ const textVariants = cva("", {
       "span-14": "text-[14px] leading-none",
       "span-15": "text-[15px] leading-none",
       "small-11": "text-[11px] leading-none",
+      "small-10": "text-[10px] leading-none",
       "card-title-graph": "text-[15px] font-semibold leading-none",
     },
   },
@@ -44,6 +45,7 @@ const tagMap: Record<
   "span-14": "span",
   "span-15": "span",
   "small-11": "small",
+  "small-10": "small",
   "card-title-graph": "p",
 }
 
@@ -67,4 +69,4 @@ function Text({ className, variant = "p", as, children, ...props }: TextProps) {
   )
 }
 
-export { Text, textVariants }
+export { Text }
