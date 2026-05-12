@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useState, type ReactNode } from "react"
 import type { ColumnDef, RowSelectionState } from "@tanstack/react-table"
-import { flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table"
+import { flexRender, getCoreRowModel, getFilteredRowModel, useReactTable } from "@tanstack/react-table"
 
 import { Checkbox } from "@/components/ui/checkbox"
 import {
@@ -13,13 +13,20 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { Card } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Search } from "lucide-react"
+import { paddingTable } from "@/constants/styles/styles"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
   caption?: string
-  footer?: React.ReactNode
+  footer?: ReactNode
   enableRowSelection?: boolean
+  toolbarActions?: ReactNode
+  showSearch?: boolean
+  searchPlaceholder?: string
 }
 
 export function DataTable<TData, TValue>({
@@ -28,8 +35,12 @@ export function DataTable<TData, TValue>({
   caption,
   footer,
   enableRowSelection = false,
+  toolbarActions,
+  showSearch = true,
+  searchPlaceholder = "Buscar...",
 }: DataTableProps<TData, TValue>) {
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({})
+  const [globalFilter, setGlobalFilter] = useState("")
 
   const selectionColumn: ColumnDef<TData, unknown> = {
     id: "select",
@@ -67,61 +78,80 @@ export function DataTable<TData, TValue>({
     data,
     columns: allColumns,
     getCoreRowModel: getCoreRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
     onRowSelectionChange: setRowSelection,
-    state: { rowSelection },
+    onGlobalFilterChange: setGlobalFilter,
+    state: { rowSelection, globalFilter },
     enableRowSelection,
   })
 
   return (
-    <Table >
-      {caption && <TableCaption>{caption}</TableCaption>}
-      <TableHeader>
-        {table.getHeaderGroups().map((headerGroup) => (
-          <TableRow key={headerGroup.id}>
-            {headerGroup.headers.map((header) => (
-              <TableHead
-                key={header.id}
-                style={
-                  header.column.columnDef.size !== undefined
-                    ? { width: header.column.columnDef.size, minWidth: header.column.columnDef.size }
-                    : undefined
-                }
-              >
-                {header.isPlaceholder
-                  ? null
-                  : flexRender(header.column.columnDef.header, header.getContext())}
-              </TableHead>
-            ))}
-          </TableRow>
-        ))}
-      </TableHeader>
-      <TableBody>
-        {table.getRowModel().rows.length ? (
-          table.getRowModel().rows.map((row) => (
-            <TableRow key={row.id}>
-              {row.getVisibleCells().map((cell) => (
-                <TableCell
-                  key={cell.id}
+    <Card variant="borderless" className={`flex-1 ${paddingTable}`}>
+      {(showSearch || toolbarActions) && (
+        <div className="flex items-center gap-2 mb-3">
+          {showSearch && (
+            <div className="w-150">
+              <Input
+                placeholder={searchPlaceholder}
+                value={globalFilter}
+                onChange={(e) => setGlobalFilter(e.target.value)}
+                startIcon={<Search size={16} />}
+              />
+            </div>
+          )}
+          {toolbarActions}
+        </div>
+      )}
+      <Table>
+        {caption && <TableCaption>{caption}</TableCaption>}
+        <TableHeader>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <TableRow key={headerGroup.id}>
+              {headerGroup.headers.map((header) => (
+                <TableHead
+                  key={header.id}
                   style={
-                    cell.column.columnDef.size !== undefined
-                      ? { width: cell.column.columnDef.size, minWidth: cell.column.columnDef.size }
+                    header.column.columnDef.size !== undefined
+                      ? { width: header.column.columnDef.size, minWidth: header.column.columnDef.size }
                       : undefined
                   }
                 >
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </TableCell>
+                  {header.isPlaceholder
+                    ? null
+                    : flexRender(header.column.columnDef.header, header.getContext())}
+                </TableHead>
               ))}
             </TableRow>
-          ))
-        ) : (
-          <TableRow>
-            <TableCell colSpan={allColumns.length} className="h-24 text-center">
-              No results.
-            </TableCell>
-          </TableRow>
-        )}
-      </TableBody>
-      {footer && <TableFooter>{footer}</TableFooter>}
-    </Table>
+          ))}
+        </TableHeader>
+        <TableBody>
+          {table.getRowModel().rows.length ? (
+            table.getRowModel().rows.map((row) => (
+              <TableRow key={row.id}>
+                {row.getVisibleCells().map((cell) => (
+                  <TableCell
+                    key={cell.id}
+                    style={
+                      cell.column.columnDef.size !== undefined
+                        ? { width: cell.column.columnDef.size, minWidth: cell.column.columnDef.size }
+                        : undefined
+                    }
+                  >
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))
+          ) : (
+            <TableRow>
+              <TableCell colSpan={allColumns.length} className="h-24 text-center">
+                No results.
+              </TableCell>
+            </TableRow>
+          )}
+        </TableBody>
+        {footer && <TableFooter>{footer}</TableFooter>}
+      </Table>
+    </Card>
   )
 }

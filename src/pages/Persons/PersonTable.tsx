@@ -1,11 +1,8 @@
-import { useState } from "react";
 import type { ColumnDef } from "@tanstack/react-table";
 import { DataTable } from "@/components/common/DataTable";
 import { Text } from "@/components/ui/text";
-import { Card } from "@/components/ui/card";
 import EmployeeNameInfo from "@/components/common/EmployeeNameInfo";
-import { Input } from "@/components/ui/input";
-import { Bolt, IdCard, Plus, Search, SearchIcon, Smartphone } from "lucide-react";
+import { Bolt, IdCard, Plus, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -15,8 +12,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { ComboboxField, type ComboboxFieldOption } from "@/components/ui/combobox";
-import { paddingTable } from "@/constants/styles/styles";
 
 type Person = {
   sede: string;
@@ -289,56 +284,22 @@ const personColumns: ColumnDef<Person>[] = [
 ];
 
 const PersonTable = () => {
-  const [search, setSearch] = useState("");
-
-  const filtered = persons.filter((p) => {
-    const q = search.toLowerCase();
-    return (
-      p.nombre.toLowerCase().includes(q) ||
-      p.identificacion.includes(q) ||
-      p.sede.toLowerCase().includes(q) ||
-      p.departamento.toLowerCase().includes(q) ||
-      p.correo.toLowerCase().includes(q)
-    );
-  });
-
-  const frameworks: ComboboxFieldOption[] = [
-    { label: "Next.js", value: "next" },
-    { label: "SvelteKit", value: "sveltekit" },
-    { label: "Nuxt.js", value: "nuxt" },
-    { label: "Remix", value: "remix" },
-    { label: "Astro", value: "astro" },
-    { label: "Vite", value: "vite" },
-    { label: "Gatsby", value: "gatsby" },
-    { label: "Solid Start", value: "solid-start" },
-  ]
-
   return (
-    <Card variant="borderless" className={`flex-1 ${paddingTable}`}>
-      <div>
-        <div className="relative flex items-center justify-between">
-          <div className='w-150'>
-            <ComboboxField
-              id="cb-search-left"
-              items={frameworks}
-              placeholder="Buscar..."
-              startIcon={<SearchIcon />}
-              showTrigger={false}
-            />
-          </div>
-
-          <div className="flex items-center gap-2">
-            <Button size="icon" className="shadow-none bg-success">
-              <Bolt />
-            </Button>
-            <Button size="icon-lg" variant="default" className="shadow-none">
-              <Plus />
-            </Button>
-          </div>
+    <DataTable
+      columns={personColumns}
+      data={persons}
+      enableRowSelection
+      toolbarActions={
+        <div className="flex items-center gap-2 ml-auto">
+          <Button size="icon" className="shadow-none bg-success">
+            <Bolt />
+          </Button>
+          <Button size="icon-lg" variant="default" className="shadow-none">
+            <Plus />
+          </Button>
         </div>
-      </div>
-      <DataTable columns={personColumns} data={filtered} enableRowSelection />
-    </Card>
+      }
+    />
   );
 };
 
