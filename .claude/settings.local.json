@@ -9,7 +9,13 @@
       "mcp__claude_ai_Figma__get_metadata",
       "mcp__claude_ai_Figma__use_figma",
       "mcp__claude_ai_Figma__get_screenshot",
-      "mcp__claude_ai_Figma__search_design_system"
+      "mcp__claude_ai_Figma__search_design_system",
+      "mcp__plugin_figma_figma__use_figma",
+      "mcp__plugin_figma_figma__get_screenshot",
+      "mcp__plugin_engram_engram__mem_search",
+      "mcp__plugin_engram_engram__mem_judge",
+      "mcp__plugin_engram_engram__mem_get_observation",
+      "mcp__plugin_figma_figma__get_metadata"
     ]
   }
 }
