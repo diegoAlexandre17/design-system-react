@@ -11,6 +11,7 @@ import StarRegularIcon from "@/assets/icons-svg/star-regular.svg?react";
 import StarSolidIcon from "@/assets/icons-svg/star-solid.svg?react";
 import TrashRegularIcon from "@/assets/icons-svg/trash-regular.svg?react";
 import TrashSolidIcon from "@/assets/icons-svg/trash-solid.svg?react";
+import ConfigSolidIcon from "@/assets/icons-svg/config-solid.svg?react";
 import { Input } from "@/components/ui/input";
 
 const ALL_ICONS = [
@@ -21,6 +22,7 @@ const ALL_ICONS = [
   { icon: StarSolidIcon, name: "star-solid", label: "Star Solid" },
   { icon: TrashRegularIcon, name: "trash-regular", label: "Trash Regular" },
   { icon: TrashSolidIcon, name: "trash-solid", label: "Trash Solid" },
+  { icon: ConfigSolidIcon, name: "config-solid", label: "Config Solid" },
 ];
 
 function IconsPage() {

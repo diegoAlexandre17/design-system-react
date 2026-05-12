@@ -1,10 +1,15 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import { DataTable } from "@/components/common/DataTable";
-import { ShowcasePage, ShowcaseSection } from "@/components/component-showcase-page";
+import {
+  ShowcasePage,
+  ShowcaseSection,
+} from "@/components/component-showcase-page";
 import { Text } from "@/components/ui/text";
 import EmployeeNameInfo from "@/components/common/EmployeeNameInfo";
-import { Bolt, Plus, Users } from "lucide-react";
+import { Plus, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Icon } from "@/components/icons/IconWrapper";
+import ConfigSolidIcon from "@/assets/icons-svg/config-solid.svg?react";
 
 type Person = {
   identificacion: string;
@@ -139,44 +144,36 @@ const columns: ColumnDef<Person>[] = [
 
 export default function TablePage() {
   return (
-    <ShowcasePage
-      title="DataTable"
-      description="Tabla de datos con soporte para selección de filas, búsqueda global y acciones en el toolbar."
-      wide
-    >
-      
-        <DataTable
-          columns={columns}
-          data={persons}
-          enableRowSelection
-          toolbarActions={
-            <div className="flex items-center gap-2 ml-auto">
-              <Button size="icon" className="shadow-none bg-success">
-                <Bolt size={17} />
-              </Button>
-              <Button size="icon-lg" variant="default" className="shadow-none">
-                <Plus />
-              </Button>
-            </div>
-          }
-        />
-      
+    <div className="space-y-10 p-2.5 bg-background">
+      <DataTable
+        columns={columns}
+        data={persons}
+        enableRowSelection
+        toolbarActions={
+          <div className="flex items-center gap-2 ml-auto">
+            <Button size="icon" className="shadow-none bg-success">
+              <Icon icon={ConfigSolidIcon} size="md" />
+            </Button>
+            <Button size="icon-lg" variant="default" className="shadow-none">
+              <Plus />
+            </Button>
+          </div>
+        }
+      />
 
-      
-        <DataTable columns={columns} data={persons} showSearch={false} />
-      
-        <DataTable
-          columns={columns}
-          data={persons}
-          showSearch={false}
-          title={
-            <div className="flex items-center gap-1.5">
-              <Users size={14} />
-              Listado de empleados
-            </div>
-          }
-        />
-      
-    </ShowcasePage>
+      <DataTable columns={columns} data={persons} showSearch={false} />
+
+      <DataTable
+        columns={columns}
+        data={persons}
+        showSearch={false}
+        title={
+          <div className="flex items-center gap-1.5">
+            <Users size={14} />
+            Listado de empleados
+          </div>
+        }
+      />
+    </div>
   );
 }
