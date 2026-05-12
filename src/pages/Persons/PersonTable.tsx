@@ -2,8 +2,10 @@ import type { ColumnDef } from "@tanstack/react-table";
 import { DataTable } from "@/components/common/DataTable";
 import { Text } from "@/components/ui/text";
 import EmployeeNameInfo from "@/components/common/EmployeeNameInfo";
-import { Bolt, IdCard, Plus, Smartphone } from "lucide-react";
+import { IdCard, Plus, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Icon } from "@/components/icons/IconWrapper";
+import ConfigSolidIcon from "@/assets/icons-svg/config-solid.svg?react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -292,7 +294,7 @@ const PersonTable = () => {
       toolbarActions={
         <div className="flex items-center gap-2 ml-auto">
           <Button size="icon" className="shadow-none bg-success">
-            <Bolt />
+            <Icon icon={ConfigSolidIcon} />
           </Button>
           <Button size="icon-lg" variant="default" className="shadow-none">
             <Plus />

@@ -152,7 +152,7 @@ export default function TablePage() {
         toolbarActions={
           <div className="flex items-center gap-2 ml-auto">
             <Button size="icon" className="shadow-none bg-success">
-              <Icon icon={ConfigSolidIcon} size="md" />
+              <Icon icon={ConfigSolidIcon} />
             </Button>
             <Button size="icon-lg" variant="default" className="shadow-none">
               <Plus />
