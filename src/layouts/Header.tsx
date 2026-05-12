@@ -1,27 +1,24 @@
+import { useState } from "react"
 import { Avatar, AvatarBadge, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Text } from "@/components/ui/text"
-import { SquareAsteriskIcon, BellIcon } from "lucide-react"
+import { BellIcon } from "lucide-react"
 import logo from "@/assets/logo-myintelli-horizontal.jpg"
+import { Icon } from "@/components/icons/IconWrapper"
+import IntelliTimeIcon from "@/assets/icons-svg/intelli-time.svg?react"
+import IntelliAccessIcon from "@/assets/icons-svg/intelli-access.svg?react"
+import IntelliGuestIcon from "@/assets/icons-svg/intelli-guest.svg?react"
+import IntelliLunchIcon from "@/assets/icons-svg/intelli-lunch.svg?react"
 
-
-/**
- * Componente `Header`
- * 
- * Barra de navegación superior fija. Contiene:
- * - Logotipo de la aplicación.
- * - Navegación central con iconos dinámicos.
- * - Información del usuario y acciones rápidas (perfil, ayuda, soporte, cerrar sesión).
- */
-
-const middleIcons = Array.from({
-  length: 4
-}).map((_, index) => ({
-  src: SquareAsteriskIcon,
-  href: "#",
-  label: `Icono ${index + 1}`
-}))
+const middleIcons = [
+  { icon: IntelliTimeIcon, href: "#", label: "Time" },
+  { icon: IntelliAccessIcon, href: "#", label: "Access" },
+  { icon: IntelliGuestIcon, href: "#", label: "Guest" },
+  { icon: IntelliLunchIcon, href: "#", label: "Lunch" },
+]
 
 const Header = () => {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null)
+
   return (
     <header className="bg-white fixed z-50 w-full h-13 flex justify-between shadow-[0px_4px_15px_0px_rgba(34,41,47,0.1)] px-5">
       {/* Sección del logotipo */}
@@ -33,10 +30,14 @@ const Header = () => {
 
       {/* Navegación central con iconos */}
       <nav className="w-1/3 flex items-center justify-center gap-11">
-        {middleIcons.map((icon, index) => (
-          <a key={index} href={icon.href}>
-            <icon.src className="w-10 h-7 text-gray-500" />
-          </a>
+        {middleIcons.map((item, index) => (
+          <button key={index} onClick={() => setActiveIndex(index)} className="cursor-pointer">
+            <Icon
+              icon={item.icon}
+              size="4xl"
+              className={activeIndex === index ? "text-purple-navbar" : "text-foreground"}
+            />
+          </button>
         ))}
       </nav>
 

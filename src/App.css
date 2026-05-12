@@ -82,6 +82,7 @@
   --color-blue-badge-text: var(--blue-badge-text);
   --color-indigo-badge-text: var(--indigo-badge-text);
   --color-purple-badge-text: var(--purple-badge-text);
+  --color-purple-navbar: var(--purple-navbar);
   --color-tangerine-badge-text: var(--tangerine-badge-text);
   --color-mustard-badge-text: var(--mustard-badge-text);
   --color-forest-badge-text: var(--forest-badge-text);
@@ -172,6 +173,7 @@
     --blue-badge-text: #2485F4;
     --indigo-badge-text: #6176CE;
     --purple-badge-text: #B66DFF;
+    --purple-navbar: #5463AC;
     --tangerine-badge-text: #fc9245;
     --mustard-badge-text: #f4d742;
     --forest-badge-text: #007c40;
