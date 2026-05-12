@@ -32,21 +32,21 @@ const PersonsPage = () => {
             variant="tab"
             className="h-10 w-[148px] px-6 bg-primary font-semibold text-white border-primary rounded-s-[5px] shadow-none"
           >
-            <Icon icon={UsersIcon} />
+            <Icon icon={UsersIcon} size='lg' />
             Activos
           </Button>
           <Button
             variant="tab"
             className="h-10 w-[148px] px-6 bg-white font-semibold text-primary border-primary shadow-none"
           >
-            <Icon icon={UserClockIcon} />
+            <Icon icon={UserClockIcon} size='lg' />
             Pendientes
           </Button>
           <Button
             variant="tab"
             className="h-10 w-[148px] px-6 bg-white font-semibold text-primary border-primary rounded-e-[5px] shadow-none"
           >
-            <Icon icon={UserDashedIcon} />
+            <Icon icon={UserDashedIcon} size='lg' />
             Inactivos
           </Button>
         </ButtonGroup>
