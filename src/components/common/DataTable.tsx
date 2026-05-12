@@ -8,22 +8,22 @@ import {
   TableBody,
   TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { Card } from "@/components/ui/card"
+import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"
+import { Text } from "@/components/ui/text"
 import { Input } from "@/components/ui/input"
 import { Search } from "lucide-react"
-import { paddingTable } from "@/constants/styles/styles"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
-  caption?: string
+  caption?: ReactNode
   footer?: ReactNode
   enableRowSelection?: boolean
+  title?: ReactNode
   toolbarActions?: ReactNode
   showSearch?: boolean
   searchPlaceholder?: string
@@ -35,6 +35,7 @@ export function DataTable<TData, TValue>({
   caption,
   footer,
   enableRowSelection = false,
+  title,
   toolbarActions,
   showSearch = true,
   searchPlaceholder = "Buscar...",
@@ -86,72 +87,79 @@ export function DataTable<TData, TValue>({
   })
 
   return (
-    <Card variant="borderless" className={`flex-1 ${paddingTable}`}>
-      {(showSearch || toolbarActions) && (
-        <div className="flex items-center gap-2 mb-3">
-          {showSearch && (
-            <div className="w-150">
-              <Input
-                placeholder={searchPlaceholder}
-                value={globalFilter}
-                onChange={(e) => setGlobalFilter(e.target.value)}
-                startIcon={<Search size={16} />}
-              />
-            </div>
-          )}
-          {toolbarActions}
-        </div>
+    <Card variant="borderless" className="flex-1">
+      {title && (
+        <CardHeader>
+          <Text variant="h5">{title}</Text>
+        </CardHeader>
       )}
-      <Table>
-        {caption && <TableCaption>{caption}</TableCaption>}
-        <TableHeader>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <TableHead
-                  key={header.id}
-                  style={
-                    header.column.columnDef.size !== undefined
-                      ? { width: header.column.columnDef.size, minWidth: header.column.columnDef.size }
-                      : undefined
-                  }
-                >
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(header.column.columnDef.header, header.getContext())}
-                </TableHead>
-              ))}
-            </TableRow>
-          ))}
-        </TableHeader>
-        <TableBody>
-          {table.getRowModel().rows.length ? (
-            table.getRowModel().rows.map((row) => (
-              <TableRow key={row.id}>
-                {row.getVisibleCells().map((cell) => (
-                  <TableCell
-                    key={cell.id}
+      <CardContent>
+        {(showSearch || toolbarActions) && (
+          <div className="flex items-center gap-2 mb-3">
+            {showSearch && (
+              <div className="w-150">
+                <Input
+                  placeholder={searchPlaceholder}
+                  value={globalFilter}
+                  onChange={(e) => setGlobalFilter(e.target.value)}
+                  startIcon={<Search size={16} />}
+                />
+              </div>
+            )}
+            {toolbarActions}
+          </div>
+        )}
+        <Table>
+          {caption && <TableCaption>{caption}</TableCaption>}
+          <TableHeader>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <TableHead
+                    key={header.id}
                     style={
-                      cell.column.columnDef.size !== undefined
-                        ? { width: cell.column.columnDef.size, minWidth: cell.column.columnDef.size }
+                      header.column.columnDef.size !== undefined
+                        ? { width: header.column.columnDef.size, minWidth: header.column.columnDef.size }
                         : undefined
                     }
                   >
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </TableCell>
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(header.column.columnDef.header, header.getContext())}
+                  </TableHead>
                 ))}
               </TableRow>
-            ))
-          ) : (
-            <TableRow>
-              <TableCell colSpan={allColumns.length} className="h-24 text-center">
-                No results.
-              </TableCell>
-            </TableRow>
-          )}
-        </TableBody>
-        {footer && <TableFooter>{footer}</TableFooter>}
-      </Table>
+            ))}
+          </TableHeader>
+          <TableBody>
+            {table.getRowModel().rows.length ? (
+              table.getRowModel().rows.map((row) => (
+                <TableRow key={row.id}>
+                  {row.getVisibleCells().map((cell) => (
+                    <TableCell
+                      key={cell.id}
+                      style={
+                        cell.column.columnDef.size !== undefined
+                          ? { width: cell.column.columnDef.size, minWidth: cell.column.columnDef.size }
+                          : undefined
+                      }
+                    >
+                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))
+            ) : (
+              <TableRow>
+                <TableCell colSpan={allColumns.length} className="h-24 text-center">
+                  No results.
+                </TableCell>
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      </CardContent>
+      {footer && <CardFooter>{footer}</CardFooter>}
     </Card>
   )
 }
