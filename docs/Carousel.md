@@ -34,7 +34,7 @@ Carrusel deslizable basado en [Embla](https://www.embla-carousel.com/). Útil pa
   <CarouselContent>
     {items.map((item) => (
       <CarouselItem key={item.id} className="basis-auto">
-        <IconTileCard variant="info" icon={<Square />} label={item.label} />
+        <IconTileCard variant="success" icon={<Square />} label={item.label} />
       </CarouselItem>
     ))}
   </CarouselContent>
@@ -49,7 +49,7 @@ Carrusel deslizable basado en [Embla](https://www.embla-carousel.com/). Útil pa
   <CarouselContent className="h-[520px]">
     {items.map((item) => (
       <CarouselItem key={item.id} className="basis-auto">
-        <IconTileCard size="lg" variant="info" icon={<Square />} label={item.label} />
+        <IconTileCard size="lg" variant="success" icon={<Square />} label={item.label} />
       </CarouselItem>
     ))}
   </CarouselContent>

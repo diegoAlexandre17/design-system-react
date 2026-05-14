@@ -27,7 +27,7 @@ import ProfileShiftSection from "./ProfileShiftSection"
 
 export default function CardPage() {
   const [selectedTile, setSelectedTile] = useState<string | null>('success')
-  const [selectedTileLg, setSelectedTileLg] = useState<string | null>('orange')
+  const [selectedTileLg, setSelectedTileLg] = useState<string | null>('tangerine')
 
   return (
     <div className="p-8 max-w-4xl space-y-10">
@@ -112,16 +112,16 @@ export default function CardPage() {
       <section className="space-y-3">
         <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">Icon tile card</h2>
         <div className="flex flex-wrap gap-4 p-6 rounded-xl border border-border bg-muted/30">
-          <IconTileCard variant="info" icon={<EyeOff />} label="Impares" selected={selectedTile === 'info'} onClick={() => setSelectedTile('info')} />
+          <IconTileCard variant="blue" icon={<EyeOff />} label="Impares" selected={selectedTile === 'blue'} onClick={() => setSelectedTile('blue')} />
           <IconTileCard variant="success" icon={<CalendarDays />} label="Tiempo libre" count={4} selected={selectedTile === 'success'} onClick={() => setSelectedTile('success')} />
-          <IconTileCard variant="warning" icon={<Coffee />} label="Pausa" count={2} selected={selectedTile === 'warning'} onClick={() => setSelectedTile('warning')} />
+          <IconTileCard variant="mustard" icon={<Coffee />} label="Pausa" count={2} selected={selectedTile === 'mustard'} onClick={() => setSelectedTile('mustard')} />
           <IconTileCard variant="error" icon={<Stethoscope />} label="Permiso médico" selected={selectedTile === 'error'} onClick={() => setSelectedTile('error')} />
-          <IconTileCard variant="orange" icon={<Plane />} label="Vacaciones" count={12} selected={selectedTile === 'orange'} onClick={() => setSelectedTile('orange')} />
+          <IconTileCard variant="tangerine" icon={<Plane />} label="Vacaciones" count={12} selected={selectedTile === 'tangerine'} onClick={() => setSelectedTile('tangerine')} />
           <IconTileCard variant="purple" icon={<GraduationCap />} label="Capacitación" selected={selectedTile === 'purple'} onClick={() => setSelectedTile('purple')} />
         </div>
         <p className="text-xs text-muted-foreground">
           Tile clickable con icon + label. Pasá <code>count</code> para mostrar el widget de novedades. Cuando <code>selected</code> está activo, el border toma el color del label, el bg del badge pasa a blanco y el bg de la card al color del badge.
-          Variantes: info · success · warning · error · orange · cyan · sky · neutral · blue · indigo · purple.
+          Variantes: tangerine · error · purple · mustard · forest · slate · blue · success · violet · teal.
         </p>
       </section>
 
@@ -129,11 +129,11 @@ export default function CardPage() {
       <section className="space-y-3">
         <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">Icon tile card — Large</h2>
         <div className="flex flex-wrap gap-4 p-6 rounded-xl border border-border bg-muted/30">
-          <IconTileCard size="lg" variant="info" icon={<EyeOff />} label="Impares" selected={selectedTileLg === 'info'} onClick={() => setSelectedTileLg('info')} />
+          <IconTileCard size="lg" variant="blue" icon={<EyeOff />} label="Impares" selected={selectedTileLg === 'blue'} onClick={() => setSelectedTileLg('blue')} />
           <IconTileCard size="lg" variant="success" icon={<CalendarDays />} label="Tiempo libre" count={4} selected={selectedTileLg === 'success'} onClick={() => setSelectedTileLg('success')} />
-          <IconTileCard size="lg" variant="warning" icon={<Coffee />} label="Pausa" count={2} selected={selectedTileLg === 'warning'} onClick={() => setSelectedTileLg('warning')} />
+          <IconTileCard size="lg" variant="mustard" icon={<Coffee />} label="Pausa" count={2} selected={selectedTileLg === 'mustard'} onClick={() => setSelectedTileLg('mustard')} />
           <IconTileCard size="lg" variant="error" icon={<Stethoscope />} label="Permiso médico" selected={selectedTileLg === 'error'} onClick={() => setSelectedTileLg('error')} />
-          <IconTileCard size="lg" variant="orange" icon={<Plane />} label="Vacaciones" count={12} selected={selectedTileLg === 'orange'} onClick={() => setSelectedTileLg('orange')} />
+          <IconTileCard size="lg" variant="tangerine" icon={<Plane />} label="Vacaciones" count={12} selected={selectedTileLg === 'tangerine'} onClick={() => setSelectedTileLg('tangerine')} />
           <IconTileCard size="lg" variant="purple" icon={<GraduationCap />} label="Capacitación" selected={selectedTileLg === 'purple'} onClick={() => setSelectedTileLg('purple')} />
         </div>
         <p className="text-xs text-muted-foreground">

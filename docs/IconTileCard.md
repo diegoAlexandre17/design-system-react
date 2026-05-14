@@ -6,7 +6,7 @@ Tile con badge (icon) + label, opcionalmente con widget de "novedades" (count). 
 
 ```tsx
 <IconTileCard
-  variant="..."        // 17 variantes de color (ver abajo)
+  variant="..."        // 10 variantes de color (ver abajo)
   size="..."           // default | lg
   selected={false}
   icon={<Square />}
@@ -16,22 +16,15 @@ Tile con badge (icon) + label, opcionalmente con widget de "novedades" (count). 
 />
 ```
 
-**Variantes:**
-- `info`
-- `success`
-- `warning`
-- `error`
-- `orange`
-- `cyan`
-- `sky`
-- `neutral`
-- `blue`
-- `indigo`
-- `purple`
+**Variantes** (alineadas 1:1 con las usadas por `StatusTile`):
 - `tangerine`
+- `error`
+- `purple`
 - `mustard`
 - `forest`
 - `slate`
+- `blue`
+- `success`
 - `violet`
 - `teal`
 
@@ -42,7 +35,7 @@ Cada variant usa los tokens `--{variant}-badge` (bg del badge) y `--{variant}-ba
 - `lg` — card `h-[155px] w-50` (155×200), badge `size-20` (80×80) con icon `size-[46px]` (46×46), label `text-base` (16px), widget `h-[30px] min-w-[30px]` con `text-xs` (12px).
 
 **Props:**
-- `variant?: IconTileCardVariant` (default `info`)
+- `variant?: IconTileCardVariant` (default `success`)
 - `size?: "default" | "lg"` (default `default`)
 - `selected?: boolean` (default `false`)
 - `icon: ReactNode` — el contenido del badge.

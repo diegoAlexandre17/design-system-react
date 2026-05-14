@@ -37,26 +37,19 @@ const iconTileCardVariants = cva(
 const labelVariants = cva("text-xs font-semibold leading-tight", {
   variants: {
     variant: {
-      info: "text-info-badge-text",
-      success: "text-success-badge-text",
-      warning: "text-warning-badge-text",
-      error: "text-error-badge-text",
-      orange: "text-orange-badge-text",
-      cyan: "text-cyan-badge-text",
-      sky: "text-sky-badge-text",
-      neutral: "text-neutral-badge-text",
-      blue: "text-blue-badge-text",
-      indigo: "text-indigo-badge-text",
-      purple: "text-purple-badge-text",
       tangerine: "text-tangerine-badge-text",
+      error: "text-error-badge-text",
+      purple: "text-purple-badge-text",
       mustard: "text-mustard-badge-text",
       forest: "text-forest-badge-text",
       slate: "text-slate-badge-text",
+      blue: "text-blue-badge-text",
+      success: "text-success-badge-text",
       violet: "text-violet-badge-text",
       teal: "text-teal-badge-text",
     },
   },
-  defaultVariants: { variant: "info" },
+  defaultVariants: { variant: "success" },
 })
 
 type IconTileCardVariant = NonNullable<
@@ -68,21 +61,14 @@ type IconTileCardSize = NonNullable<
 >
 
 const selectedClasses: Record<IconTileCardVariant, string> = {
-  info: "border-info-badge-text bg-info-badge",
-  success: "border-success-badge-text bg-success-badge",
-  warning: "border-warning-badge-text bg-warning-badge",
-  error: "border-error-badge-text bg-error-badge",
-  orange: "border-orange-badge-text bg-orange-badge",
-  cyan: "border-cyan-badge-text bg-cyan-badge",
-  sky: "border-sky-badge-text bg-sky-badge",
-  neutral: "border-neutral-badge-text bg-neutral-badge",
-  blue: "border-blue-badge-text bg-blue-badge",
-  indigo: "border-indigo-badge-text bg-indigo-badge",
-  purple: "border-purple-badge-text bg-purple-badge",
   tangerine: "border-tangerine-badge-text bg-tangerine-badge",
+  error: "border-error-badge-text bg-error-badge",
+  purple: "border-purple-badge-text bg-purple-badge",
   mustard: "border-mustard-badge-text bg-mustard-badge",
   forest: "border-forest-badge-text bg-forest-badge",
   slate: "border-slate-badge-text bg-slate-badge",
+  blue: "border-blue-badge-text bg-blue-badge",
+  success: "border-success-badge-text bg-success-badge",
   violet: "border-violet-badge-text bg-violet-badge",
   teal: "border-teal-badge-text bg-teal-badge",
 }
@@ -98,7 +84,7 @@ type IconTileCardProps = Omit<React.HTMLAttributes<HTMLElement>, "onClick"> & {
 }
 
 function IconTileCard({
-  variant = "info",
+  variant = "success",
   size = "default",
   selected = false,
   icon,

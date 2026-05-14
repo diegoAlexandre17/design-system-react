@@ -27,21 +27,14 @@ const STATUS_COUNTS: Partial<Record<(typeof STATUS_KEYS)[number], number>> = {
 }
 
 const allVariants: IconTileCardVariant[] = [
-  "info",
-  "success",
-  "warning",
-  "error",
-  "orange",
-  "cyan",
-  "sky",
-  "neutral",
-  "blue",
-  "indigo",
-  "purple",
   "tangerine",
+  "error",
+  "purple",
   "mustard",
   "forest",
   "slate",
+  "blue",
+  "success",
   "violet",
   "teal",
 ]
@@ -83,7 +76,7 @@ export default function CarouselPage() {
 
       <ShowcaseSection
         title="IconTileCard (todas las variantes)"
-        description="Demo del primitive con sus 17 variantes de color. StatusTile es solo un wrapper que elige una de estas."
+        description="Demo del primitive con sus 10 variantes de color. StatusTile es solo un wrapper que elige una de estas."
       >
         <div className="px-4">
           <Carousel opts={{ align: "start" }} className="w-full">
